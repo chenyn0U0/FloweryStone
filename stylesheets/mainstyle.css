@@ -1,0 +1,23 @@
+/* line 1, ../sass/mainstyle.scss */
+h3 {
+  color: #103030;
+  font-size: 50px;
+  font-family: Arial;
+}
+
+/* line 7, ../sass/mainstyle.scss */
+p {
+  color: #202020;
+  font-size: 24px;
+  font-family: Arial;
+}
+
+/* line 14, ../sass/mainstyle.scss */
+#groupname {
+  float: left;
+}
+
+/* line 18, ../sass/mainstyle.scss */
+#backgroundfish {
+  float: left;
+}
