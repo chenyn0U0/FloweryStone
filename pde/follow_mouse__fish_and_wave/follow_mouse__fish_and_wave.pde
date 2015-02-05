@@ -1,5 +1,5 @@
-int thewidth=1000;
-int theheight=800;
+int thewidth=2000;
+int theheight=1500;
 //############for mode 0 ↓#############
 float percentforbackcenter=0.58;
 float startvalue=theheight/2;
