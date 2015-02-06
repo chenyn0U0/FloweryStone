@@ -7,20 +7,30 @@
 
   	<script type="text/javascript">
   	$(document).ready(function(){
-  		$("#may").mouseover(function(){
-  			$("#may").animate({opacity:'0.1'},"fast",function(){$("#may").text("May Du - s1431111");}).animate({opacity:'1',fontSize:'36px'},"fast");
-  		});
-  		$("#may").mouseout(function(){$("#may").animate({fontSize:'32px'},"fast").text("Designer: May");});
+  		$("#may").hover(function(){
+      		  $("#may").animate({opacity:'0.1'},"fast",function(){$("#may").text("May Du - s1431111");}).animate({opacity:'1',fontSize:'36px'},"fast");
+          }
+      		,
+      		function(){
+            $("#may").animate({fontSize:'32px'},"fast").text("Designer: May");
+          }
+      );
 
- 		$("#demi").mouseover(function(){
-  			$("#demi").animate({opacity:'0.1'},"fast",function(){$("#demi").text("Lingwei Wu - s1428231");}).animate({opacity:'1',fontSize:'36px'},"fast");
-  		});
-  		$("#demi").mouseout(function(){$("#demi").animate({fontSize:'32px'},"fast").text("Front End: Demi");});
+   		$("#demi").hover(function(){
+    			$("#demi").animate({opacity:'0.1'},"fast",function(){$("#demi").text("Lingwei Wu - s1428231");}).animate({opacity:'1',fontSize:'36px'},"fast");
+      		}
+          ,
+      		function(){$("#demi").animate({fontSize:'32px'},"fast").text("Front End: Demi");
+        }
+      );
 
-  		$("#chen").mouseover(function(){
-  			$("#chen").animate({opacity:'0.1'},"fast",function(){$("#chen").text("Yingnan Chen - s1425535");}).animate({opacity:'1',fontSize:'36px'},"fast");
-  		});
-  		$("#chen").mouseout(function(){$("#chen").animate({fontSize:'32px'},"fast").text("Back End: Chen");});
+    		$("#chen").hover(function(){
+    			$("#chen").animate({opacity:'0.1'},"fast",function(){$("#chen").text("Yingnan Chen - s1425535");}).animate({opacity:'1',fontSize:'36px'},"fast");
+      		}
+          ,
+          function(){$("#chen").animate({fontSize:'32px'},"fast").text("Back End: Chen");
+        }
+      );
  	 });
   	</script>
 
@@ -41,7 +51,9 @@
 	<div id="groupname">
 		<h3>Group - Flowery Stone</h3>
 
-		<img class="indexlm" src="img/M1.png"/><img class="indexlm" src="img/M2.png"/><img class="indexlm" src="img/M3.png"/>
+		<img class="indexlm" id="m1" src="img/M1.png"/>
+    <img class="indexlm" id="m2" src="img/M2.png"/>
+    <img class="indexlm" id="m3" src="img/M3.png"/>
 		<p id="may">Designer: May</p>
 		<p id="demi">Front End: Demi</p>
 		<p id="chen">Back End: Chen</p>

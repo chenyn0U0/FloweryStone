@@ -11,6 +11,18 @@ boolean drawornot=false;
 
 void setup(){
 size(thewidth,theheight);
+for(int j=0;j<7;j++){
+    firstra=0;
+    lastra=random(20,100);
+    shapeangle=(int)random(3,9);
+    preangle=random(0,PI/2);
+    shapenum=(int)random(10,50);
+    float thex=random(0,thewidth);
+    float they=random(0,theheight);
+    for(int i=0;i<shapenum;i++){
+    float ra=lastra-(((lastra-firstra)/shapenum)*i);
+    drawshape(shapeangle,ra,preangle*i,thex,they);}
+  }
 }
 
 void draw(){
