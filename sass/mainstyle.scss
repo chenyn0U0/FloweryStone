@@ -1,46 +1,88 @@
-h3{
-	color:#103030;
-	font-size:64px;
-	font-family: Arial;
-	font-weight: bolder;
-	-webkit-text-stroke: 2px white;
-}
 
-p{
-	color:#202020;
-	font-size:32px;
-	font-family: Arial;
-	font-weight: bolder;
-	-webkit-text-stroke: 1px white;
+@import "variables";
+
+/*###################basic font and style########################*/
+
+h1 {
+	font-size: calculateRem(120px);
+	text-align: center;
+	margin-bottom: calculateRem(40px);
+	line-height: calculateRem(140px);
+	font-family: Verdana;
 }
 
 
-#groupname{
-	position:absolute;
-	text-align:center;
- 	position:absolute;
-    left:50%;
-    top:50%;
-    margin-left:-350px;
-    margin-top:-300px;
-	height: 400px;
-	width: 700px;
+h2 {
+	font-size: calculateRem(36px);
+	margin-bottom: calculateRem(15px);
+	font-family: "robot-boldIt";
+	line-height: calculateRem(46px);
 }
 
-#backgroundfish{
-	top:0px;
-	left: 0px;
-	position: absolute;
+h3 {
+	text-align: center;
 	
+	font-weight: normal;
+	font-size: calculateRem(28px);
+	line-height: calculateRem(32px);
+	margin-bottom: calculateRem(20px);
+	font-family: Verdana;
 }
 
-#grouppagebody{
-	overflow-x:hidden;
-	overflow-y:hidden
+h4 {
+	text-align: left;
+	font-size: calculateRem(24px);
+	line-height: calculateRem(28px);
+	margin-bottom: calculateRem(15px);
+	font-family: "robot-thin";
 }
 
-.indexlm{
-	height:150px;
-	margin-left:50px;
-	margin-right: 50px;
+a {
+	text-decoration: none;
+	color: $white;
+
+	&:hover {
+		color: $dark;
+	}
+}
+
+p {
+	line-height: calculateRem(30px);
+	font-size: calculateRem(20px);
+	font-family: Verdana;
+}
+
+/*###################basic font and style########################*/
+
+.headercontainer{
+	position:fixed;
+	top:0px;
+	width:100%;
+	height: $header-height;
+	background-color: grey;   /*header color */
+}
+
+.header{
+	margin: 0 auto;
+	width: $pagecontext-width;
+	height:100%;
+}
+
+
+.pagecontext{
+	margin: 0 auto;
+	width: $pagecontext-width;
+	height:100%;
+	text-align: center;
+}
+
+.pagecontextcontainer{
+	position: fixed;
+	top:$header-height;
+	width:100%;
+}
+
+.loginpic{
+	margin: 30px;
+	width:100px;
 }
