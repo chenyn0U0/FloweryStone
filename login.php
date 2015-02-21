@@ -41,7 +41,8 @@
 	else if (isset($_POST['submit'])) {//提交电话号码后
 		
 		//数据库操作（查询是否已有，已有登录，未有创建登录）
-		$con = new mysqli("localhost","s1425535","InQzRF8RSn","s1425535");
+		//$con = new mysqli("localhost","s1425535","InQzRF8RSn","s1425535");
+		$con = new mysqli("playground.eca.ed.ac.uk","s1425535","InQzRF8RSn","s1425535");
 		if ($con->connect_errno) {
 		   printf("Connect failed: %s\n", $con->connect_error);
 		   exit();
