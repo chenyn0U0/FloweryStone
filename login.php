@@ -26,8 +26,6 @@
 	</div>
 
 
-
-
 	<?php session_start(); 
 	if (isset($_SESSION['phonenumber'])) {//如果已经登录了
 		//header('Location: mainpage.php');
@@ -93,7 +91,7 @@
 			<h3>WORK <b>SMARTER</b>, LIVE <b>BETTER</b></h3>
 			<p>A gamified time-management website that lets individuals divide their long-term goals into small tasks and helps users focus on current task with ease.</p>
 			<img src="img/M1.png" class="loginpic"/><img src="img/M2.png" class="loginpic"/><img src="img/M3.png" class="loginpic"/>
-			<h1>FEED YOUR MONSTER</h1>
+			<h1>FEED YOUR<br/> MONSTER</h1>
 			<div id="loginbox">
 
 				<p>Please input your phone number here.</p>
