@@ -23,14 +23,14 @@
 		
 			<?php
 				while ($stmt->fetch()) {
-				 printf("<td><a href=\"javascript:submit('%s')\";><div style='margin:50px; text-align:center' id='%s'><img style='height:180px;width:180px;' src='%s'/><p>%s</p></div></a></td>",$monsterid,$monstername,$housesrc,$monstername); 
+				 printf("<td><a href=\"javascript:submit('%s',true)\";><div style='margin:50px; text-align:center' id='%s'><img style='height:180px;width:180px;' src='%s'/><p>%s</p></div></a></td>",$monsterid,$monstername,$housesrc,$monstername); 
 				}
 				$stmt->close();
 				$con->close();
 			?>
 		
 			<td>
-			<a href="javascript:alertname('newhouse');">
+			<a href="javascript:submit(0);">
 				<div style='margin:50px; text-align:center' id='newhouse'>
 					<img style='height:180px;width:180px;' src='img/house/newhouse.png'/>
 					<p style=''>Adopt another lovely monster~</p>
@@ -75,7 +75,7 @@
 	function test(e){
 
 		var scrollborder1=0.1*width;
-		var scrollborder2=0.3*width;
+		var scrollborder2=0.25*width;
 
 		var pointX = e.pageX;
 		var pointY = e.pageY;
