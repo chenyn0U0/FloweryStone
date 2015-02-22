@@ -1,0 +1,48 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>
+	<link rel="stylesheet" href="stylesheets/mainstyle.css">
+</head>
+
+
+<body>
+
+	<div class="headercontainer">
+		<div class="header">
+			<a id="header-logo"href=""><img src="img/logo.png" alt="bike logo"></a>
+			<div class="filler"></div>
+			
+			<ul id="header-nav">
+				<li><a a href="javascript:void(0);" onclick="showthetool()">GET STARTED</a></li>
+				<li><a href="javascript:void(0);" onclick="scrollTo('map-anchor');hideAll();">THE TOOL</a></li>
+				<li><a href="javascript:void(0);" onclick="scrollTo('team-anchor');hideAll();">ABOUT US</a></li>
+			</ul> 
+		</div>
+	</div>
+
+	<div>
+		<span id="aa" style="color:#000000"></span>
+
+				<SCRIPT language=javascript> 
+
+					function show_date_time(){ 
+					window.setTimeout("show_date_time()", 1000); 
+					timeold=((new Date()).getTime()-(new Date("5/12/2008 14:28:00")).getTime()); 
+					sectimeold=timeold/1000 
+					secondsold=Math.floor(sectimeold); 
+					msPerDay=24*60*60*1000
+					e_daysold=timeold/msPerDay 
+					daysold=Math.floor(e_daysold); 
+					e_hrsold=(e_daysold-daysold)*24; 
+					hrsold=Math.floor(e_hrsold); 
+					e_minsold=(e_hrsold-hrsold)*60; 
+					minsold=Math.floor((e_hrsold-hrsold)*60); 
+					seconds=Math.floor((e_minsold-minsold)*60); 
+					aa.innerHTML=""+hrsold+":"+minsold+":"+seconds+""; 
+					} 
+					show_date_time(); 
+
+				</SCRIPT>
+	</div>
+
+</body>
