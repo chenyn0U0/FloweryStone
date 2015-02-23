@@ -58,10 +58,17 @@ p {
   margin: 0 auto;
   width: 70%;
   height: 100%;
+<<<<<<< HEAD
+  background-color: #ee1b22;
+}
+
+/* line 73, ../sass/mainstyle.scss */
+=======
   z-index: 1000;
 }
 
 /* line 65, ../sass/mainstyle.scss */
+>>>>>>> 2495398d06a3090e6f0999a06b2e2312cc28f619
 .pagecontext {
   margin: 0 auto;
   width: 70%;
@@ -72,7 +79,11 @@ p {
   padding: 40px;
 }
 
+<<<<<<< HEAD
+/* line 80, ../sass/mainstyle.scss */
+=======
 /* line 75, ../sass/mainstyle.scss */
+>>>>>>> 2495398d06a3090e6f0999a06b2e2312cc28f619
 .pagecontextcontainer {
   position: fixed;
   top: 140px;
@@ -80,7 +91,17 @@ p {
   height: 100%;
 }
 
+<<<<<<< HEAD
+/* line 86, ../sass/mainstyle.scss */
+.footer {
+  margin: 0 auto;
+  background-color: #ee1b22;
+}
+
+/* line 91, ../sass/mainstyle.scss */
+=======
 /* line 82, ../sass/mainstyle.scss */
+>>>>>>> 2495398d06a3090e6f0999a06b2e2312cc28f619
 .loginpic {
   margin: 50px;
   width: 100px;
