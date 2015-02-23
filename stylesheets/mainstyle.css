@@ -162,15 +162,29 @@ p {
   width: 350px;
   padding-bottom: 100px;
   bottom: 100px;
+  height: 100%;
+  float: left;
   position: absolute;
 }
 
-/* line 167, ../sass/mainstyle.scss */
-#righthomediv {
-  width: 100%;
-  padding-bottom: 100px;
+/* line 170, ../sass/mainstyle.scss */
+#bigmonster {
+  position: fixed;
+  left: 50%;
   bottom: 100px;
-  position: absolute;
+  width: 200px;
+  height: 250px;
+  margin: 0 0 20px 75px;
+}
+
+/* line 179, ../sass/mainstyle.scss */
+.smallmonsterposition {
+  position: fixed;
+  left: 50%;
+  bottom: 100px;
+  width: 150px;
+  height: 150px;
+  margin: 0 0 20px 100px;
 }
 
 /*####################a monster's home#######################*/
