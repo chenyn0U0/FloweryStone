@@ -1,91 +1,97 @@
 /*###################basic font and style########################*/
 /* line 6, ../sass/mainstyle.scss */
 h1 {
-  font-size: calculateRem(120px);
-  text-align: left;
-  margin-bottom: calculateRem(40px);
-  line-height: calculateRem(140px);
-  font-family: Verdana;
+  font-family: Impact;
+  font-weight: normal;
 }
 
-/* line 15, ../sass/mainstyle.scss */
+/* line 12, ../sass/mainstyle.scss */
 h2 {
-  font-size: calculateRem(36px);
-  margin-bottom: calculateRem(15px);
   font-family: "robot-boldIt";
-  line-height: calculateRem(46px);
+}
+
+/* line 16, ../sass/mainstyle.scss */
+h3 {
+  font-weight: normal;
+  font-family: Verdana;
+  font-size: 26px;
 }
 
 /* line 22, ../sass/mainstyle.scss */
-h3 {
-  text-align: center;
-  font-weight: normal;
-  font-size: calculateRem(28px);
-  line-height: calculateRem(32px);
-  margin-bottom: calculateRem(20px);
-  font-family: Verdana;
-}
-
-/* line 32, ../sass/mainstyle.scss */
 h4 {
-  text-align: left;
-  font-size: calculateRem(24px);
-  line-height: calculateRem(28px);
-  margin-bottom: calculateRem(15px);
   font-family: "robot-thin";
 }
 
-/* line 40, ../sass/mainstyle.scss */
+/* line 26, ../sass/mainstyle.scss */
 a {
   text-decoration: none;
-  color: #ffffff;
+  color: #000000;
+  font-family: Verdana;
+  font-size: 18px;
 }
-/* line 44, ../sass/mainstyle.scss */
+/* line 31, ../sass/mainstyle.scss */
 a:hover {
-  color: #454549;
+  color: #c3060c;
 }
 
-/* line 49, ../sass/mainstyle.scss */
+/* line 36, ../sass/mainstyle.scss */
 p {
-  line-height: calculateRem(30px);
-  font-size: calculateRem(20px);
   font-family: Verdana;
+  font-size: 18px;
 }
 
 /*###################basic font and style########################*/
-/* line 57, ../sass/mainstyle.scss */
+/*####################general layout#######################*/
+/* line 48, ../sass/mainstyle.scss */
 .headercontainer {
   position: fixed;
   top: 0px;
+  left: 0px;
   width: 100%;
-  height: 80px;
-  background-color: grey;
+  height: 140px;
+  background-color: #ee1b22;
   /*header color */
 }
 
-/* line 65, ../sass/mainstyle.scss */
+/* line 57, ../sass/mainstyle.scss */
 .header {
   margin: 0 auto;
-  width: 960px;
+  width: 70%;
   height: 100%;
+<<<<<<< HEAD
   background-color: #ee1b22;
 }
 
 /* line 73, ../sass/mainstyle.scss */
+=======
+  z-index: 1000;
+}
+
+/* line 65, ../sass/mainstyle.scss */
+>>>>>>> 2495398d06a3090e6f0999a06b2e2312cc28f619
 .pagecontext {
   margin: 0 auto;
-  width: 960px;
+  width: 70%;
   height: 100%;
   text-align: center;
+  vertical-align: middle;
+  background-color: #ffffff;
+  padding: 40px;
 }
 
+<<<<<<< HEAD
 /* line 80, ../sass/mainstyle.scss */
+=======
+/* line 75, ../sass/mainstyle.scss */
+>>>>>>> 2495398d06a3090e6f0999a06b2e2312cc28f619
 .pagecontextcontainer {
   position: fixed;
-  top: 80px;
+  top: 140px;
   width: 100%;
+  height: 100%;
 }
 
+<<<<<<< HEAD
 /* line 86, ../sass/mainstyle.scss */
 .footer {
   margin: 0 auto;
@@ -93,7 +99,113 @@ p {
 }
 
 /* line 91, ../sass/mainstyle.scss */
+=======
+/* line 82, ../sass/mainstyle.scss */
+>>>>>>> 2495398d06a3090e6f0999a06b2e2312cc28f619
 .loginpic {
   margin: 50px;
   width: 100px;
 }
+
+/* line 87, ../sass/mainstyle.scss */
+#logocontainer {
+  margin-top: 10px;
+}
+
+/* line 91, ../sass/mainstyle.scss */
+#logo {
+  margin: 20px;
+  float: left;
+}
+
+/* line 96, ../sass/mainstyle.scss */
+#logotext {
+  float: left;
+  text-align: center;
+}
+
+/* line 101, ../sass/mainstyle.scss */
+#userstatus {
+  float: right;
+  margin-top: 30px;
+  vertical-align: middle;
+}
+
+/* line 108, ../sass/mainstyle.scss */
+.footercontainer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100px;
+  background-color: #ee1b22;
+  /*header color */
+  z-index: 1000;
+}
+
+/* line 118, ../sass/mainstyle.scss */
+.footer {
+  margin: 0 auto;
+  width: 70%;
+  height: 100%;
+  text-align: right;
+}
+
+/* line 125, ../sass/mainstyle.scss */
+#teamlogo {
+  margin: 20px;
+}
+
+/*####################general layout#######################*/
+/*###################main page house list########################*/
+/* line 136, ../sass/mainstyle.scss */
+#housesdiv {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  color: #000000;
+  vertical-align: middle;
+}
+
+/*###################main page house list########################*/
+/*####################a monster's home#######################*/
+/* line 152, ../sass/mainstyle.scss */
+#monsterhome {
+  bottom: 100px;
+  position: absolute;
+  margin-left: 50px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* line 160, ../sass/mainstyle.scss */
+#lefthomediv {
+  width: 350px;
+  padding-bottom: 100px;
+  bottom: 100px;
+  height: 100%;
+  float: left;
+  position: absolute;
+}
+
+/* line 170, ../sass/mainstyle.scss */
+#bigmonster {
+  position: fixed;
+  left: 50%;
+  bottom: 100px;
+  width: 200px;
+  height: 250px;
+  margin: 0 0 20px 75px;
+}
+
+/* line 179, ../sass/mainstyle.scss */
+.smallmonsterposition {
+  position: fixed;
+  left: 50%;
+  bottom: 100px;
+  width: 150px;
+  height: 150px;
+  margin: 0 0 20px 100px;
+}
+
+/*####################a monster's home#######################*/
