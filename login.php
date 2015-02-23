@@ -14,14 +14,15 @@
 
 	<div class="headercontainer">
 		<div class="header">
-			<!-- <a id="header-logo"href=""><img src="img/path_logo.png" alt="bike logo"></a>
-			<div class="filler"></div>
-			<a id="burger-button" href="javascript:void(0);" onclick="toggleNavi();"><img src="img/burger2.png" alt=""></a>
-			<ul id="header-nav">
-				<li><a a href="javascript:void(0);" onclick="showthetool()">GET STARTED</a></li>
-				<li><a href="javascript:void(0);" onclick="scrollTo('map-anchor');hideAll();">THE TOOL</a></li>
-				<li><a href="javascript:void(0);" onclick="scrollTo('team-anchor');hideAll();">ABOUT US</a></li>
-			</ul> -->
+			<div id="logocontainer">
+				<div id="logo">
+					<img src="img/logo.png">
+				</div>
+				<div id="logotext">
+					<h1 style="margin-bottom:5px"><b>M</b>ami <b>M</b>onster</h1>
+					<p style="color:white;margin-top:5px">WORK <b>SMART</b> LIVE <b>BETTER</b></p>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -70,7 +71,7 @@
 
 	<div class="pagecontextcontainer">
 		<div class="pagecontext">
-			<br/><br/>
+			
 			<h3>WORK <b>SMARTER</b>, LIVE <b>BETTER</b></h3>
 			<p>A gamified time-management website that lets individuals divide their long-term goals into small tasks and helps users focus on current task with ease.</p>
 			<img src="img/M1.png" class="loginpic"/><img src="img/M2.png" class="loginpic"/><img src="img/M3.png" class="loginpic"/>
@@ -86,6 +87,15 @@
 
 			</div>
 
+		</div>
+	</div>
+
+	<div class="footercontainer">
+		<div class="footer">
+			<div id="teamlogo">
+				<img src="img/team.png">
+			</div>
+			</div>
 		</div>
 	</div>
 
