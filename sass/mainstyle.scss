@@ -66,6 +66,7 @@ p {
 	margin: 0 auto;
 	width: $pagecontext-width;
 	height:100%;
+	background-color:rgb(238,27,34)
 }
 
 
@@ -80,6 +81,11 @@ p {
 	position: fixed;
 	top:$header-height;
 	width:100%;
+}
+
+.footer{
+	margin: 0 auto;
+	background-color:rgb(238,27,34);
 }
 
 .loginpic{

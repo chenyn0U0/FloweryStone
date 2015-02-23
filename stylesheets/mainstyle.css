@@ -68,9 +68,10 @@ p {
   margin: 0 auto;
   width: 960px;
   height: 100%;
+  background-color: #ee1b22;
 }
 
-/* line 72, ../sass/mainstyle.scss */
+/* line 73, ../sass/mainstyle.scss */
 .pagecontext {
   margin: 0 auto;
   width: 960px;
@@ -78,14 +79,20 @@ p {
   text-align: center;
 }
 
-/* line 79, ../sass/mainstyle.scss */
+/* line 80, ../sass/mainstyle.scss */
 .pagecontextcontainer {
   position: fixed;
   top: 80px;
   width: 100%;
 }
 
-/* line 85, ../sass/mainstyle.scss */
+/* line 86, ../sass/mainstyle.scss */
+.footer {
+  margin: 0 auto;
+  background-color: #ee1b22;
+}
+
+/* line 91, ../sass/mainstyle.scss */
 .loginpic {
   margin: 50px;
   width: 100px;
