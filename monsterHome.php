@@ -186,7 +186,7 @@
 					<form  method="POST">
 					<tr>
 						<td style="width:250px"><h3>Give me a name:</h3></td>
-						<td><input name="newname" class="bminputbox" type="text"/></td>
+						<td><input name="newname" class="bminputbox" type="text" value="Your project name." onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999"/></td>
 					</tr>
 					<tr>
 						<td style="width:250px"><h3>Details about me:</h3></td>
