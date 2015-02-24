@@ -91,6 +91,11 @@
 </div>
 
 
+<div>
+	<img id="choosemons" />
+</div>
+
+
 
 
 		</div>
@@ -99,7 +104,7 @@
 	<div class="footercontainer">
 		<div class="footer">
 			<div id="teamlogo">
-				<img src="img/team.png">
+				<img src="img/team.png"/>
 			</div>
 			</div>
 		</div>
@@ -161,20 +166,29 @@
 			if(scroll=="left1"){
 				var pos = $('#housesdiv').scrollLeft();
 				$('#housesdiv').animate({scrollLeft: (pos - 50)},98);
+				$('#choosemons').attr("src","img/monsters/mo-l.png");
 			}
 			if(scroll=="left2"){
 				var pos = $('#housesdiv').scrollLeft();
 				$('#housesdiv').animate({scrollLeft: (pos - 20)},98);
+				$('#choosemons').attr("src","img/monsters/mo-l.png");
 			}
 			if(scroll=="right1"){
 				var pos = $('#housesdiv').scrollLeft();
 				$('#housesdiv').animate({scrollLeft: (pos + 50)},98);
+				$('#choosemons').attr("src","img/monsters/mo-r.png");
 			}
 			if(scroll=="right2"){
 				var pos = $('#housesdiv').scrollLeft();
 				$('#housesdiv').animate({scrollLeft: (pos + 20)},98);
+				$('#choosemons').attr("src","img/monsters/mo-r.png");
+			}
+			else{
+				$('#choosemons').attr("src","img/monsters/mo-m.png");
 			}
 		}
+
+				$('#choosemons').attr("src","img/monsters/mo-m.png");
 	}
 
 </script>
