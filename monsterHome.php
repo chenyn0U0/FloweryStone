@@ -53,11 +53,39 @@
 		function clickonsm(d){
 			data=d.split(",");
 			console.log(data);
+			shownormalsm();
+		}
+
+		$(document).ready(function(){
+			$("#cardcontainer").hide();
+			$("#hardblack").hide();
+			$("#softblack").hide().click(function(){$("#cardcontainer").hide();$("#softblack").hide();});
+ 		 });
+
+		function shownormalsm(){
+			$("#cardcontainer").show("slow");
+			$("#softblack").show("slow");
+		}
+
+		function showaddnew(){
+			$("#cardcontainer").show("slow");
+			$("#softblack").show("slow");
+		}
+
+		function starttask(){
+			$("#hardblack").show("slow");
+			$("#cardcontainer").show("slow");
+			$("#softblack").hide();
 		}
 	</script>
 </head>
 
 <body>
+	<div id="hardblack" class="black"></div>
+	<div id="softblack" class="black"></div>
+	<div id="cardcontainer" style="width:300px;height=500px;top:40%;left:40%;background-color:red;";></div>
+
+
 	<div class="headercontainer">
 		<div class="header">
 			<div id="logocontainer">

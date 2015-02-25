@@ -250,4 +250,15 @@ p {
   outline: none;
 }
 
+/* line 246, ../sass/mainstyle.scss */
+.black {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-color: black;
+  z-index: 2000;
+}
+
 /*####################a monster's home#######################*/
