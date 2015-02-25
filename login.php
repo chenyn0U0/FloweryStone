@@ -1,37 +1,8 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>
-	<meta charset="UTF-8">
-	<title>Login</title>
-
-	<link rel="stylesheet" href="stylesheets/mainstyle.css">
-	<script src="js/jquery.js"></script>
-
-</head>
-
-
-<body>
-
-	<div class="headercontainer">
-		<div class="header">
-			<div id="logocontainer">
-				<div id="logo">
-					<img src="img/logo.png">
-				</div>
-				<div id="logotext">
-					<h1 style="margin-bottom:5px"><b>M</b>ami <b>M</b>onster</h1>
-					<p style="color:white;margin-top:5px">WORK <b>SMART</b> LIVE <b>BETTER</b></p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-	<?php session_start(); 
+<?php session_start(); 
 	if (isset($_SESSION['phonenumber'])) {//如果已经登录了
 		header('Location: mainpage.php');
 	}
-	else if (isset($_POST['submit'])) {//提交电话号码后
+	else if (isset($_POST['submit'])&&($_POST['phonenumber']!="")) {//提交电话号码后
 		
 		//数据库操作（查询是否已有，已有登录，未有创建登录）
 		$con = new mysqli("localhost","s1425535","InQzRF8RSn","s1425535");
@@ -69,6 +40,37 @@
 	}
 	?>
 
+
+<!DOCTYPE html>  
+<html lang="en">  
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+
+	<link rel="stylesheet" href="stylesheets/mainstyle.css">
+	<script src="js/jquery.js"></script>
+
+</head>
+
+
+<body>
+
+	<div class="headercontainer">
+		<div class="header">
+			<div id="logocontainer">
+				<div id="logo">
+					<img src="img/logo.png">
+				</div>
+				<div id="logotext">
+					<h1 style="margin-bottom:5px"><b>M</b>ami <b>M</b>onster</h1>
+					<p style="color:white;margin-top:5px">WORK <b>SMART</b> LIVE <b>BETTER</b></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	
 	<div class="pagecontextcontainer">
 		<div class="pagecontext">
 			
