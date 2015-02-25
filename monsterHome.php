@@ -92,7 +92,7 @@
 						if($smfinished==1) $finishedsmnum++;
 						$totalsmnum++;
 					}
-					echo "[0,0,'new monster','add your new descriptions here','00:00:00',0,1,'img/monsters/newmonster.png',0,".$monsterid."]";//新建图片待修改/新建任务id默认为0
+					echo "[0,0,'new monster','Adopt your new small monster','00:00:00',0,1,'img/monsters/newmonster.png',0,".$monsterid."]";//新建图片待修改/新建任务id默认为0
 					echo "];console.log(smonsinfo);</script>";
 
 					if($totalsmnum==0||$finishedsmnum/$totalsmnum<0.3) $bigsrc="img/monsters/M1.png";
@@ -116,12 +116,22 @@
 				        .attr("class","smallmonsterposition")
 				        .append("div")
 				        .attr("style",function(d,i){
-				        	var la=smonsinfo.length-i-1;
-				        	var string="text-align:center;position:relative;left:"+(Math.cos(Math.PI/(smonsinfo.length-1)*la)*radius)+"px;top:-"+(Math.sin(Math.PI/(smonsinfo.length-1)*la)*radius+70)+"px;";
-				        	return string;
+				        	if(smonsinfo.length==1){
+				        		var string="text-align:center;position:relative;top:-"+(radius+70)+"px;";
+					        	return string;
+				        	}
+				        	else{
+					        	var la=smonsinfo.length-i-1;
+					        	var string="text-align:center;position:relative;left:"+(Math.cos(Math.PI/(smonsinfo.length-1)*la)*radius)+"px;top:-"+(Math.sin(Math.PI/(smonsinfo.length-1)*la)*radius+70)+"px;";
+					        	return string;
+				        	}
 				        })
 				        .append("a")
-				        .attr("href",function(d){return "javascript:clickonsm('"+d+"')";});
+				        .attr("href",function(d){
+				        	return "javascript:clickonsm('"+d+"')";
+				   		 })
+				        .attr("title",function(d){return d[3];});
+
 
 				    // eachmonster.append("p")
 				    // 	.text(function(d){if(d[0]==1) return d[3];});
@@ -129,7 +139,7 @@
 				    eachmonster.append("img")
 				    	.attr("src",function(d){return d[7];})
 				    	.attr("style",function(d){
-				    		return "height:80px;width:80px;";
+				    		return "height:120px;width:120px;";
 				    	});
 
 				    eachmonster.append("h3")
@@ -142,7 +152,7 @@
 				<div id='monsterhome'>
 					<!-- 左边小怪兽房间及其信息 -->
 					<?php
-							printf("<h1>%s </h1><h3>'s HOME</h3><p>%s</p><img src='%s'></img>",$monstername,$description,$housepic); 
+							printf("<h1>%s </h1><h3>'s HOME</h3><p>%s</p><a href='mainpage.php' title='Go back to see other monsters.''><img src='%s'></img><a>",$monstername,$description,$housepic); 
 							$con->close();
 						}
 						else{//newhouse
