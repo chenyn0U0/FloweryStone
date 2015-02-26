@@ -55,9 +55,9 @@
 	   exit();
 	}
 
-	$stmt=$con->prepare("SELECT bigmonsters.id,bigmonsters.name,houseinfo.housepic FROM s1425535.bigmonsters , s1425535.houseinfo where bigmonsters.finished=0 and bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum=".$_SESSION['phonenumber'].";");
+	$stmt=$con->prepare("SELECT bigmonsters.id,bigmonsters.description,bigmonsters.name,houseinfo.housepic FROM s1425535.bigmonsters , s1425535.houseinfo where bigmonsters.finished=0 and bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum=".$_SESSION['phonenumber'].";");
 	$stmt->execute();
-	$stmt->bind_result($monsterid,$monstername,$housesrc);
+	$stmt->bind_result($monsterid,$monsterdescription,$monstername,$housesrc);
 ?>
 	
 <div  id="housesdiv" onmousemove="test(event)">
@@ -67,7 +67,7 @@
 		
 			<?php
 				while ($stmt->fetch()) {
-				 printf("<td><a href=\"javascript:submit('%s',true)\";><div style='margin:50px; text-align:center' id='%s'><img style='height:180px;width:180px;' src='%s'/><p>%s</p></div></a></td>",$monsterid,$monstername,$housesrc,$monstername); 
+				 printf("<td><a title='%s' href=\"javascript:submit('%s',true)\";><div style='margin:50px; text-align:center' id='%s'><img style='height:180px;width:180px;' src='%s'/><p>%s</p></div></a></td>",$monsterdescription,$monsterid,$monstername,$housesrc,$monstername); 
 				}
 				$stmt->close();
 				$con->close();

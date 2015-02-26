@@ -1,18 +1,23 @@
 @charset "UTF-8";
+@import "variables";
+
 .smallcard {
-	background-image: url(img/Newadd/smallcard.png);
-	position: relative;
+	margin: 50px;
+	background-color: $red;
+	border-color: $black;
+	border: 7px solid;
+	border-radius: 10px;
+	width: 360px;
+	padding: 20px;
+	float: left;
 }
 .moneatpie {
-	top: -477px;
-	left: 78px;
-	float: left;
-	position: relative;
+	width: 125px;
+	height: 125px;
+	margin-left: 110px;
+	margin-top: 30px;
 }
 .eatingmon {
-	position: relative;
-	top: 25px;
-	left: 30px;
 	width: 115px;
 }
 .p {
@@ -22,59 +27,45 @@
 }
 .Age {
 	width: 147px;
-	top: 30px;
-	left: 6px;
 	position: relative;
 	color: #FFFFFF;
 	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
 	height: 20px;
 }
-.pie-bian2 {
-	position: relative;
-	top: -5px;
-	left: -5px;
-}
 .name {
 	width: 141px;
 	height: 21px;
-	position: relative;
-	top: -411px;
-	left: 48px;
 	color: #FFFFFF;
 	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
 }
 .info {
-	float: left;
 	color: #FFFFFF;
 	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
-	top: -262px;
-	position: relative;
-	left: -73px;
+	padding: 20px;
+	width: 100%;
 }
 .cardbutton {
 	width: 192px;
-	position: relative;
-	top: 84px;
-	left: 77px;
 }
 .cardbutton a p {
 }
 .cardbutton-text {
-	top: -45px;
+	top: -50px;
 	position: relative;
 	left: 18px;
 	color: #FFFFFF;
 	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
 }
-.pie-bian1 {
-	top: 28px;
-	left: -5px;
+.pie-bian {
 	position: relative;
+	width: 113px;
+	height: 19px;
 }
 .pieeaten {
+	width: 120px;
+	left: 180px;
+	top: -30px;
 	position: relative;
-	top: -60px;
-	left: 157px;
 }
 .input:focus{
 	background-color: E7E4E4; 
@@ -83,8 +74,42 @@
 }
 .name {
 }
-.nameinput {
-	position: relative;
-	top: 2px;
-	left: 9px;
+
+
+#smname{
+	border-radius: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 200px;
 }
+
+#smdescription{
+	border-radius: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 200px;
+}
+
+#smnametext{
+	margin:2px;
+}
+
+#smdescriptiontext{
+	margin:2px;
+}
+
+#feedmediv{
+	padding-left: 50px;
+}
+
+#addmediv{
+	padding-left: 100px;
+	
+}
+
+
+
+
+/*############################################工作时的css######################################*/
+
+

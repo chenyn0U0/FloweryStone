@@ -20,6 +20,23 @@
 		mysql_close($con);
 	}
 
+	if(isset($_POST['newSmonster'])){
+		$con = new mysqli("localhost","s1425535","InQzRF8RSn","s1425535");
+		//$con = new mysqli("playground.eca.ed.ac.uk","s1425535","InQzRF8RSn","s1425535");
+		if ($con->connect_errno) {
+		   printf("Connect failed: %s\n", $con->connect_error);
+		   exit();
+		}
+
+		$stmt=$con->prepare("INSERT INTO s1425535.smallmonsters(bigmonsterID,name,description,smallmonsterid,adopttime,adoptip) VALUES ('".$_POST["bmid"]."','".$_POST["smname"]."','".$_POST["smdescription"]."','".mt_rand(1,5)."','".date('Y-m-d H:i:s',time())."','".$_SERVER["REMOTE_ADDR"]."')");
+		$stmt->execute();
+		$stmt->close();
+		
+		$_POST["monsterid"]=$_POST["bmid"];
+		mysql_close($con);
+	}
+
+
 	if (!isset($_POST['monsterid'])){
 		header('Location: login.php');
 	}
@@ -39,51 +56,158 @@
 	<title>Time Management</title>
 
 	<link rel="stylesheet" href="stylesheets/mainstyle.css">
+	<link href="stylesheets/infocard.css" rel="stylesheet" type="text/css">
+
 	<script src="js/jquery.js"></script>
 	<script src="js/d3.min.js"></script>
+	<script src="js/card.js"></script>
 
-	<script type="text/javascript">
-		function logout(){
-	        if(confirm("Are you sure you want to log out?"))
-	        {
-	        	document.getElementById('logout').click();
-	        }
-		}
-
-		function clickonsm(d){
-			data=d.split(",");
-			console.log(data);
-			shownormalsm();
-		}
-
-		$(document).ready(function(){
-			$("#cardcontainer").hide();
-			$("#hardblack").hide();
-			$("#softblack").hide().click(function(){$("#cardcontainer").hide();$("#softblack").hide();});
- 		 });
-
-		function shownormalsm(){
-			$("#cardcontainer").show("slow");
-			$("#softblack").show("slow");
-		}
-
-		function showaddnew(){
-			$("#cardcontainer").show("slow");
-			$("#softblack").show("slow");
-		}
-
-		function starttask(){
-			$("#hardblack").show("slow");
-			$("#cardcontainer").show("slow");
-			$("#softblack").hide();
-		}
-	</script>
 </head>
 
 <body>
 	<div id="hardblack" class="black"></div>
 	<div id="softblack" class="black"></div>
-	<div id="cardcontainer" style="width:300px;height=500px;top:40%;left:40%;background-color:red;";></div>
+	<div id="cardcontainer">
+		<!-- ##################################################小怪兽信息/增添↓######################################################### -->
+		<div id="infocard" class="smallcard"> 
+	    	<div class="eatingmon" id="eatingmon">
+	            <img src="img/Newadd/moneatpie.png" id="monsterhead" class="moneatpie">
+	        </div>
+
+	        <div class="info" id="info">
+	        	<form method="post">
+	        	<div class="monname" id="monname">
+	        		<!-- <form id="nametext" class="nametext">  -->
+		            <table style="color:white" border="0">
+		                <tr>
+			                <td style=""> 
+			                	NAME&nbsp&nbsp:&nbsp
+			                </td>
+		                	<td colspan="" style="">  
+		                   		<p id="smnametext"></p>
+		          	       		<div id="nameinput" class="nameinput">
+		                   		<input type="text" id="smname" name="smname" tabindex="1">
+		                   		</div>
+		               		</td>
+		              	</tr>
+		            </table>
+		            <!-- </form> -->
+		        </div>
+	    
+		        <div class="mondetail" id="mondetail" style="margin-top:10px">
+		        	<!-- <form id="detailtext" class="detailtext"> -->
+		            <table style="color:white" border="0">
+		              	<tr>
+		                	<td colspan="" style="">
+		                  		DETAIL:&nbsp
+		                	</td>
+		                	<td olspan="" >
+		                  		<p id="smdescriptiontext" ></p>
+		                  		<textarea rows="5" style="resize:none" name="smdescription"  id="smdescription"></textarea>
+			                </td>
+			            </tr>
+			        </table>
+			        <!-- </form> -->
+		      	</div>
+
+		      	<div id="smagediv" class="Age" style="display:none">
+		          	<p id="smagetext">AGE : 2 pizzas</p>
+		      	</div>
+
+	      		<div class="pieeaten" id="pieeaten">
+	            </div>
+	        
+		        <div id="feedmediv" class="cardbutton" style="display:none">
+		        	<table>
+		        		<tr>
+		        			<td>
+				            <a href="javascript:feedme_click()">
+				            	<img src="img/Newadd/full&dropbuttom.png" width="100" height="34" alt=""/>
+				            	<P class="cardbutton-text">Feed me</p>
+				            </a>
+				        	</td>
+				            <td>
+				            <a href="javascript:iamfull_click">
+				            	<img src="img/Newadd/full&dropbuttom.png" width="100" height="34" alt=""/>
+				            	<P class="cardbutton-text">I am full</p>
+				            </a>
+				        </td>
+		    			</tr>
+		            </table>
+		        </div>
+
+		       	<div id="addmediv" class="cardbutton">
+		            <a href="javascript:addme_click()">
+		            	<img src="img/Newadd/full&dropbuttom.png" width="100" height="34" alt=""/>
+		            	<P class="cardbutton-text">Add me</p>
+		            	<input id="bmid" name="bmid" type="hidden" value=<?php echo "'".$_POST['monsterid']."'";?>/>
+		            	<input id="newSmonster" name="newSmonster" type="submit" style="display:none"/>
+		            </a>
+		        </div>
+		        </form>
+		  	</div>
+		</div>
+		<!-- ##################################################小怪兽信息/增添↑######################################################### -->
+		<div id="workingcard" class="smallcard"> 
+			<div class="eatingmon">
+		        <img src="img/Newadd/moneatpie.png" alt="" width="125" height="127" class="moneatpie" id="moneatpie"/>
+		        <table>
+		        	<tr>
+		        		<td>
+					        <a href="">
+					        	<img src="img/Newadd/fullbutton.png" alt="" width="55" height="34" class="full" id="full"/>
+					        </a>
+					    </td>
+					    <td>
+					        <a href="javascript:drop_click()">
+					        	<img src="img/Newadd/dropbutton.png" alt="" width="55" height="34" class="drop" id="drop"/>
+					        </a>
+					    </td>
+					</tr>
+				</table>
+		    </div>
+	  
+    <!--downside-->   
+			<div class="timehistory">
+	       		<div class="eatingperiod">
+	             <img src="img/Newadd/timepie.png" alt="" width="144" height="140" class="timepie" id="timepie"/>
+	             <img src="img/Newadd/timepiecover.png" alt="" width="70" height="71" class="timepiecover" id="timepiecover" />
+	             <table>
+	             	<tr>
+		        		<td>
+			            	<p>Current:</p>
+			            </td>
+					    <td>
+					    	<p id="currenttime">00:03:52</p>
+					   	</td>
+					</tr>
+					<tr>
+		        		<td>
+		        			<p>Total:</p>
+		        		</td>
+					    <td>     
+					    	<p id="totaltime">01:33:52</p>
+					    </td>
+					</tr>
+				</table>
+	            </div>
+	          	
+	          	<div>
+		          	<table>
+		             	<tr>
+			        		<td>
+				            	<p>Have eaten:</p>
+				            </td>
+						    <td>
+						    	<p id="currenttime">0 piece</p>
+						   	</td>
+						</tr>
+					</table>
+	          </div>
+			</div>
+		</div>
+		<!-- ###################################################工作界面↑########################################################## -->
+	</div>
 
 
 	<div class="headercontainer">
@@ -157,43 +281,9 @@
 					<script>
 						var radius=350;
 
-						var eachmonster=d3.select("#smallmonsterscontainer")
-							.selectAll("div")
-							.data(smonsinfo)
-					        .enter()
-					        .append("div")
-					        .attr("class","smallmonsterposition")
-					        .append("div")
-					        .attr("style",function(d,i){
-					        	if(smonsinfo.length==1){
-					        		var string="text-align:center;position:relative;top:-"+(radius+70)+"px;";
-						        	return string;
-					        	}
-					        	else{
-						        	var la=smonsinfo.length-i-1;
-						        	var string="text-align:center;position:relative;left:"+(Math.cos(Math.PI/(smonsinfo.length-1)*la)*radius)+"px;top:-"+(Math.sin(Math.PI/(smonsinfo.length-1)*la)*radius+70)+"px;";
-						        	return string;
-					        	}
-					        })
-					        .append("a")
-					        .attr("href",function(d){
-					        	return "javascript:clickonsm('"+d+"')";
-					   		 })
-					        .attr("title",function(d){return d[3];});
+						updatesmons();
 
 
-					    // eachmonster.append("p")
-					    // 	.text(function(d){if(d[0]==1) return d[3];});
-
-					    eachmonster.append("img")
-					    	.attr("src",function(d){return d[7];})
-					    	.attr("style",function(d){
-					    		return "height:120px;width:120px;";
-					    	});
-
-					    eachmonster.append("h3")
-					    	.text(function(d){return d[2];});
-				        
 					</script>
 				</div>
 				<!-- 右边小怪兽带着小小怪兽布局 -->
