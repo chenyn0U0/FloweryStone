@@ -147,9 +147,30 @@ p {
 }
 
 
-#choosemons{
-	height: 250px;
+#choosemonsdiv{
+	height:$choosemons-height;
+	overflow:hidden;
 }
+
+.left{
+	position: relative;
+	top:0;
+	height: 3*$choosemons-height;
+}
+
+.none{
+	height: 3*$choosemons-height;
+	position: relative;
+	top:-($choosemons-height);
+}
+
+.right{
+	height: 3*$choosemons-height;
+	position: relative;
+	top:-(2*($choosemons-height));
+}
+
+
 /*###################main page house list########################*/
 
 
@@ -158,6 +179,19 @@ p {
 
 
 /*####################a monster's home#######################*/
+
+#adoptme{
+	background-color: $red;
+	border: 1px solid;
+	border-color: $black;
+	border-radius: 10px;
+	padding: 5px;
+	width: 120px;
+	text-align: center;
+	position: relative;
+	top:-40px;
+	left: 180px;
+}
 
 #monsterhome{
 	bottom: $footer-height;
@@ -195,4 +229,39 @@ p {
 	margin:0 0 20px ($home-monster-line)/2-75;
 }
 
+#newbigmonsterform{
+	position: relative;
+	top:-600px;
+	left: -250px;
+}
+
+.bminputbox{
+	width: 300px;
+	padding: 10px;
+	border-radius:20px; 
+	font-size: 20px;
+	outline:none;
+}
+
+.black{
+	position: fixed;
+	top:0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	background-color: $black;
+	opacity: 0.8;
+	z-index: 2000;
+}
+
+#cardcontainer{
+	position: fixed;
+	/*background-color: $red;*/
+	height:500px;
+	top:20%;
+	left:35%;
+	z-index: 3000;
+	/*border: 10px solid;*/
+	/*border-color: $black;*/
+}
 /*####################a monster's home#######################*/

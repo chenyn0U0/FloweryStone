@@ -55,9 +55,9 @@
 	   exit();
 	}
 
-	$stmt=$con->prepare("SELECT bigmonsters.id,bigmonsters.name,houseinfo.housepic FROM s1425535.bigmonsters , s1425535.houseinfo where bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum=".$_SESSION['phonenumber'].";");
+	$stmt=$con->prepare("SELECT bigmonsters.id,bigmonsters.description,bigmonsters.name,houseinfo.housepic FROM s1425535.bigmonsters , s1425535.houseinfo where bigmonsters.finished=0 and bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum=".$_SESSION['phonenumber'].";");
 	$stmt->execute();
-	$stmt->bind_result($monsterid,$monstername,$housesrc);
+	$stmt->bind_result($monsterid,$monsterdescription,$monstername,$housesrc);
 ?>
 	
 <div  id="housesdiv" onmousemove="test(event)">
@@ -67,7 +67,7 @@
 		
 			<?php
 				while ($stmt->fetch()) {
-				 printf("<td><a href=\"javascript:submit('%s',true)\";><div style='margin:50px; text-align:center' id='%s'><img style='height:180px;width:180px;' src='%s'/><p>%s</p></div></a></td>",$monsterid,$monstername,$housesrc,$monstername); 
+				 printf("<td><a title='%s' href=\"javascript:submit('%s',true)\";><div style='margin:50px; text-align:center' id='%s'><img style='height:180px;width:180px;' src='%s'/><p>%s</p></div></a></td>",$monsterdescription,$monsterid,$monstername,$housesrc,$monstername); 
 				}
 				$stmt->close();
 				$con->close();
@@ -91,8 +91,8 @@
 </div>
 
 
-<div>
-	<img id="choosemons" />
+<div id="choosemonsdiv">
+	<img id="choosemons" src="img/monsters/mo-choose.png" class="none"/>
 </div>
 
 
@@ -162,33 +162,25 @@
 
 
 	function divscroll(scroll){
+		console.log(scroll);
 		if(ondiv){ 
 			if(scroll=="left1"){
 				var pos = $('#housesdiv').scrollLeft();
 				$('#housesdiv').animate({scrollLeft: (pos - 50)},98);
-				$('#choosemons').attr("src","img/monsters/mo-l.png");
 			}
 			if(scroll=="left2"){
 				var pos = $('#housesdiv').scrollLeft();
 				$('#housesdiv').animate({scrollLeft: (pos - 20)},98);
-				$('#choosemons').attr("src","img/monsters/mo-l.png");
 			}
 			if(scroll=="right1"){
 				var pos = $('#housesdiv').scrollLeft();
 				$('#housesdiv').animate({scrollLeft: (pos + 50)},98);
-				$('#choosemons').attr("src","img/monsters/mo-r.png");
 			}
 			if(scroll=="right2"){
 				var pos = $('#housesdiv').scrollLeft();
 				$('#housesdiv').animate({scrollLeft: (pos + 20)},98);
-				$('#choosemons').attr("src","img/monsters/mo-r.png");
-			}
-			else{
-				$('#choosemons').attr("src","img/monsters/mo-m.png");
 			}
 		}
-
-				$('#choosemons').attr("src","img/monsters/mo-m.png");
 	}
 
 </script>
