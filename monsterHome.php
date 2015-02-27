@@ -1,19 +1,12 @@
 <?php 
-	session_start(); 
-	if (!isset($_SESSION['phonenumber'])){
-		header('Location: login.php');
-	}
+
+	require "phpfunction.php";
+	checklogstatus();
 
 	if(isset($_POST['newmonster'])){
-		$con = new mysqli("localhost","s1425535","InQzRF8RSn","s1425535");
-		//$con = new mysqli("playground.eca.ed.ac.uk","s1425535","InQzRF8RSn","s1425535");
-		if ($con->connect_errno) {
-		   printf("Connect failed: %s\n", $con->connect_error);
-		   exit();
-		}
+		$con = getconnection();
 
-		$stmt=$con->prepare("INSERT INTO s1425535.bigmonsters(ownerNum,name,description,houseid,adopttime,adoptip) VALUES ('".$_SESSION["phonenumber"]."','".$_POST["newname"]."','".$_POST["newdescription"]."','".$_POST["newhouse"]."','".date('Y-m-d H:i:s',time())."','".$_SERVER["REMOTE_ADDR"]."')");
-		$stmt->execute();
+		$stmt=runsql($con,"INSERT INTO s1425535.bigmonsters(ownerNum,name,description,houseid,adopttime,adoptip) VALUES ('".$_SESSION["phonenumber"]."','".$_POST["newname"]."','".$_POST["newdescription"]."','".$_POST["newhouse"]."','".date('Y-m-d H:i:s',time())."','".$_SERVER["REMOTE_ADDR"]."')");
 		$stmt->close();
 		
 		$_POST["monsterid"]=mysqli_insert_id($con);
@@ -21,15 +14,9 @@
 	}
 
 	if(isset($_POST['newSmonster'])){
-		$con = new mysqli("localhost","s1425535","InQzRF8RSn","s1425535");
-		//$con = new mysqli("playground.eca.ed.ac.uk","s1425535","InQzRF8RSn","s1425535");
-		if ($con->connect_errno) {
-		   printf("Connect failed: %s\n", $con->connect_error);
-		   exit();
-		}
+		$con = getconnection();
 
-		$stmt=$con->prepare("INSERT INTO s1425535.smallmonsters(bigmonsterID,name,description,smallmonsterid,adopttime,adoptip) VALUES ('".$_POST["bmid"]."','".$_POST["smname"]."','".$_POST["smdescription"]."','".mt_rand(1,5)."','".date('Y-m-d H:i:s',time())."','".$_SERVER["REMOTE_ADDR"]."')");
-		$stmt->execute();
+		$stmt=runsql($con,"INSERT INTO s1425535.smallmonsters(bigmonsterID,name,description,smallmonsterid,adopttime,adoptip) VALUES ('".$_POST["bmid"]."','".$_POST["smname"]."','".$_POST["smdescription"]."','".mt_rand(1,5)."','".date('Y-m-d H:i:s',time())."','".$_SERVER["REMOTE_ADDR"]."')");
 		$stmt->close();
 		
 		$_POST["monsterid"]=$_POST["bmid"];
@@ -41,10 +28,7 @@
 		header('Location: login.php');
 	}
 
-	if (isset($_POST['logout'])) {
-		unset($_SESSION['phonenumber']);
-		header('Location: login.php');
-	}
+
 
 
 ?>
@@ -124,10 +108,11 @@
 				            <a href="javascript:feedme_click()">
 				            	<img src="img/Newadd/full&dropbuttom.png" width="100" height="34" alt=""/>
 				            	<P class="cardbutton-text">Feed me</p>
+				            	<input id="smid" type="hidden"/>
 				            </a>
 				        	</td>
 				            <td>
-				            <a href="javascript:iamfull_click">
+				            <a href="javascript:iamfull_click()">
 				            	<img src="img/Newadd/full&dropbuttom.png" width="100" height="34" alt=""/>
 				            	<P class="cardbutton-text">I am full</p>
 				            </a>
@@ -150,17 +135,18 @@
 		<!-- ##################################################小怪兽信息/增添↑######################################################### -->
 		<div id="workingcard" class="smallcard"> 
 			<div class="eatingmon">
-		        <img src="img/Newadd/moneatpie.png" alt="" width="125" height="127" class="moneatpie" id="moneatpie"/>
+		        
 		        <table>
 		        	<tr>
 		        		<td>
-					        <a href="">
-					        	<img src="img/Newadd/fullbutton.png" alt="" width="55" height="34" class="full" id="full"/>
-					        </a>
+		        			<img src="img/Newadd/moneatpie.png" alt="" style="margin-left: 70px;margin-right: 50px;" class="moneatpie" id="moneatpie"/>
 					    </td>
 					    <td>
+					    	<a href="javascript:full_click()" style="display:none">
+					        	<img src="img/Newadd/fullbutton.png" alt="Full" style="margin-top: 35px;margin-bottom: 20px;" class="full" id="full"/>
+					        </a>
 					        <a href="javascript:drop_click()">
-					        	<img src="img/Newadd/dropbutton.png" alt="" width="55" height="34" class="drop" id="drop"/>
+					        	<img src="img/Newadd/dropbutton.png" alt="Drop" style="margin-top: 20px" class="drop" id="drop"/>
 					        </a>
 					    </td>
 					</tr>
@@ -168,42 +154,32 @@
 		    </div>
 	  
     <!--downside-->   
-			<div class="timehistory">
+			<div class="timeinformation">
 	       		<div class="eatingperiod">
-	             <img src="img/Newadd/timepie.png" alt="" width="144" height="140" class="timepie" id="timepie"/>
-	             <img src="img/Newadd/timepiecover.png" alt="" width="70" height="71" class="timepiecover" id="timepiecover" />
-	             <table>
-	             	<tr>
-		        		<td>
-			            	<p>Current:</p>
-			            </td>
-					    <td>
-					    	<p id="currenttime">00:03:52</p>
-					   	</td>
-					</tr>
-					<tr>
-		        		<td>
-		        			<p>Total:</p>
-		        		</td>
-					    <td>     
-					    	<p id="totaltime">01:33:52</p>
-					    </td>
-					</tr>
-				</table>
-	            </div>
-	          	
-	          	<div>
-		          	<table>
+	            	<img src="img/Newadd/timepie.png" width="144" height="140" class="timepie" id="timepie"/>
+		            <img src="img/Newadd/timepiecover.png" width="144" height="140" style="position:relative;left:-150px" class="timepiecover" id="timepiecover" />
+		         	
+		            <table style="margin-top:20px;">
 		             	<tr>
-			        		<td>
-				            	<p>Have eaten:</p>
+			        		<td width="150px">
+				            	<p>Current:</p><p id="currenttime">30 : 00</p><br/>
 				            </td>
 						    <td>
-						    	<p id="currenttime">0 piece</p>
+						    	<p>Have eaten:</p><p id="haveaten">0 piece</p><br/>
 						   	</td>
 						</tr>
+						<tr style="display:none">
+			        		<td>
+			        			<p>Total:</p><p id="totaltime">01:33:52</p>
+			        		</td>
+						    <td>     
+						    	<input type="hidden" id="taskid"/>
+						    </td>
+						</tr>
 					</table>
-	          </div>
+		        </div>
+		          	
+
 			</div>
 		</div>
 		<!-- ###################################################工作界面↑########################################################## -->
@@ -235,21 +211,14 @@
 			<div id="bigmonster">
 				<?php
 					if($_POST['monsterid']!=0){
-						$con = new mysqli("localhost","s1425535","InQzRF8RSn","s1425535");
-						//$con = new mysqli("playground.eca.ed.ac.uk","s1425535","InQzRF8RSn","s1425535");
-						if ($con->connect_errno) {
-						   printf("Connect failed: %s\n", $con->connect_error);
-						   exit();
-						}
+						$con =getconnection();
 
-						$stmt=$con->prepare("SELECT bigmonsters.id,bigmonsters.name,bigmonsters.description,houseinfo.housepic FROM s1425535.bigmonsters,s1425535.houseinfo where bigmonsters.id=".$_POST['monsterid']." and bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum=".$_SESSION['phonenumber'].";");
-						$stmt->execute();
+						$stmt=runsql($con,"SELECT bigmonsters.id,bigmonsters.name,bigmonsters.description,houseinfo.housepic FROM s1425535.bigmonsters,s1425535.houseinfo where bigmonsters.id=".$_POST['monsterid']." and bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum=".$_SESSION['phonenumber'].";");
 						$stmt->bind_result($monsterid,$monstername,$description,$housepic);
 						$stmt->fetch();
 						$stmt->close();
 
-						$stmt2=$con->prepare("SELECT smallmonsters.finished,smallmonsters.name,smallmonsters.description,smallmonsters.totaltime,smallmonsters.pizzaamount,smallmonsters.smallmonsterID,smallmonstersinfo.normalpic,smallmonsters.id FROM s1425535.smallmonsters,s1425535.smallmonstersinfo WHERE smallmonstersinfo.smallmonsterid=smallmonsters.smallmonsterID and smallmonsters.bigmonsterID=".$monsterid.";");
-						$stmt2->execute();
+						$stmt2=runsql($con,"SELECT smallmonsters.finished,smallmonsters.name,smallmonsters.description,smallmonsters.totaltime,smallmonsters.pizzaamount,smallmonsters.smallmonsterID,smallmonstersinfo.normalpic,smallmonsters.id FROM s1425535.smallmonsters,s1425535.smallmonstersinfo WHERE smallmonstersinfo.smallmonsterid=smallmonsters.smallmonsterID and smallmonsters.bigmonsterID=".$monsterid.";");
 						$stmt2->bind_result($smfinished,$smname,$smdescription,$smtotaltime,$smpizzaamount,$smid,$smpic,$taskid);
 
 

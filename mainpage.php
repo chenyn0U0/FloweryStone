@@ -1,13 +1,6 @@
 <?php 
-	session_start(); 
-	if (!isset($_SESSION['phonenumber'])){
-		header('Location: login.php');
-	}
-
-	if (isset($_POST['logout'])) {
-		unset($_SESSION['phonenumber']);
-		header('Location: login.php');
-	}
+	require "phpfunction.php";
+	checklogstatus();
 ?>
 
 <!DOCTYPE html>  
@@ -48,15 +41,11 @@
 		<div class="pagecontext">
 
 <?php
-	$con = new mysqli("localhost","s1425535","InQzRF8RSn","s1425535");
-	//$con = new mysqli("playground.eca.ed.ac.uk","s1425535","InQzRF8RSn","s1425535");
-	if ($con->connect_errno) {
-	   printf("Connect failed: %s\n", $con->connect_error);
-	   exit();
-	}
 
-	$stmt=$con->prepare("SELECT bigmonsters.id,bigmonsters.description,bigmonsters.name,houseinfo.housepic FROM s1425535.bigmonsters , s1425535.houseinfo where bigmonsters.finished=0 and bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum=".$_SESSION['phonenumber'].";");
-	$stmt->execute();
+	$con = getconnection();
+
+
+	$stmt=runsql($con,"SELECT bigmonsters.id,bigmonsters.description,bigmonsters.name,houseinfo.housepic FROM s1425535.bigmonsters , s1425535.houseinfo where bigmonsters.finished=0 and bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum=".$_SESSION['phonenumber'].";");
 	$stmt->bind_result($monsterid,$monsterdescription,$monstername,$housesrc);
 ?>
 	

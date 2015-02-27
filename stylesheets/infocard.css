@@ -129,3 +129,13 @@
 }
 
 /*############################################工作时的css######################################*/
+/* line 116, ../sass/infocard.scss */
+.eatingperiod {
+  margin: 40px;
+  width: 300px;
+  color: #ffffff;
+}
+/* line 121, ../sass/infocard.scss */
+.eatingperiod p {
+  margin: 3px;
+}
