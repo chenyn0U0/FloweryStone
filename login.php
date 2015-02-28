@@ -9,7 +9,7 @@
 		//数据库操作（查询是否已有，已有登录，未有创建登录）
 		$con = getconnection();
 		 
-		if(!sqlselectcheck($con,,"SELECT * FROM `user` WHERE `phoneNumber` = ".$_POST['phonenumber']){//不存在创建新用户
+		if(!sqlselectcheck($con,"SELECT * FROM `user` WHERE `phoneNumber` = ".$_POST['phonenumber'])){//不存在创建新用户
 			echo "not exist";
 
 			$stmt=$con->prepare("INSERT INTO user (phoneNumber,registerTime,registerIP)
@@ -65,10 +65,10 @@
 			<img src="img/M1.png" class="loginpic"/><img src="img/M2.png" class="loginpic"/><img src="img/M3.png" class="loginpic"/>
 			<h1>FEED YOUR<br/> MONSTER</h1>
 			<div id="loginbox">
-
+				<a target="_blank" style="font-size:9px;" href="flowerystonesalpha.pdf">- Flowery Stones Website Description HERE -</a>
 				<p>Please input your phone number here.</p>
 				<form action="" method="POST">
-				<input type="text" name="phonenumber" />
+				<input placeholder="Phone Number Here" type="text" name="phonenumber" />
 				<br />
 				<input type="submit" name="submit">
 				</form>

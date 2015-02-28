@@ -63,7 +63,7 @@
 			?>
 		
 			<td>
-			<a href="javascript:submit(0);">
+			<a href="newbigmonster.php">
 				<div style='margin:50px; text-align:center' id='newhouse'>
 					<img style='height:180px;width:180px;' src='img/house/newhouse.png'/>
 					<p style=''>Adopt another lovely monster~</p>

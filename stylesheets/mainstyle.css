@@ -89,8 +89,11 @@ p {
 
 /* line 88, ../sass/mainstyle.scss */
 .loginpic {
-  margin: 50px;
-  width: 100px;
+  margin: 15px;
+  margin-left:50px;
+  margin-right:50px;
+  width:100px;
+}
 }
 
 /* line 93, ../sass/mainstyle.scss */

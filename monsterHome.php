@@ -3,26 +3,7 @@
 	require "phpfunction.php";
 	checklogstatus();
 
-	if(isset($_POST['newmonster'])){
-		$con = getconnection();
-
-		$stmt=runsql($con,"INSERT INTO s1425535.bigmonsters(ownerNum,name,description,houseid,adopttime,adoptip) VALUES ('".$_SESSION["phonenumber"]."','".$_POST["newname"]."','".$_POST["newdescription"]."','".$_POST["newhouse"]."','".date('Y-m-d H:i:s',time())."','".$_SERVER["REMOTE_ADDR"]."')");
-		$stmt->close();
-		
-		$_POST["monsterid"]=mysqli_insert_id($con);
-		mysql_close($con);
-	}
-
-	if(isset($_POST['newSmonster'])){
-		$con = getconnection();
-
-		$stmt=runsql($con,"INSERT INTO s1425535.smallmonsters(bigmonsterID,name,description,smallmonsterid,adopttime,adoptip) VALUES ('".$_POST["bmid"]."','".$_POST["smname"]."','".$_POST["smdescription"]."','".mt_rand(1,5)."','".date('Y-m-d H:i:s',time())."','".$_SERVER["REMOTE_ADDR"]."')");
-		$stmt->close();
-		
-		$_POST["monsterid"]=$_POST["bmid"];
-		mysql_close($con);
-	}
-
+	
 
 	if (!isset($_POST['monsterid'])){
 		header('Location: login.php');
@@ -59,7 +40,7 @@
 	        </div>
 
 	        <div class="info" id="info">
-	        	<form method="post">
+	        	<form id="smupdate" method="post">
 	        	<div class="monname" id="monname">
 	        		<!-- <form id="nametext" class="nametext">  -->
 		            <table style="color:white" border="0">
@@ -126,7 +107,7 @@
 		            	<img src="img/Newadd/full&dropbuttom.png" width="100" height="34" alt=""/>
 		            	<P class="cardbutton-text">Add me</p>
 		            	<input id="bmid" name="bmid" type="hidden" value=<?php echo "'".$_POST['monsterid']."'";?>/>
-		            	<input id="newSmonster" name="newSmonster" type="submit" style="display:none"/>
+		            	<input id="newSmonster" name="newSmonster" type="hidden" value="true" style="display:none"/>
 		            </a>
 		        </div>
 		        </form>

@@ -176,7 +176,9 @@
 		}
 
 		function addme_click(){
-			document.getElementById('newSmonster').click();
+
+			$.post("saveworkdata.php", $("#smupdate").serialize(),function(data){console.log(data);location.reload();});
+			
 		}
 
 	    // ##################################工作界面方法↓###########################################
