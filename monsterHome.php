@@ -1,33 +1,15 @@
 <?php 
-	session_start(); 
-	if (!isset($_SESSION['phonenumber'])){
-		header('Location: login.php');
-	}
 
-	if(isset($_POST['newmonster'])){
-		$con = new mysqli("localhost","s1425535","InQzRF8RSn","s1425535");
-		//$con = new mysqli("playground.eca.ed.ac.uk","s1425535","InQzRF8RSn","s1425535");
-		if ($con->connect_errno) {
-		   printf("Connect failed: %s\n", $con->connect_error);
-		   exit();
-		}
+	require "phpfunction.php";
+	checklogstatus();
 
-		$stmt=$con->prepare("INSERT INTO s1425535.bigmonsters(ownerNum,name,description,houseid,adopttime,adoptip) VALUES ('".$_SESSION["phonenumber"]."','".$_POST["newname"]."','".$_POST["newdescription"]."','".$_POST["newhouse"]."','".date('Y-m-d H:i:s',time())."','".$_SERVER["REMOTE_ADDR"]."')");
-		$stmt->execute();
-		$stmt->close();
-		
-		$_POST["monsterid"]=mysqli_insert_id($con);
-		mysql_close($con);
-	}
+	
 
 	if (!isset($_POST['monsterid'])){
 		header('Location: login.php');
 	}
 
-	if (isset($_POST['logout'])) {
-		unset($_SESSION['phonenumber']);
-		header('Location: login.php');
-	}
+
 
 
 ?>
@@ -39,25 +21,152 @@
 	<title>Time Management</title>
 
 	<link rel="stylesheet" href="stylesheets/mainstyle.css">
+	<link href="stylesheets/infocard.css" rel="stylesheet" type="text/css">
+
 	<script src="js/jquery.js"></script>
 	<script src="js/d3.min.js"></script>
+	<script src="js/card.js"></script>
 
-	<script type="text/javascript">
-		function logout(){
-	        if(confirm("Are you sure you want to log out?"))
-	        {
-	        	document.getElementById('logout').click();
-	        }
-		}
-
-		function clickonsm(d){
-			data=d.split(",");
-			console.log(data);
-		}
-	</script>
 </head>
 
 <body>
+	<div id="hardblack" class="black"></div>
+	<div id="softblack" class="black"></div>
+	<div id="cardcontainer">
+		<!-- ##################################################小怪兽信息/增添↓######################################################### -->
+		<div id="infocard" class="smallcard"> 
+	    	<div class="eatingmon" id="eatingmon">
+	            <img src="img/Newadd/moneatpie.png" id="monsterhead" class="moneatpie">
+	        </div>
+
+	        <div class="info" id="info">
+	        	<form id="smupdate" method="post">
+	        	<div class="monname" id="monname">
+	        		<!-- <form id="nametext" class="nametext">  -->
+		            <table style="color:white" border="0">
+		                <tr>
+			                <td style=""> 
+			                	NAME&nbsp&nbsp:&nbsp
+			                </td>
+		                	<td colspan="" style="">  
+		                   		<p id="smnametext"></p>
+		          	       		<div id="nameinput" class="nameinput">
+		                   		<input type="text" id="smname" name="smname" tabindex="1">
+		                   		</div>
+		               		</td>
+		              	</tr>
+		            </table>
+		            <!-- </form> -->
+		        </div>
+	    
+		        <div class="mondetail" id="mondetail" style="margin-top:10px">
+		        	<!-- <form id="detailtext" class="detailtext"> -->
+		            <table style="color:white" border="0">
+		              	<tr>
+		                	<td colspan="" style="">
+		                  		DETAIL:&nbsp
+		                	</td>
+		                	<td olspan="" >
+		                  		<p id="smdescriptiontext" ></p>
+		                  		<textarea rows="5" style="resize:none" name="smdescription"  id="smdescription"></textarea>
+			                </td>
+			            </tr>
+			        </table>
+			        <!-- </form> -->
+		      	</div>
+
+		      	<div id="smagediv" class="Age" style="display:none">
+		          	<p id="smagetext">AGE : 2 pizzas</p>
+		      	</div>
+
+	      		<div class="pieeaten" id="pieeaten">
+	            </div>
+	        
+		        <div id="feedmediv" class="cardbutton" style="display:none">
+		        	<table>
+		        		<tr>
+		        			<td>
+				            <a href="javascript:feedme_click()">
+				            	<img src="img/Newadd/full&dropbuttom.png" width="100" height="34" alt=""/>
+				            	<P class="cardbutton-text">Feed me</p>
+				            	<input id="smid" type="hidden"/>
+				            </a>
+				        	</td>
+				            <td>
+				            <a href="javascript:iamfull_click()">
+				            	<img src="img/Newadd/full&dropbuttom.png" width="100" height="34" alt=""/>
+				            	<P class="cardbutton-text">I am full</p>
+				            </a>
+				        </td>
+		    			</tr>
+		            </table>
+		        </div>
+
+		       	<div id="addmediv" class="cardbutton">
+		            <a href="javascript:addme_click()">
+		            	<img src="img/Newadd/full&dropbuttom.png" width="100" height="34" alt=""/>
+		            	<P class="cardbutton-text">Add me</p>
+		            	<input id="bmid" name="bmid" type="hidden" value=<?php echo "'".$_POST['monsterid']."'";?>/>
+		            	<input id="newSmonster" name="newSmonster" type="hidden" value="true" style="display:none"/>
+		            </a>
+		        </div>
+		        </form>
+		  	</div>
+		</div>
+		<!-- ##################################################小怪兽信息/增添↑######################################################### -->
+		<div id="workingcard" class="smallcard"> 
+			<div class="eatingmon">
+		        
+		        <table>
+		        	<tr>
+		        		<td>
+		        			<img src="img/Newadd/moneatpie.png" alt="" style="margin-left: 70px;margin-right: 50px;" class="moneatpie" id="moneatpie"/>
+					    </td>
+					    <td>
+					    	<a href="javascript:full_click()" style="display:none">
+					        	<img src="img/Newadd/fullbutton.png" alt="Full" style="margin-top: 35px;margin-bottom: 20px;" class="full" id="full"/>
+					        </a>
+					        <a href="javascript:drop_click()">
+					        	<img src="img/Newadd/dropbutton.png" alt="Drop" style="margin-top: 20px" class="drop" id="drop"/>
+					        </a>
+					    </td>
+					</tr>
+				</table>
+		    </div>
+	  
+    <!--downside-->   
+			<div class="timeinformation">
+	       		<div class="eatingperiod">
+	            	<img src="img/Newadd/timepie.png" width="144" height="140" class="timepie" id="timepie"/>
+		            <img src="img/Newadd/timepiecover.png" width="144" height="140" style="position:relative;left:-150px" class="timepiecover" id="timepiecover" />
+		         	
+		            <table style="margin-top:20px;">
+		             	<tr>
+			        		<td width="150px">
+				            	<p>Current:</p><p id="currenttime">30 : 00</p><br/>
+				            </td>
+						    <td>
+						    	<p>Have eaten:</p><p id="haveaten">0 piece</p><br/>
+						   	</td>
+						</tr>
+						<tr style="display:none">
+			        		<td>
+			        			<p>Total:</p><p id="totaltime">01:33:52</p>
+			        		</td>
+						    <td>     
+						    	<input type="hidden" id="taskid"/>
+						    </td>
+						</tr>
+					</table>
+		        </div>
+		          	
+
+			</div>
+		</div>
+		<!-- ###################################################工作界面↑########################################################## -->
+	</div>
+
+
 	<div class="headercontainer">
 		<div class="header">
 			<div id="logocontainer">
@@ -83,21 +192,14 @@
 			<div id="bigmonster">
 				<?php
 					if($_POST['monsterid']!=0){
-						$con = new mysqli("localhost","s1425535","InQzRF8RSn","s1425535");
-						//$con = new mysqli("playground.eca.ed.ac.uk","s1425535","InQzRF8RSn","s1425535");
-						if ($con->connect_errno) {
-						   printf("Connect failed: %s\n", $con->connect_error);
-						   exit();
-						}
+						$con =getconnection();
 
-						$stmt=$con->prepare("SELECT bigmonsters.id,bigmonsters.name,bigmonsters.description,houseinfo.housepic FROM s1425535.bigmonsters,s1425535.houseinfo where bigmonsters.id=".$_POST['monsterid']." and bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum=".$_SESSION['phonenumber'].";");
-						$stmt->execute();
+						$stmt=runsql($con,"SELECT bigmonsters.id,bigmonsters.name,bigmonsters.description,houseinfo.housepic FROM s1425535.bigmonsters,s1425535.houseinfo where bigmonsters.id=".$_POST['monsterid']." and bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum=".$_SESSION['phonenumber'].";");
 						$stmt->bind_result($monsterid,$monstername,$description,$housepic);
 						$stmt->fetch();
 						$stmt->close();
 
-						$stmt2=$con->prepare("SELECT smallmonsters.finished,smallmonsters.name,smallmonsters.description,smallmonsters.totaltime,smallmonsters.pizzaamount,smallmonsters.smallmonsterID,smallmonstersinfo.normalpic,smallmonsters.id FROM s1425535.smallmonsters,s1425535.smallmonstersinfo WHERE smallmonstersinfo.smallmonsterid=smallmonsters.smallmonsterID and smallmonsters.bigmonsterID=".$monsterid.";");
-						$stmt2->execute();
+						$stmt2=runsql($con,"SELECT smallmonsters.finished,smallmonsters.name,smallmonsters.description,smallmonsters.totaltime,smallmonsters.pizzaamount,smallmonsters.smallmonsterID,smallmonstersinfo.normalpic,smallmonsters.id FROM s1425535.smallmonsters,s1425535.smallmonstersinfo WHERE smallmonstersinfo.smallmonsterid=smallmonsters.smallmonsterID and smallmonsters.bigmonsterID=".$monsterid.";");
 						$stmt2->bind_result($smfinished,$smname,$smdescription,$smtotaltime,$smpizzaamount,$smid,$smpic,$taskid);
 
 
@@ -129,43 +231,9 @@
 					<script>
 						var radius=350;
 
-						var eachmonster=d3.select("#smallmonsterscontainer")
-							.selectAll("div")
-							.data(smonsinfo)
-					        .enter()
-					        .append("div")
-					        .attr("class","smallmonsterposition")
-					        .append("div")
-					        .attr("style",function(d,i){
-					        	if(smonsinfo.length==1){
-					        		var string="text-align:center;position:relative;top:-"+(radius+70)+"px;";
-						        	return string;
-					        	}
-					        	else{
-						        	var la=smonsinfo.length-i-1;
-						        	var string="text-align:center;position:relative;left:"+(Math.cos(Math.PI/(smonsinfo.length-1)*la)*radius)+"px;top:-"+(Math.sin(Math.PI/(smonsinfo.length-1)*la)*radius+70)+"px;";
-						        	return string;
-					        	}
-					        })
-					        .append("a")
-					        .attr("href",function(d){
-					        	return "javascript:clickonsm('"+d+"')";
-					   		 })
-					        .attr("title",function(d){return d[3];});
+						updatesmons();
 
 
-					    // eachmonster.append("p")
-					    // 	.text(function(d){if(d[0]==1) return d[3];});
-
-					    eachmonster.append("img")
-					    	.attr("src",function(d){return d[7];})
-					    	.attr("style",function(d){
-					    		return "height:120px;width:120px;";
-					    	});
-
-					    eachmonster.append("h3")
-					    	.text(function(d){return d[2];});
-				        
 					</script>
 				</div>
 				<!-- 右边小怪兽带着小小怪兽布局 -->

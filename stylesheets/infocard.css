@@ -1,0 +1,141 @@
+@charset "UTF-8";
+/* line 4, ../sass/infocard.scss */
+.smallcard {
+  margin: 50px;
+  background-color: #ee1b22;
+  border-color: #000000;
+  border: 7px solid;
+  border-radius: 10px;
+  width: 360px;
+  padding: 20px;
+  float: left;
+}
+
+/* line 14, ../sass/infocard.scss */
+.moneatpie {
+  width: 125px;
+  height: 125px;
+  margin-left: 110px;
+  margin-top: 30px;
+}
+
+/* line 20, ../sass/infocard.scss */
+.eatingmon {
+  width: 115px;
+}
+
+/* line 23, ../sass/infocard.scss */
+.p {
+  font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+  width: auto;
+  color: #FFFFFF;
+}
+
+/* line 28, ../sass/infocard.scss */
+.Age {
+  width: 147px;
+  position: relative;
+  color: #FFFFFF;
+  font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+  height: 20px;
+}
+
+/* line 35, ../sass/infocard.scss */
+.name {
+  width: 141px;
+  height: 21px;
+  color: #FFFFFF;
+  font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+}
+
+/* line 41, ../sass/infocard.scss */
+.info {
+  color: #FFFFFF;
+  font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+  padding: 20px;
+  width: 100%;
+}
+
+/* line 47, ../sass/infocard.scss */
+.cardbutton {
+  width: 192px;
+}
+
+/* line 52, ../sass/infocard.scss */
+.cardbutton-text {
+  top: -50px;
+  position: relative;
+  left: 18px;
+  color: #FFFFFF;
+  font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+}
+
+/* line 59, ../sass/infocard.scss */
+.pie-bian {
+  position: relative;
+  width: 113px;
+  height: 19px;
+}
+
+/* line 64, ../sass/infocard.scss */
+.pieeaten {
+  width: 120px;
+  left: 180px;
+  top: -30px;
+  position: relative;
+}
+
+/* line 70, ../sass/infocard.scss */
+.input:focus {
+  background-color: E7E4E4;
+  border: 1px solid grey;
+  border-radius: 9px;
+}
+
+/* line 79, ../sass/infocard.scss */
+#smname {
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 200px;
+}
+
+/* line 86, ../sass/infocard.scss */
+#smdescription {
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 200px;
+}
+
+/* line 93, ../sass/infocard.scss */
+#smnametext {
+  margin: 2px;
+}
+
+/* line 97, ../sass/infocard.scss */
+#smdescriptiontext {
+  margin: 2px;
+}
+
+/* line 101, ../sass/infocard.scss */
+#feedmediv {
+  padding-left: 50px;
+}
+
+/* line 105, ../sass/infocard.scss */
+#addmediv {
+  padding-left: 100px;
+}
+
+/*############################################工作时的css######################################*/
+/* line 116, ../sass/infocard.scss */
+.eatingperiod {
+  margin: 40px;
+  width: 300px;
+  color: #ffffff;
+}
+/* line 121, ../sass/infocard.scss */
+.eatingperiod p {
+  margin: 3px;
+}

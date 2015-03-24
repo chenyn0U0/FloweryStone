@@ -1,34 +1,20 @@
 <?php session_start(); 
+	require "phpfunction.php";
+
 	if (isset($_SESSION['phonenumber'])) {//如果已经登录了
 		header('Location: mainpage.php');
 	}
 	else if (isset($_POST['submit'])&&($_POST['phonenumber']!="")) {//提交电话号码后
 		
 		//数据库操作（查询是否已有，已有登录，未有创建登录）
-		$con = new mysqli("localhost","s1425535","InQzRF8RSn","s1425535");
-		//$con = new mysqli("playground.eca.ed.ac.uk","s1425535","InQzRF8RSn","s1425535");
-		if ($con->connect_errno) {
-		   printf("Connect failed: %s\n", $con->connect_error);
-		   exit();
-		}
-
-		$sqlsearch=$con->prepare("SELECT * FROM `user` WHERE `phoneNumber` = ?");
-		$sqlsearch->bind_param("s",$phoneNumber);
-		$phoneNumber=$_POST['phonenumber'];
-		$sqlsearch->execute();
-		$sqlsearch->close();
+		$con = getconnection();
 		 
-		if(!$sqlsearch->fetch()){//不存在创建新用户
+		if(!sqlselectcheck($con,"SELECT * FROM `user` WHERE `phoneNumber` = ".$_POST['phonenumber'])){//不存在创建新用户
 			echo "not exist";
 
-			$sqladd=$con->prepare("INSERT INTO user (phoneNumber,registerTime,registerIP)
-									VALUES	(?,?,?)");
-			$sqladd->bind_param("sss",$phoneNumber,$registerTime,$registerIP);
-
-			$registerTime=date('Y-m-d H:i:s',time());
-			$registerIP=$_SERVER["REMOTE_ADDR"];
-			$sqladd->execute();
-			$sqladd->close();
+			$stmt=$con->prepare("INSERT INTO user (phoneNumber,registerTime,registerIP)
+									VALUES	('".$phoneNumber."','".date('Y-m-d H:i:s',time())."','".$_SERVER["REMOTE_ADDR"]."')");
+			$stmt->close();
 		}
 		else{echo "already exist";}//用户已存在登录进此用户
 		$con->close();
@@ -79,10 +65,10 @@
 			<img src="img/M1.png" class="loginpic"/><img src="img/M2.png" class="loginpic"/><img src="img/M3.png" class="loginpic"/>
 			<h1>FEED YOUR<br/> MONSTER</h1>
 			<div id="loginbox">
-
+				<a target="_blank" style="font-size:9px;" href="flowerystonesalpha.pdf">- Flowery Stones Website Description HERE -</a>
 				<p>Please input your phone number here.</p>
 				<form action="" method="POST">
-				<input type="text" name="phonenumber" />
+				<input placeholder="Phone Number Here" type="text" name="phonenumber" />
 				<br />
 				<input type="submit" name="submit">
 				</form>

@@ -1,0 +1,124 @@
+@charset "UTF-8";
+@import "variables";
+
+.smallcard {
+	margin: 50px;
+	background-color: $red;
+	border-color: $black;
+	border: 7px solid;
+	border-radius: 10px;
+	width: 360px;
+	padding: 20px;
+	float: left;
+}
+.moneatpie {
+	width: 125px;
+	height: 125px;
+	margin-left: 110px;
+	margin-top: 30px;
+}
+.eatingmon {
+	width: 115px;
+}
+.p {
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+	width: auto;
+	color: #FFFFFF;
+}
+.Age {
+	width: 147px;
+	position: relative;
+	color: #FFFFFF;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+	height: 20px;
+}
+.name {
+	width: 141px;
+	height: 21px;
+	color: #FFFFFF;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+}
+.info {
+	color: #FFFFFF;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+	padding: 20px;
+	width: 100%;
+}
+.cardbutton {
+	width: 192px;
+}
+.cardbutton a p {
+}
+.cardbutton-text {
+	top: -50px;
+	position: relative;
+	left: 18px;
+	color: #FFFFFF;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+}
+.pie-bian {
+	position: relative;
+	width: 113px;
+	height: 19px;
+}
+.pieeaten {
+	width: 120px;
+	left: 180px;
+	top: -30px;
+	position: relative;
+}
+.input:focus{
+	background-color: E7E4E4; 
+	border:1px solid grey;
+	border-radius:9px; 
+}
+.name {
+}
+
+
+#smname{
+	border-radius: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 200px;
+}
+
+#smdescription{
+	border-radius: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 200px;
+}
+
+#smnametext{
+	margin:2px;
+}
+
+#smdescriptiontext{
+	margin:2px;
+}
+
+#feedmediv{
+	padding-left: 50px;
+}
+
+#addmediv{
+	padding-left: 100px;
+	
+}
+
+
+
+
+/*############################################工作时的css######################################*/
+
+
+.eatingperiod{
+	margin: 40px;
+	width: 300px;
+	color: $white;
+
+	p{
+		margin: 3px;
+	}
+}

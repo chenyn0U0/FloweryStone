@@ -89,8 +89,11 @@ p {
 
 /* line 88, ../sass/mainstyle.scss */
 .loginpic {
-  margin: 50px;
-  width: 100px;
+  margin: 15px;
+  margin-left:50px;
+  margin-right:50px;
+  width:100px;
+}
 }
 
 /* line 93, ../sass/mainstyle.scss */
@@ -248,6 +251,30 @@ p {
   border-radius: 20px;
   font-size: 20px;
   outline: none;
+}
+
+/* line 246, ../sass/mainstyle.scss */
+.black {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-color: #000000;
+  opacity: 0.8;
+  z-index: 2000;
+}
+
+/* line 257, ../sass/mainstyle.scss */
+#cardcontainer {
+  position: fixed;
+  /*background-color: $red;*/
+  height: 500px;
+  top: 20%;
+  left: 35%;
+  z-index: 3000;
+  /*border: 10px solid;*/
+  /*border-color: $black;*/
 }
 
 /*####################a monster's home#######################*/

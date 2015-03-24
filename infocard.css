@@ -51,15 +51,15 @@
 	position: relative;
 	left: -73px;
 }
-.feedme {
+.cardbutton {
 	width: 192px;
 	position: relative;
 	top: 84px;
 	left: 77px;
 }
-.feedme a p {
+.cardbutton a p {
 }
-.feedme-text {
+.cardbutton-text {
 	top: -45px;
 	position: relative;
 	left: 18px;
