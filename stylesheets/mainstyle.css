@@ -49,7 +49,7 @@ p {
   left: 0px;
   width: 100%;
   height: 140px;
-  background-color: #ee1b22;
+  background-color: blue;
   /*header color */
 }
 
@@ -58,7 +58,7 @@ p {
   margin: 0 auto;
   width: 70%;
   height: 100%;
-  background-color: #ee1b22;
+  background-color: black;
   z-index: 1000;
 }
 
@@ -84,55 +84,54 @@ p {
 /* line 83, ../sass/mainstyle.scss */
 .footer {
   margin: 0 auto;
-  background-color: #ee1b22;
+  background-color: #c45459;
 }
 
 /* line 88, ../sass/mainstyle.scss */
 .loginpic {
-  margin: 15px;
-  margin-left:50px;
-  margin-right:50px;
-  width:100px;
-}
+  margin: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+  width: 100px;
 }
 
-/* line 93, ../sass/mainstyle.scss */
+/* line 95, ../sass/mainstyle.scss */
 #logocontainer {
   margin-top: 10px;
 }
 
-/* line 97, ../sass/mainstyle.scss */
+/* line 99, ../sass/mainstyle.scss */
 #logo {
   margin: 20px;
   float: left;
 }
 
-/* line 102, ../sass/mainstyle.scss */
+/* line 104, ../sass/mainstyle.scss */
 #logotext {
   float: left;
   text-align: center;
 }
 
-/* line 107, ../sass/mainstyle.scss */
+/* line 109, ../sass/mainstyle.scss */
 #userstatus {
   float: right;
   margin-top: 30px;
   vertical-align: middle;
 }
 
-/* line 114, ../sass/mainstyle.scss */
+/* line 116, ../sass/mainstyle.scss */
 .footercontainer {
   position: fixed;
   bottom: 0px;
   left: 0px;
   width: 100%;
   height: 100px;
-  background-color: #ee1b22;
+  background-color: black;
   /*header color */
   z-index: 1000;
 }
 
-/* line 124, ../sass/mainstyle.scss */
+/* line 126, ../sass/mainstyle.scss */
 .footer {
   margin: 0 auto;
   width: 70%;
@@ -140,14 +139,14 @@ p {
   text-align: right;
 }
 
-/* line 131, ../sass/mainstyle.scss */
+/* line 133, ../sass/mainstyle.scss */
 #teamlogo {
   margin: 20px;
 }
 
 /*####################general layout#######################*/
 /*###################main page house list########################*/
-/* line 142, ../sass/mainstyle.scss */
+/* line 144, ../sass/mainstyle.scss */
 #housesdiv {
   overflow: hidden;
   width: 100%;
@@ -155,27 +154,27 @@ p {
   vertical-align: middle;
 }
 
-/* line 150, ../sass/mainstyle.scss */
+/* line 152, ../sass/mainstyle.scss */
 #choosemonsdiv {
   height: 250px;
   overflow: hidden;
 }
 
-/* line 155, ../sass/mainstyle.scss */
+/* line 157, ../sass/mainstyle.scss */
 .left {
   position: relative;
   top: 0;
   height: 750px;
 }
 
-/* line 161, ../sass/mainstyle.scss */
+/* line 163, ../sass/mainstyle.scss */
 .none {
   height: 750px;
   position: relative;
   top: -250px;
 }
 
-/* line 167, ../sass/mainstyle.scss */
+/* line 169, ../sass/mainstyle.scss */
 .right {
   height: 750px;
   position: relative;
@@ -184,9 +183,9 @@ p {
 
 /*###################main page house list########################*/
 /*####################a monster's home#######################*/
-/* line 183, ../sass/mainstyle.scss */
+/* line 185, ../sass/mainstyle.scss */
 #adoptme {
-  background-color: #ee1b22;
+  background-color: black;
   border: 1px solid;
   border-color: #000000;
   border-radius: 10px;
@@ -198,7 +197,7 @@ p {
   left: 180px;
 }
 
-/* line 196, ../sass/mainstyle.scss */
+/* line 198, ../sass/mainstyle.scss */
 #monsterhome {
   bottom: 100px;
   position: absolute;
@@ -207,7 +206,7 @@ p {
   margin-bottom: 60px;
 }
 
-/* line 204, ../sass/mainstyle.scss */
+/* line 206, ../sass/mainstyle.scss */
 #lefthomediv {
   width: 350px;
   padding-bottom: 100px;
@@ -217,7 +216,7 @@ p {
   position: absolute;
 }
 
-/* line 214, ../sass/mainstyle.scss */
+/* line 216, ../sass/mainstyle.scss */
 #bigmonster {
   position: fixed;
   left: 50%;
@@ -227,7 +226,7 @@ p {
   margin: 0 0 20px 75px;
 }
 
-/* line 223, ../sass/mainstyle.scss */
+/* line 225, ../sass/mainstyle.scss */
 .smallmonsterposition {
   position: fixed;
   left: 50%;
@@ -237,14 +236,14 @@ p {
   margin: 0 0 20px 100px;
 }
 
-/* line 232, ../sass/mainstyle.scss */
+/* line 234, ../sass/mainstyle.scss */
 #newbigmonsterform {
   position: relative;
   top: -600px;
   left: -250px;
 }
 
-/* line 238, ../sass/mainstyle.scss */
+/* line 240, ../sass/mainstyle.scss */
 .bminputbox {
   width: 300px;
   padding: 10px;
@@ -253,7 +252,7 @@ p {
   outline: none;
 }
 
-/* line 246, ../sass/mainstyle.scss */
+/* line 248, ../sass/mainstyle.scss */
 .black {
   position: fixed;
   top: 0px;
@@ -265,7 +264,7 @@ p {
   z-index: 2000;
 }
 
-/* line 257, ../sass/mainstyle.scss */
+/* line 259, ../sass/mainstyle.scss */
 #cardcontainer {
   position: fixed;
   /*background-color: $red;*/

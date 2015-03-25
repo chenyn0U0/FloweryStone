@@ -51,7 +51,7 @@ p {
 	left:0px;
 	width:100%;
 	height: $header-height;
-	background-color: $c45459;   /*header color */
+	background-color: $red;   /*header color */
 }
 
 .header{
@@ -82,7 +82,7 @@ p {
 
 .footer{
 	margin: 0 auto;
-	background-color:rgb(238,27,34);
+	background-color:rgb(196,84,89);
 }
 
 .loginpic{
@@ -119,7 +119,7 @@ p {
 	left:0px;
 	width:100%;
 	height: $footer-height;
-	background-color: $c45459;   /*header color */
+	background-color: $red;   /*header color */
 	z-index: 1000;
 }
 
