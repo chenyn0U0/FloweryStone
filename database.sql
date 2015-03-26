@@ -174,11 +174,11 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
-  `phoneNumber` varchar(11) NOT NULL,
+  `username` varchar(11) NOT NULL,
   `registerTime` datetime DEFAULT NULL,
   `registerIP` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`phoneNumber`),
-  UNIQUE KEY `phoneNumber_UNIQUE` (`phoneNumber`)
+  PRIMARY KEY (`username`),
+  UNIQUE KEY `username_UNIQUE` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

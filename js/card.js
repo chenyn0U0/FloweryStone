@@ -5,6 +5,28 @@
 	        }
 		}
 
+		function clickonsmeat(d){
+
+			if(confirm("Are you sure you want to work for 30 minutes feeding me?(Don't quit on the half way! I will be sad.)")){
+				data=d.split(",");
+				console.log(data);
+				binddatatocard(data);
+				prepareinformation();
+			
+				shownormalsm();
+				var smonid=$("#smid").attr("value");
+				var name="newfeed";
+				$.post("saveworkdata.php", {thefunction:name,smid:smonid}, function(data){
+					$("#taskid").attr("value",data);console.log("start task:"+data);
+				});
+				starttask();
+				//设置倒计时↓
+
+				clock=setInterval("everyseconds(t1,t2,t3,t4,t5,t6)", 1000);
+				alert("Mission Start!❤ ");
+			}
+		}
+
 		function clickonsm(d){
 			data=d.split(",");
 			console.log(data);
@@ -16,6 +38,38 @@
 				prepareaddcard();
 			}
 			shownormalsm();
+		}
+
+		function clickonsmdelete(d){
+			if(confirm("Are you sure you want me to leave?(I won't be back once I left.)")){
+				data=d.split(",");
+				console.log(data);
+				var id=data[8];
+				var name="deletesmallmonster";
+				$.post("saveworkdata.php", {thefunction:name,smid:id}, function(data){
+						location.reload();
+					});
+			}
+		}
+
+		function clickonbmfinish(){
+			if(confirm("Are you sure my task is finished?")){
+				var id=bmid.value;
+				var name="finishbigmonster";
+				$.post("saveworkdata.php", {thefunction:name,bmid:id}, function(data){
+						// location.href ="PageOfHome.php";
+					});
+			}
+		}
+
+		function clickonbmdelete(){
+			if(confirm("Are you sure you want me (and all my lovely little friends!) to leave? - I won't be back once I left;(")){
+				var id=bmid.value;
+				var name="deletebigmonster";
+				$.post("saveworkdata.php", {thefunction:name,bmid:id}, function(data){
+						location.href ="PageOfHome.php";
+					});
+			}
 		}
 
 		$(document).ready(function(){
@@ -67,7 +121,11 @@
 				}
 				
 				//披萨图片绑定↑	
-				$("#monsterhead").attr("src",d[7]);
+				if(d[1]=="1"){
+					$("#monsterhead").attr("src",d[11]);
+				}
+				else $("#monsterhead").attr("src",d[7]);
+				$("#moneatpie").attr("src",d[10]);
 				$("#smid").attr("value",d[8]);
 			}
 			if(d[0]==0){//如果点击新建
@@ -127,26 +185,82 @@
 			        	var string="text-align:center;position:relative;left:"+(Math.cos(Math.PI/(smonsinfo.length-1)*la)*radius)+"px;top:-"+(Math.sin(Math.PI/(smonsinfo.length-1)*la)*radius+70)+"px;";
 			        	return string;
 		        	}
-		        })
-		        .append("a")
-		        .attr("href",function(d){
-		        	return "javascript:clickonsm('"+d+"')";
-		   		 })
-		        .attr("title",function(d){return d[3];});
-
-
+		        });
+		    
 		    // eachmonster.append("p")
 		    // 	.text(function(d){if(d[0]==1) return d[3];});
 
-		    eachmonster.append("img")
-		    	.attr("src",function(d){return d[7];})
-		    	.attr("style",function(d){
-		    		return "height:120px;width:120px;";
-		    	});
+		    var smbuttondiv=eachmonster.filter(function(d,i){if(d[0]==1) return 1;})
+		    	.append("div")
+		    	.attr("class","smbuttondiv");
 
-		    eachmonster.append("h3")
-		    	.text(function(d){return d[2];});
+
+
+			var eachmonstera=eachmonster.append("div")
+		      //   .attr("href",function(d){
+		      //   	return "javascript:clickonsm('"+d+"')";
+		   		 // })
+		        .attr("title",function(d){return d[3];});
+
+
+
+
+		    eachmonstera.append("img")
+		    	.attr("src",function(d){
+		    		if(d[1]=="1") return d[11];
+		    		else return d[7];
+		    	})
+		    	.attr("style","height:120px;width:120px;cursor:pointer")
+		    	.attr("class",function(d){
+		    		if(d[0]==0)	return "addnew";
+		    	})
+		    	.attr("onclick",function(d){
+		        	return "javascript:clickonsm('"+d+"')";
+		   		 });
+
+		    eachmonstera.append("h3")
+		    	.text(function(d){return d[2];})
+		    	.attr("style","font-size:16px");
+
+
+
+
+
+
+		    smbuttondiv.append("a")
+		    	.attr("href",function(d){
+		        	return "javascript:clickonsm('"+d+"')";
+		   		 })
+		    	.attr("title","See my details!")
+		    	.append("img")
+		    	.attr("src",function(d){if(d[0]=="1") return "img/icon_edit.png";})
+		    	.attr("style","	position: relative;top:10px;margin-right:20px;");;
+
+		    smbuttondiv.append("a")
+		    	.attr("href",function(d){
+		        	return "javascript:clickonsmeat('"+d+"')";
+		   		 })
+		    	.attr("title","Start feeding me!")
+		    	.append("img")
+		    	.attr("src",function(d){if(d[0]=="1"&&d[1]==0) return "img/icon_eat.png";})
+		    	.attr("style","	position: relative;top:0px;");
+
+		    smbuttondiv.append("a")
+		    	.attr("href",function(d){
+		    		return "javascript:clickonsmdelete('"+d+"delete')";
+		   		 })
+		    	.attr("title","Delete me ;(")
+		    	.append("img")
+		    	.attr("src",function(d){if(d[0]=="1") return "img/icon_delete.png";})
+		    	.attr("style","	position: relative;top:10px;margin-left:20px;");
+
+
+
+
+
 	    }
+
+
 
 
 		function feedme_click(){

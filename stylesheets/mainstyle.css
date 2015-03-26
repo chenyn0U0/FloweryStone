@@ -230,7 +230,7 @@ p {
 .smallmonsterposition {
   position: fixed;
   left: 50%;
-  bottom: 100px;
+  bottom: 250px;
   width: 150px;
   height: 150px;
   margin: 0 0 20px 100px;
@@ -274,6 +274,54 @@ p {
   z-index: 3000;
   /*border: 10px solid;*/
   /*border-color: $black;*/
+}
+
+/* line 272, ../sass/mainstyle.scss */
+.smbuttondiv {
+  position: relative;
+  height: 150px;
+  top: 150px;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.5s,top 0.5s;
+  cursor: default;
+}
+/* line 282, ../sass/mainstyle.scss */
+.smbuttondiv:hover {
+  position: relative;
+  top: 115px;
+  opacity: 1;
+}
+
+/* line 289, ../sass/mainstyle.scss */
+.addnew {
+  margin-top: 150px;
+}
+
+/* line 293, ../sass/mainstyle.scss */
+.bmbuttondiv {
+  position: relative;
+  height: 250px;
+  width: 130px;
+  opacity: 0;
+  z-index: 0;
+  transition: left 0.5s,width 0.5s,opacity 0.5s;
+  cursor: default;
+  top: -250px;
+  left: 20px;
+}
+/* line 304, ../sass/mainstyle.scss */
+.bmbuttondiv:hover {
+  position: relative;
+  width: 210px;
+  left: -17px;
+  opacity: 1;
+}
+
+/* line 312, ../sass/mainstyle.scss */
+.bgbuttons {
+  position: relative;
+  top: 170px;
 }
 
 /*####################a monster's home#######################*/

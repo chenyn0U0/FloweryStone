@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['phonenumber'])){
+if (isset($_SESSION['username'])){
 
 	if(isset($_POST[''])){
 		$con = new mysqli("localhost","s1425535","InQzRF8RSn","s1425535");
@@ -11,7 +11,7 @@ if (isset($_SESSION['phonenumber'])){
 		   exit();
 		}
 
-		$stmt=$con->prepare("INSERT INTO s1425535.bigmonsters(ownerNum,name,description,houseid,adopttime,adoptip) VALUES ('".$_SESSION["phonenumber"]."','".$_POST["newname"]."','".$_POST["newdescription"]."','".$_POST["newhouse"]."','".date('Y-m-d H:i:s',time())."','".$_SERVER["REMOTE_ADDR"]."')");
+		$stmt=$con->prepare("INSERT INTO s1425535.bigmonsters(ownerNum,name,description,houseid,adopttime,adoptip) VALUES ('".$_SESSION["username"]."','".$_POST["newname"]."','".$_POST["newdescription"]."','".$_POST["newhouse"]."','".date('Y-m-d H:i:s',time())."','".$_SERVER["REMOTE_ADDR"]."')");
 		$stmt->execute();
 		$stmt->close();
 		
@@ -24,7 +24,7 @@ if (isset($_SESSION['phonenumber'])){
 	}
 
 	if (isset($_POST['logout'])) {
-		unset($_SESSION['phonenumber']);
+		unset($_SESSION['username']);
 		header('Location: login.php');
 	}
 

@@ -30,7 +30,7 @@
 				</div>
 			</div>
 			<div id="userstatus">
-				<a href="javascript:logout()"><img src="img/user-m.png"/> <b><?php echo $_SESSION['phonenumber']; ?></b></a>
+				<a href="javascript:logout()"><img src="img/user-m.png"/> <b><?php echo $_SESSION['username']; ?></b></a>
 				<form action="" method="POST">
 				<input style="display:none" type="submit" name="logout" id="logout">
 				</form>
@@ -45,7 +45,7 @@
 	$con = getconnection();
 
 
-	$stmt=runsql($con,"SELECT bigmonsters.id,bigmonsters.description,bigmonsters.name,houseinfo.housepic FROM s1425535.bigmonsters , s1425535.houseinfo where bigmonsters.finished=0 and bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum=".$_SESSION['phonenumber'].";");
+	$stmt=runsql($con,"SELECT bigmonsters.id,bigmonsters.description,bigmonsters.name,houseinfo.housepic FROM s1425535.bigmonsters , s1425535.houseinfo where bigmonsters.finished=0 and bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum=".$_SESSION['username'].";");
 	$stmt->bind_result($monsterid,$monsterdescription,$monstername,$housesrc);
 ?>
 	

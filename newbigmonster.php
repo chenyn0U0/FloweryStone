@@ -34,7 +34,7 @@
 				</div>
 			</div>
 			<div id="userstatus">
-				<a href="javascript:logout()"><img src="img/user-m.png"/> <b><?php echo $_SESSION['phonenumber']; ?></b></a>
+				<a href="javascript:logout()"><img src="img/user-m.png"/> <b><?php echo $_SESSION['username']; ?></b></a>
 				<form action="" method="POST">
 				<input style="display:none" type="submit" name="logout" id="logout">
 				</form>
