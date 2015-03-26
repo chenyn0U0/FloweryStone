@@ -1,0 +1,17 @@
+@charset "UTF-8";
+/* CSS Document */
+.data{position:relative;margin:0 auto;float:center}
+.data_piechart{position:relative;margin:0 auto;width:600px;height:600px；float:left;}
+.data_redmon{position: relative;margin: 0 auto;width: 300px;height:300px；float:left;}
+.data_greenmon{position:relative;margin: 0 auto;width:300px;height:300px；float:left;clear:right;}
+.data_yellowpie{position: relative;margin: 0 auto;width:300px;height:300px；float:left;}
+.data_bluegiveup{position: relative;margin:0 auto;width:300px;height:300px；float:left;}
+
+.data_redmon span,.data_yellowpie span,.data_greenmon span,.data_bluegiveup span{display:none;}
+.data_redmon,.data_greenmon,.data_yellowpie,.data_bluegiveup{cursor:pointer}
+.data_redmon,.data_greenmon,.data_yellowpie,.data_bluegiveup: hover{}
+.data_redmon:hover span{display:block;position:relative; bottom:0; left:0;color:#717071;font-family:Myriad Pro;font-size: 18px;width:554px; height:36px; line-height:36px;}
+.data_greenmon:hover span{display:block;position:relative; bottom:0; left:0;color:#717071;font-family:Myriad Pro;font-size: 18px;width:554px; height:36px; line-height:36px;}
+.data_yellowpie:hover span{display:block;position:relative; bottom:0; left:0;color:#717071;font-family:Myriad Pro;font-size: 18px;width:554px; height:36px; line-height:36px;}
+.data_bluegiveup:hover span{display:block;position:relative; bottom:0; left:0;color:#717071;font-family:Myriad Pro;font-size: 18px;width:554px; height:36px; line-height:36px;}
+
