@@ -179,7 +179,7 @@
 				</div>
 			</div>
 			<div id="userstatus">
-				<a href="javascript:logout()"><img src="img/user-m.png"/> <b><?php echo $_SESSION['phonenumber']; ?></b></a>
+				<a href="javascript:logout()"><img src="img/user-m.png"/> <b><?php echo $_SESSION['username']; ?></b></a>
 				<form action="" method="POST">
 				<input style="display:none" type="submit" name="logout" id="logout">
 				</form>
@@ -194,13 +194,15 @@
 					if($_POST['monsterid']!=0){
 						$con =getconnection();
 
-						$stmt=runsql($con,"SELECT bigmonsters.id,bigmonsters.name,bigmonsters.description,houseinfo.housepic FROM s1425535.bigmonsters,s1425535.houseinfo where bigmonsters.id=".$_POST['monsterid']." and bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum=".$_SESSION['phonenumber'].";");
+						$stmt=runsql($con,"SELECT bigmonsters.id,bigmonsters.name,bigmonsters.description,houseinfo.housepic FROM s1425535.bigmonsters,s1425535.houseinfo where bigmonsters.id=".$_POST['monsterid']." and bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum=".$_SESSION['username'].";");
 						$stmt->bind_result($monsterid,$monstername,$description,$housepic);
 						$stmt->fetch();
 						$stmt->close();
 
-						$stmt2=runsql($con,"SELECT smallmonsters.finished,smallmonsters.name,smallmonsters.description,smallmonsters.totaltime,smallmonsters.pizzaamount,smallmonsters.smallmonsterID,smallmonstersinfo.normalpic,smallmonsters.id FROM s1425535.smallmonsters,s1425535.smallmonstersinfo WHERE smallmonstersinfo.smallmonsterid=smallmonsters.smallmonsterID and smallmonsters.bigmonsterID=".$monsterid.";");
-						$stmt2->bind_result($smfinished,$smname,$smdescription,$smtotaltime,$smpizzaamount,$smid,$smpic,$taskid);
+						$stmt2=runsql($con,"SELECT smallmonsters.finished,smallmonsters.name,smallmonsters.description,smallmonsters.totaltime,smallmonsters.pizzaamount,
+							smallmonsters.smallmonsterID,smallmonstersinfo.normalpic,smallmonsters.id,smallmonstersinfo.eatingpic,smallmonstersinfo.finishpic
+							FROM s1425535.smallmonsters,s1425535.smallmonstersinfo WHERE smallmonstersinfo.smallmonsterid=smallmonsters.smallmonsterID and smallmonsters.bigmonsterID=".$monsterid.";");
+						$stmt2->bind_result($smfinished,$smname,$smdescription,$smtotaltime,$smpizzaamount,$smid,$smpic,$taskid,$eatpic,$finishpic);
 
 
 						//计算大怪兽手下完成小怪兽百分比并决定大怪兽图片
@@ -210,12 +212,12 @@
 
 						echo "<script> var smonsinfo=[";//创建小怪兽的json文件
 						while($stmt2->fetch()){
-							//文件格式：【0是否存在（新建用），1任务是否已完成，2任务名，3任务描述，4任务总时间，5任务披萨数，6出现小怪兽id，7出现小怪兽图片路径，8此任务id，9此大任务id】
-							echo "[1,".$smfinished.",'".$smname."','".$smdescription."','".$smtotaltime."',".$smpizzaamount.",".$smid.",'".$smpic."',".$taskid.",".$monsterid."],";
+							//文件格式：【0是否存在（新建用），1任务是否已完成，2任务名，3任务描述，4任务总时间，5任务披萨数，6出现小怪兽id，7出现小怪兽图片路径，8此任务id，9此大任务id,10小怪兽吃披萨图片路径,11小怪兽完成图片路径】
+							echo "[1,".$smfinished.",'".$smname."','".$smdescription."','".$smtotaltime."',".$smpizzaamount.",".$smid.",'".$smpic."',".$taskid.",".$monsterid.",'".$eatpic."','".$finishpic."'],";
 							if($smfinished==1) $finishedsmnum++;
 							$totalsmnum++;
 						}
-						echo "[0,0,'new monster','Adopt your new small monster','00:00:00',0,1,'img/monsters/newmonster.png',0,".$monsterid."]";//新建图片待修改/新建任务id默认为0
+						echo "[0,0,'new monster','Adopt your new small monster','00:00:00',0,1,'img/monsters/newmonster.png',0,".$monsterid.",'img/monsters/newmonster.png','img/monsters/newmonster.png']";//新建图片待修改/新建任务id默认为0
 						echo "];console.log(smonsinfo);</script>";
 
 						if($totalsmnum==0||$finishedsmnum/$totalsmnum<0.3) $bigsrc="img/monsters/M1.png";
@@ -226,6 +228,10 @@
 						$stmt2->close();
 					?>
 					<img src=<?php echo "'".$bigsrc."'" ?> style="height:250px"/>
+					<div class="bmbuttondiv">
+						<a href="javascript:clickonbmfinish()"><img src="img/tick.png" class="bgbuttons" style="float:left"/></a>
+						<a href="javascript:clickonbmdelete()"><img src="img/cross.png" class="bgbuttons" style="float:right"/></a>
+					</div>
 				</div>
 				<div id="smallmonsterscontainer">
 					<script>

@@ -1,6 +1,6 @@
 <?php
 	session_start(); 
-	if (!isset($_SESSION['phonenumber'])){
+	if (!isset($_SESSION['username'])){
 		header('Location: login.php');
 	}
 
@@ -11,7 +11,7 @@
 	   exit();
 	}
 
-	$stmt=$con->prepare("SELECT bigmonsters.id,bigmonsters.name,houseinfo.housepic FROM s1425535.bigmonsters , s1425535.houseinfo where bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum=".$_SESSION['phonenumber'].";");
+	$stmt=$con->prepare("SELECT bigmonsters.id,bigmonsters.name,houseinfo.housepic FROM s1425535.bigmonsters , s1425535.houseinfo where bigmonsters.finished=='0' and bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum=".$_SESSION['username'].";");
 	$stmt->execute();
 	$stmt->bind_result($monsterid,$monstername,$housesrc);
 ?>

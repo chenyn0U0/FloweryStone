@@ -1,26 +1,27 @@
 <?php session_start(); 
 	require "phpfunction.php";
 
-	if (isset($_SESSION['phonenumber'])) {//如果已经登录了
+	if (isset($_SESSION['username'])) {//如果已经登录了
 		header('Location: mainpage.php');
 	}
-	else if (isset($_POST['submit'])&&($_POST['phonenumber']!="")) {//提交电话号码后
+	else if (isset($_POST['submit'])&&($_POST['username']!="")&&($_POST['password']!="")) {//提交电话号码后
 		
 		//数据库操作（查询是否已有，已有登录，未有创建登录）
 		$con = getconnection();
 		 
-		if(!sqlselectcheck($con,"SELECT * FROM `user` WHERE `phoneNumber` = ".$_POST['phonenumber'])){//不存在创建新用户
-			echo "not exist";
+		if(!sqlselectcheck($con,"SELECT * FROM `user` WHERE `username` = '".$_POST['username']."' and `password` = '".$_POST['password']."'")){//不存在创建新用户
+			// echo "not exist";
 
-			$stmt=$con->prepare("INSERT INTO user (phoneNumber,registerTime,registerIP)
-									VALUES	('".$phoneNumber."','".date('Y-m-d H:i:s',time())."','".$_SERVER["REMOTE_ADDR"]."')");
-			$stmt->close();
+			// $stmt=$con->prepare("INSERT INTO user (username,password,registerTime,registerIP)
+			// 						VALUES	('".$_POST["username"]."','".$_POST["password"]."','".date('Y-m-d H:i:s',time())."','".$_SERVER["REMOTE_ADDR"]."')");
+			// $stmt->close();
 		}
-		else{echo "already exist";}//用户已存在登录进此用户
+		else{
+			$_SESSION['username'] = $_POST['username'];
+		}//用户已存在登录进此用户
 		$con->close();
 
-		$_SESSION['phonenumber'] = $_POST['phonenumber'];
-		header('Location: mainpage.php');
+		if($_SESSION['username'] == $_POST['username']) header('Location: mainpage.php');
 	}
 	else {
 	}
@@ -66,9 +67,13 @@
 			<h1>FEED YOUR<br/> MONSTER</h1>
 			<div id="loginbox">
 				<a target="_blank" style="font-size:9px;" href="flowerystonesalpha.pdf">- Flowery Stones Website Description HERE -</a>
-				<p>Please input your phone number here.</p>
+				<p>Please input your username and password here.</p>
 				<form action="" method="POST">
-				<input placeholder="Phone Number Here" type="text" name="phonenumber" />
+				<input placeholder="Username" type="text" name="username" />
+				<input placeholder="Password" type="password" name="password" />
+				<?php
+				if(isset($_POST['username'])) echo"<p style='color:red;font-size:12px'>Your username or password is not correct.</p>";
+				?>
 				<br />
 				<input type="submit" name="submit">
 				</form>
