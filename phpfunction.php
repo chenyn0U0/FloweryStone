@@ -39,6 +39,18 @@ function sqlselectcheck($con,$sql){
 	return $result;
 }
 
+// function getselectresult($con,$sql,$columnamount){
+// 	$stmt=$con->prepare($sql);
+// 	$stmt->execute();
+// 	$stmt->bind_result();
 
+
+
+
+// 	if(!$stmt->fetch()) $result=false;
+// 	else $result=true;
+// 	$stmt->close();
+// 	return $result;
+// }
 
 ?>

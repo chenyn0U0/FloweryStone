@@ -24,7 +24,7 @@
 		if($_POST["thefunction"]=="finishbigmonster"){
 			$con=getconnection();
 			if(!sqlselectcheck($con,"SELECT * FROM s1425535.bigmonsters WHERE id='".$_POST['bmid']."' and bigmonsters.ownerNum=".$_SESSION['username'])) exit; 
-			$stmt=runsql($con,"UPDATE s1425535.smallmonsters SET finished='1',finishedtime='".date('Y-m-d H:i:s',time())."',finishedip='".$_SERVER["REMOTE_ADDR"]."' WHERE id='".$_POST["bmid"]."'");
+			$stmt=runsql($con,"UPDATE s1425535.bigmonsters SET finished='1',finishedtime='".date('Y-m-d H:i:s',time())."',finishedip='".$_SERVER["REMOTE_ADDR"]."' WHERE id='".$_POST["bmid"]."'");
 			$stmt->close();
 			$con->close();	
 		}
@@ -33,11 +33,22 @@
 		if($_POST["thefunction"]=="deletebigmonster"){
 			$con=getconnection();
 			if(!sqlselectcheck($con,"SELECT * FROM s1425535.bigmonsters WHERE id='".$_POST['bmid']."' and bigmonsters.ownerNum=".$_SESSION['username'])) exit; 
-			$stmt1=runsql($con,"DELETE FROM s1425535.feedhistory WHERE smallmonsterid='".$_POST["smid"]."'");
-			$stmt2=runsql($con,"DELETE FROM s1425535.smallmonsters WHERE id='".$_POST["smid"]."'");
-			$stmt3=runsql($con,"DELETE FROM s1425535.bigmonsters WHERE id='".$_POST["smid"]."'");
-			$stmt1->close();
-			$stmt2->close();
+			$saftystmt=runsql($con,"SET SQL_SAFE_UPDATES = 0;");
+			$stmt=runsql($con,"SELECT id FROM s1425535.smallmonsters WHERE bigmonsterid='".$_POST['bmid']."'");
+			$stmt->bind_result($smallid);
+			$somecon=getconnection();
+			while($stmt->fetch()){
+				$stmt1=runsql($somecon,"DELETE FROM s1425535.feedhistory WHERE smallmonsterid='".$smallid."'");
+				$stmt1->close();
+				$stmt1=runsql($somecon,"DELETE FROM s1425535.smallmonsters WHERE id='".$smallid."'");
+				$stmt1->close();	
+			}
+			$somecon->close();
+			$stmt->close();
+			$stmt3=runsql($con,"DELETE FROM s1425535.bigmonsters WHERE id='".$_POST["bmid"]."'");
+			$saftystmt=runsql($con,"SET SQL_SAFE_UPDATES = 1;");
+			$saftystmt->close();
+			$stmt3->close();
 			$con->close();	
 		}
 

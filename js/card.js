@@ -57,7 +57,8 @@
 				var id=bmid.value;
 				var name="finishbigmonster";
 				$.post("saveworkdata.php", {thefunction:name,bmid:id}, function(data){
-						// location.href ="PageOfHome.php";
+						console.log(data);
+						location.href ="mainpage.php";
 					});
 			}
 		}
@@ -67,8 +68,9 @@
 				var id=bmid.value;
 				var name="deletebigmonster";
 				$.post("saveworkdata.php", {thefunction:name,bmid:id}, function(data){
-						location.href ="PageOfHome.php";
-					});
+					console.log(data);
+					location.href ="mainpage.php";
+				});
 			}
 		}
 
