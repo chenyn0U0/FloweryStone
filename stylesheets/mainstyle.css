@@ -49,7 +49,11 @@ p {
   left: 0px;
   width: 100%;
   height: 140px;
+<<<<<<< HEAD
   background-color: black;
+=======
+  background-color: #c45559;
+>>>>>>> 00d53799feadaecb539df12ab4be7cc3b79f63a1
   /*header color */
 }
 
@@ -58,7 +62,7 @@ p {
   margin: 0 auto;
   width: 70%;
   height: 100%;
-  background-color: black;
+  background-color: #c45559;
   z-index: 1000;
 }
 
@@ -126,7 +130,7 @@ p {
   left: 0px;
   width: 100%;
   height: 100px;
-  background-color: black;
+  background-color: #c45559;
   /*header color */
   z-index: 1000;
 }
@@ -185,7 +189,7 @@ p {
 /*####################a monster's home#######################*/
 /* line 185, ../sass/mainstyle.scss */
 #adoptme {
-  background-color: black;
+  background-color: #c45559;
   border: 1px solid;
   border-color: #000000;
   border-radius: 10px;
