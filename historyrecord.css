@@ -38,19 +38,19 @@ position:absolute;margin-left:auto;margin-top:auto;
 font-family:"Myriad Pro";font-size:14;color:#717071;}
 
 .data{
-	position: fixed;
+	position: relative;
 	width: 800px;
 }
 .data_piechart{
-	position: absolute;
-	margin-top: 180px;
+	position: relative;
+	margin-top: -3px;
 	margin-right: auto;
-	margin-left: 732px;
+	margin-left: 730px;
 	margin-bottom: auto;
 	width: 500px;
 height:600px；float:left;}
 .data_redmon{
-	position: absolute;
+	position: relative;
 	margin-top: 30px;
 	margin-right: auto;
 	margin-left: 870px;
@@ -58,30 +58,30 @@ height:600px；float:left;}
 	width: 215px;
 height:300px；float:left;}
 .data_greenmon{
-	position: absolute;
-	margin-right: 207px;
-	margin-left: 1190px;
-	margin-bottom: 207px;
-	width: 300px;
+	position: relative;
+	margin-right: auto;
+	margin-left: 1188px;
+	width: 215px;
 height:300px；float:left;
-	margin-top: 320px;
+	margin-top: -268px;
+	margin-bottom: auto;
 }
 .data_yellowpie{
-	position: absolute;
-	margin-top: 570px;
+	position: relative;
 	margin-right: auto;
 	margin-left: 870px;
-	margin-bottom: 0;
+	margin-bottom: auto;
 	width: 215px;
-height:300px；float:left;}
+height:300px；float:left;	margin-top: 132px;
+}
 .data_bluegiveup{
 	position: absolute;
-	margin-top: 320px;
 	margin-right: auto;
-	margin-left: 576px;
-	margin-bottom: 0;
+	margin-bottom: auto;
 	width: 215px;
-height:300px；float:left;}
+height:300px；float:left;							margin-top: -451px;
+	margin-left: 577px;
+}
 
 
 /*
@@ -98,7 +98,16 @@ height:300px；float:left;}
 
 ul{list-style:none;}
 li{list-style:none;width:250px;height:80px}
-.badge{position:relative;width:50px;height:50px;margin:0 auto;float:left}
+.badge{
+	position: relative;
+	width: 50px;
+	height: 50px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 0;
+	float: left
+}
 .badge_name{
 	position: relative;
 	width: 80px;
@@ -116,15 +125,30 @@ li{list-style:none;width:250px;height:80px}
 	margin-left: 71px;
 	margin-bottom: 0;
 	float: left;
-	margin-top: -42px;
+	margin-top: -41px;
 }
 
 
 /*滑出菜单栏============怎么做滑出效果==========================*/
 
 
-.nav{margin:0 auto;width:500px;float:left;}
-.nav_m ul li{text-align:center; position:relative; margin:0; padding:0; list-sytle:none;}
+.nav{
+	margin-top: -665px;
+	margin-right: auto;
+	margin-left: 0px;
+	margin-bottom: auto;
+	width: 500px;
+}
+.nav_m ul li{
+	text-align: center;
+	position: relative;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-left: 0px;
+	margin-bottom: auto;
+	padding: 0;
+	list-sytle: none;
+}
 .nav_m ul li ul {display:none;}
 .nav_m ul li:hover ul {display:block; width:110px; height:47px; position:absolute; left:60px;bottom: -40px;}
 .nav_m ul li:hover ul li{} 
