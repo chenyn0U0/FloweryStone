@@ -314,3 +314,21 @@ p {
 	top:170px;
 }
 /*####################a monster's home#######################*/
+#visualisationcontainer{
+
+	height:630px;
+	width:1500px;
+	top:10%;
+	left:99.9%;
+	position:fixed;
+	z-index:10000;
+	background-color: $white;
+	border:10px solid;
+	margin-top: auto;
+	margin-bottom: auto;
+	transition:left 1s;
+
+	&:hover{
+		left:60%;
+	};
+}
