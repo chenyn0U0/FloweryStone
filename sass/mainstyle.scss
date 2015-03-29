@@ -2,6 +2,7 @@
 @import "variables";
 
 /*###################basic font and style########################*/
+body{margin: 0;}
 
 h1 {
 	font-family: Impact;
@@ -321,11 +322,7 @@ p {
 	top:10%;
 	left:99.9%;
 	position:fixed;
-<<<<<<< HEAD
-	z-index:10000;
-=======
 	z-index:5000;
->>>>>>> 14de84e1008e3c06918fc86d8385cdd7cd82ca7f
 	background-color: $white;
 	border:10px solid;
 	margin-top: auto;
@@ -335,8 +332,6 @@ p {
 	&:hover{
 		left:60%;
 	};
-<<<<<<< HEAD
-=======
 }
 
 
@@ -346,5 +341,4 @@ p {
     position: fixed;
     margin: 0;
     width:100%;
->>>>>>> 14de84e1008e3c06918fc86d8385cdd7cd82ca7f
 }

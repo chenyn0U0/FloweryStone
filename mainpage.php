@@ -10,12 +10,15 @@
 	<title>Time Management</title>
 
 	<link rel="stylesheet" href="stylesheets/mainstyle.css">
-
-
-
 	<link href="stylesheets/visualisation.css" rel="stylesheet" type="text/css"/>
-<script src="js/jquery.js"></script>
-<script src="js/d3.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/d3.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#guidemessagecontainer").load("guidemessage.html",function(){showmessageguide(300,200,200,200,500,500,"I am a text oh yeah!~");});
+		});
+	</script>
 
 </head>
 
@@ -101,7 +104,7 @@
 			</div>
 		</div>
 	</div>
-
+<div id="guidemessagecontainer" style="position:fixed;z-index:6000"></div>
 </body>
 </html>
 
@@ -154,7 +157,6 @@
 
 
 	function divscroll(scroll){
-		console.log(scroll);
 		if(ondiv){ 
 			if(scroll=="left1"){
 				var pos = $('#housesdiv').scrollLeft();
