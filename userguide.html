@@ -9,69 +9,19 @@
 
 		 
 	
-.container{
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: auto;
-	float: none;
-	left: 200px;
-	clear: none;
-	top: 120px;
+.iconcontainer{		
+	height:300px;
 	}
 	
 .destxt{
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: auto;
-	margin-bottom: auto;
-	margin-right: auto;
-	top: 350px;
-	left: auto;
-	right: 500px;
-	width: auto;
-	padding-top: auto;
-	padding-right: auto;
-	padding-left: auto;
-	padding-bottom: auto;
-	clear: none;
-	text-align: left;
 	}
 	
 .icon{
-	position:relative;
 	float:left;
-	margin:auto;
-	cursor:pointer;
-	padding:0 auto;
-	display:inline;
-	float:left;
-	-webkit-transition: all 0.7s ease;
-	transition: all 0.7s ease;}
-.icon_special{
-	position: relative;
-	float: left;
-	cursor: pointer;
-	padding: 0 auto;
 	-webkit-transition: all 0.7s ease;
 	transition: all 0.7s ease;
-	margin-bottom: 32px;
-	margin-left: -7px;
-	margin-right: 32px;
-	margin-top: 32px;
-	}
-
-
-
-
-
-
-.textbox:hover {
-opacity:1;
--webkit-transform: translate(0px,150px);
-transform: translate(0px,150px);
 }
+
 
 .text {
 	position: relative;
@@ -90,7 +40,7 @@ transform: translate(0px,150px);
 	width: 230px;
 	height: auto;
 	position: relative;
-	top: -150px;
+	top: 150px;
 	left: 0px;
 	opacity: 0;
 	border-radius: 10px;
@@ -100,6 +50,13 @@ transform: translate(0px,150px);
 	-webkit-transition: all 0.7s ease;
 	transition: all 1s ease;
 	padding-right: 0px;
+}
+
+
+.textbox:hover {
+	opacity:1;
+	-webkit-transform: translate(0px,-150px);
+	transform: translate(0px,-150px);
 }
 
 /*
@@ -151,34 +108,37 @@ h2{
 
 
 <body>
-	<div class="container">
+	<div style="width:960px;margin-left:auto;margin-right:auto;text-align:center">
+	<div><img src="img/loginmooonster.png"/></div>
+
+	<div class="iconcontainer">
 		<div class="icon">
-			<img src="datavisualisation/redmon.png" width="180" height="180">
 			<div class="textbox">
 				<p class="text">Adopt a monster, which is a project you create. Find big projects are difficult to focus on? They are supposed to be broken down into small actionable tasks.</p>
 			</div>
+			<img src="datavisualisation/redmon.png" width="180" height="180">
 		</div>
 	
 
 		<div class="icon">
-			<img src="datavisualisation/greenmon.png" width="180" height="180" alt=""/>
     		<div class="textbox">
     			<p class="text">Each little monster corresponds a small task.  Don't get your little monsters starved. They need you to work hard and get pizzas.</p>
     		</div>
+			<img src="datavisualisation/greenmon.png" width="180" height="180" alt=""/>
     	</div>
 
     	<div class="icon">
-			<img src="datavisualisation/yellowpie.png" width="180" height="180" alt=""/>
     		<div class="textbox">
     			<p class="text">Every pizza represents interval 30 minutes in lengths. Once you have finished a 30-minutes work, you can have a short break.</p>
     		</div>
+			<img src="datavisualisation/yellowpie.png" width="180" height="180" alt=""/>
     	</div>
 
-    	<div class="icon_special">
-			<img src="datavisualisation/bluebadge.png" width="130" height="130" alt=""/ >
+    	<div class="icon">
     		<div class="textbox">
     			<p class="text">You will earn a badge once you have reached a specific accomplishment.</p>
     		</div>
+			<img src="datavisualisation/bluebadge.png" width="130" height="130" alt=""/ >
     	</div>
 </div>
 	
@@ -191,6 +151,8 @@ h2{
  		<a class="link" href="">Adopt a monster now!</a>
  		 
     </div>
+
+</div>
     
 </body>
 
