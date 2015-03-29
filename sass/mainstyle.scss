@@ -11,7 +11,10 @@ h1 {
 
 
 h2 {
-	font-family: "robot-boldIt";
+	font-family: Dosis;
+	font-weight: normal;
+	position: relative;
+	padding: 20px;
 }
 
 h3 {
@@ -46,6 +49,8 @@ p {
 
 
 /*####################general layout#######################*/
+
+
 .headercontainer{
 	position:fixed;
 	top:0px;
@@ -318,13 +323,15 @@ p {
 #visualisationcontainer{
 
 	height:630px;
-	width:1500px;
+	width:80%;
 	top:10%;
-	left:99.9%;
+	left:99.5%;
 	position:fixed;
 	z-index:5000;
 	background-color: $white;
-	border:10px solid;
+	border:25px double;
+	border-radius: 200px;
+	border-color: $red;
 	margin-top: auto;
 	margin-bottom: auto;
 	transition:left 1s;
@@ -341,4 +348,151 @@ p {
     position: fixed;
     margin: 0;
     width:100%;
+}
+
+
+
+
+/*##############################new login###################################*/
+#loginpagecontent{
+.monstertitle{
+	position: relative;
+	top:100px;
+}
+		 
+	
+.iconcontainer{		
+	height:300px;
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	}
+	
+.destxt{
+	}
+	
+.icon{
+	float:left;
+	-webkit-transition: all 0.7s ease;
+	transition: all 0.7s ease;
+	cursor: default;
+	position: relative;
+	top:150px;
+}
+
+.picstyle{
+	height:130px;
+	width:130px;
+}
+
+
+.text {
+	position: relative;
+	margin-top: auto;
+	margin-bottom: auto;
+	font-family: Dosis;
+	text-align: center;
+	padding: 15px;
+}
+
+.textbox {
+	width: 230px;
+	position: relative;
+	top:-120px;
+	left: 0px;
+	opacity: 0;
+	border-radius: 10px;
+	background-color: rgba(183,183,183,0.3);
+	-webkit-box-shadow: 0px 0px 15px 2px rgba(255,255,255,.7);
+	box-shadow: 0px 0px 15px 2px rgba(255,255,255,.7);
+	-webkit-transition: all 0.7s ease;
+	transition: all 1s ease;
+}
+
+
+.textbox:hover {
+	opacity:1;
+	-webkit-transform: translate(0px,-140px);
+	transform: translate(0px,-140px);
+}
+
+
+}
+
+
+
+
+#logininputbox{
+	position: fixed;
+	width:100%;
+	height: 100%;
+	z-index: 2000;
+
+
+#clickcloseblack{
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,0.5);
+	top:0px;
+	left: 0px;
+}
+
+.containerout{
+	margin: auto;
+	margin-top: 50px;
+	height: 600px;
+	width:500px;
+}
+
+.moxingfamily{
+	position: relative;
+	left:260px;
+	top:-60px;
+}
+
+.containerin{
+	background-color: #e7e7df;
+	border: 12px double #12335f;
+	border-radius:25px;
+	position: relative;
+	top:-500px;
+	width: 400px;
+	height: 500px;
+	radius:15px;
+}
+
+.loginboxtext{
+	margin-left:20px;
+}
+
+.logintxt{ 
+     width:85%;
+     margin-right: auto;
+     margin-left:auto;
+     padding:0;
+     background-color: #12335f;
+     border-bottom-style: none;
+     color: white;
+     border-radius:20px;
+     padding: 15px;
+	 }
+
+input.loginbutton{
+	background-color:#e7e7df;
+	border:3px solid #12335f;
+	border-radius:6px;
+	margin-top: 50px;
+	margin-left: 120px;
+	width:100px;
+	height:30px;
+	cursor:pointer;
+	color:#12335f;
+	font-size:20px;
+}
+
+.logintitle{
+	color:#12335f; 
+	margin-left: 10px;
+}
 }

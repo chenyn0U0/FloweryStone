@@ -36,7 +36,23 @@
 
 	<link rel="stylesheet" href="stylesheets/mainstyle.css">
 	<script src="js/jquery.js"></script>
-
+	<link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			<?php
+			if(!isset($_POST['username'])) echo"$('#logininputbox').hide(0).fadeOut(0);";
+			?>
+			
+			$("#startlogin").click(function(){
+				$("#logininputbox").show(0);
+				$("#logininputbox").fadeIn("slow");
+			});
+			$("#clickcloseblack").click(function(){				
+				$("#logininputbox").fadeOut("slow");
+				$("#logininputbox").hide(0);
+			});
+		});
+	</script>
 </head>
 
 
@@ -60,27 +76,79 @@
 	
 	<div class="pagecontextcontainer">
 		<div class="pagecontext">
-			
-			<h3>WORK <b>SMARTER</b>, LIVE <b>BETTER</b></h3>
-			<p>A gamified time-management website that lets individuals divide their long-term goals into small tasks and helps users focus on current task with ease.</p>
-			<img src="img/M1.png" class="loginpic"/><img src="img/M2.png" class="loginpic"/><img src="img/M3.png" class="loginpic"/>
-			<h1>FEED YOUR<br/> MONSTER</h1>
-			<div id="loginbox">
-				<a target="_blank" style="font-size:9px;" href="flowerystonesalpha.pdf">- Flowery Stones Website Description HERE -</a>
-				<p>Please input your username and password here.</p>
-				<form action="" method="POST">
-				<input placeholder="Username" type="text" name="username" />
-				<input placeholder="Password" type="password" name="password" />
-				<?php
-				if(isset($_POST['username'])) echo"<p style='color:red;font-size:12px'>Your username or password is not correct.</p>";
-				?>
-				<br />
-				<input type="submit" name="submit">
-				</form>
+			<div id="loginpagecontent" style="position:relative;top:-80px">
+				<div class="monstertitle"><img src="img/loginmooonster.png" width="330px"/></div>
 
+				<div class="iconcontainer">
+					<div class="icon">
+						<img src="datavisualisation/redmon.png" class="picstyle"/>
+						<div class="textbox">
+							<p class="text">Adopt a monster, which is a project you create. Find big projects are difficult to focus on? They are supposed to be broken down into small actionable tasks.</p>
+						</div>
+					</div>
+				
+
+					<div class="icon">
+						<img src="datavisualisation/greenmon.png" class="picstyle"/>
+			    		<div class="textbox">
+			    			<p class="text">Each little monster corresponds a small task.  Don't get your little monsters starved. They need you to work hard and get pizzas.</p>
+			    		</div>
+			    	</div>
+
+			    	<div class="icon">
+						<img src="datavisualisation/yellowpie.png" class="picstyle"/>
+			    		<div class="textbox">
+			    			<p class="text">Every pizza represents interval 30 minutes in lengths. Once you have finished a 30-minutes work, you can have a short break.</p>
+			    		</div>
+			    	</div>
+
+			    	<div class="icon">
+						<img src="datavisualisation/bluebadge.png" class="picstyle"/ >
+			    		<div class="textbox">
+			    			<p class="text">You will earn a badge once you have reached a specific accomplishment.</p>
+			    		</div>
+			    	</div>
+				</div>
+				
+			    <div class="destxt">
+			 		<h2>We mimic the process of working as adopting monsters and feeding them with pizzas. Don't let your monsters starved.
+			 		</br>
+			 		We make focusing easier. We make you a step closer to your dream.
+			 		</h2>
+
+			 		<a id="startlogin" style="font-size:30px;color:#666666;cursor:pointer">ADOPT A MONSTER NOW!</a>
+			 		 
+			    </div>
 			</div>
-
 		</div>
+	</div>
+
+	<div id="logininputbox">
+		<div id="clickcloseblack"></div>
+		<div class="containerout" >
+			<img src="img/monsfa.png" class="moxingfamily"/>
+
+			<div class="containerin">
+				<div align="center" style="margin-top:35px">
+					<img src="img/loginmooonster.png" width="250" height="90" alt=""/> 
+				</div>
+				<div class="loginboxtext">
+					<form action="" method="POST">
+						<p class="logintitle">Username</p>
+						<input class="logintxt" type="text" name="username"/>
+						</br>
+						<p class="logintitle">Password</p>
+						<input class="logintxt" type="password" name="password"/>
+						<?php
+						if(isset($_POST['username'])) echo"<p style='color:red;font-size:12px'>Your username or password is not correct.</p>";
+						?>
+						<input class="loginbutton" type="submit" value="Login" name="submit"/>
+					</form>
+				</div>
+		
+			</div>
+		</div>
+		
 	</div>
 
 	<div class="footercontainer">
