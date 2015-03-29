@@ -1,9 +1,3 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>login</title>
-<style type="text/css">
 p{color:#12335f; font-family:Myriad Pro；}
 
 .container{
@@ -53,35 +47,7 @@ input.loginbutton{background-color:#e7e7df;
 	height:30px;
 	position:relative;
 	margin-right:30px;
-	cursor:pointer;
+	cursor:hand;
 	color:#12335f;
 	font-family:Myriad Pro;
 	font-size:20px;}
-</style>
-
-</head>
-
-<body>
-
-	<div class="container">
-	</br>
-		<div class="containerout">
-			<div align="center" padding="50px"><img src="img/loginmooonster.png" width="250" height="90" alt=""/> </div>
-
-			<div class="containerin">
-				<p> Email Address</p>
-				<input class="logintxt" type="textfield" >
-				</br>
-				<p>Password</p>
-				<input class="logintxt">
-  				</br></br></br></br>
-				<input class="loginbutton" type="submit" value="Login">
-		
-			</div>
-
-		</div>
-	</div>
-
-
-</body>
-</html>
