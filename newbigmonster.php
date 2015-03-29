@@ -18,6 +18,11 @@
 	<script src="js/jquery.js"></script>
 	<script src="js/d3.min.js"></script>
 	<script src="js/card.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#guidemessagecontainer").load("guidemessage.html",function(){});
+		});
+	</script>
 
 </head>
 
@@ -83,6 +88,7 @@
 		</div>
 	</div>
 
+	<div id="guidemessagecontainer" style="position:fixed;z-index:6000"></div>
 
 </body>
 </html>

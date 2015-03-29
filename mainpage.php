@@ -16,7 +16,7 @@
 
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("#guidemessagecontainer").load("guidemessage.html",function(){showmessageguide(300,200,200,200,500,500,"I am a text oh yeah!~");});
+			$("#guidemessagecontainer").load("guidemessage.html",function(){});
 		});
 	</script>
 
