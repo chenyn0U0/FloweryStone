@@ -3,6 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <title>Untitled Document</title>
+<?php
+    require "getvisualisationdata2.php";
+    
+
+    $data=array(0,0,0,0,0,0,0,0,0,0,0,0);
+
+    $con = getconnection();
+
+    $stmt=runsql($con,"SELECT feedhistory.finishtime FROM s1425535.feedhistory,s1425535.bigmonsters,s1425535.smallmonsters
+         where datediff(curdate(),STR_TO_DATE(feedhistory.finishtime,'%Y-%m-%d %H:%i:%s')) <7 and feedhistory.finished=1 and bigmonsters.id=smallmonsters.bigmonsterID
+            and smallmonsters.id=feedhistory.smallmonsterid and bigmonsters.ownerNum='".$_SESSION['username']."'");
+    $stmt->bind_result($finishtime);
+    // $finisharray;
+    while($stmt->fetch()){
+        // if(isset($finisharray)) $datastring+=$finishtime;
+        // $datastring+=","+$finishtime;
+        $data[floor(date("H",strtotime($finishtime))/2)]++;
+    }
+    $stmt->close();
+    $con->close();
+    // print_r($data);
+    echo "<script>var weekdays=['0:00','2:00','4:00','6:00','8:00','10:00','12:00','14:00','16:00','18:00','20:00','22:00'];var visualdata=[";
+
+    $firsttime=true;
+    foreach ($data as $key=>$value) {
+        if($firsttime){$firsttime=false; echo "[weekdays[".$key."],".($value*0.5).",".$value."]";}
+        else echo ",[weekdays[".$key."],'".($value*0.5)."h',".$value."]";
+    }
+
+    echo "];</script>";
+
+?>
 <style type="text/css" >
 
 

@@ -10,14 +10,17 @@
 	<title>Time Management</title>
 
 	<link rel="stylesheet" href="stylesheets/mainstyle.css">
-	<script src="js/jquery.js"></script>
 
 
 
+	<link href="stylesheets/visualisation.css" rel="stylesheet" type="text/css"/>
+<script src="js/jquery.js"></script>
+<script src="js/d3.min.js"></script>
 
 </head>
 
 <body>
+	<div id="visualisationcontainer"><?php require "visualisation.php"; ?><div>
 	<div class="headercontainer">
 		<div class="header">
 			<div id="logocontainer">
