@@ -235,7 +235,7 @@
 		   		 })
 		    	.attr("title","See my details!")
 		    	.append("img")
-		    	.attr("src",function(d){if(d[0]=="1") return "img/icon_edit.png";})
+		    	.attr("src",function(d){if(d[0]=="1") return "img/icon_view.png";})
 		    	.attr("style","	position: relative;top:10px;margin-right:20px;");;
 
 		    smbuttondiv.append("a")
@@ -244,7 +244,7 @@
 		   		 })
 		    	.attr("title","Start feeding me!")
 		    	.append("img")
-		    	.attr("src",function(d){if(d[0]=="1"&&d[1]==0) return "img/icon_eat.png";})
+		    	.attr("src",function(d){if(d[0]=="1"&&d[1]==0) return "img/icon_feed.png";})
 		    	.attr("style","	position: relative;top:0px;");
 
 		    smbuttondiv.append("a")
