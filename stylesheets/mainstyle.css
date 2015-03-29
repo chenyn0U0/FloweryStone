@@ -332,7 +332,7 @@ p {
   top: 10%;
   left: 99.9%;
   position: fixed;
-  z-index: 10000;
+  z-index: 5000;
   background-color: #ffffff;
   border: 10px solid;
   margin-top: auto;
@@ -342,4 +342,13 @@ p {
 /* line 331, ../sass/mainstyle.scss */
 #visualisationcontainer:hover {
   left: 60%;
+}
+
+/* line 337, ../sass/mainstyle.scss */
+.fourblackdiv {
+  background-color: black;
+  opacity: 0.4;
+  position: fixed;
+  margin: 0;
+  width: 100%;
 }
