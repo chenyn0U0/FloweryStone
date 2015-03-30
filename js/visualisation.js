@@ -268,17 +268,32 @@ function clickontimemode(mode){
     binddata("update");
 }
 
+function clickonchangeday(num){
+    var days=parseInt(withindays.value);
+    if(days+num<=1) withindays.value=1;
+    else withindays.value=days+num;
+    binddata("update");
+}
+
 function updateouputcontenttext(totalnum){
+    var daytext="";
+    if (withindays.value>1) daytext=withindays.value+" DAYS";
+    else daytext=withindays.value+" DAY";
+
     if(ouputcontent.value=="taskfinished"){
-        $("#ouputcontenttext").text(totalnum+" tasks are accomplished during recent "+withindays.value+" days.");
+        $("#ouputcontenttext").text(totalnum+" tasks are accomplished during recent");
+        $("#showhowmanydays").text(daytext);
     }
     if(ouputcontent.value=="pieconsumption"){
-        $("#ouputcontenttext").text(totalnum+" pies are consumed during recent "+withindays.value+" days.");
+        $("#ouputcontenttext").text(totalnum+" pies are consumed during recent");
+        $("#showhowmanydays").text(daytext);
     }
     if(ouputcontent.value=="projectcreated"){
-        $("#ouputcontenttext").text(totalnum+" projects are created during recent "+withindays.value+" days.");
+        $("#ouputcontenttext").text(totalnum+" projects are created during recent");
+        $("#showhowmanydays").text(daytext);
     }
     if(ouputcontent.value=="piedroped"){
-        $("#ouputcontenttext").text(totalnum+" times dropping tasks during recent "+withindays.value+" days.");
+        $("#ouputcontenttext").text(totalnum+" times dropping tasks during recent");
+        $("#showhowmanydays").text(daytext);
     }
 }

@@ -3,6 +3,16 @@
 
 	checklogstatus();
 	if(isset($_POST["thefunction"])){
+		if($_POST["thefunction"]=="updateusermessageboxinfo"){
+			$con=getconnection();
+			if($_POST["mode"]!="createnewproject"&&$_POST["mode"]!="backtomainpage"&&$_POST["mode"]!="deletefinishproject"&&
+				$_POST["mode"]!="createnewtask"&&$_POST["mode"]!="droptask") exit; 
+			$stmt=runsql($con,"UPDATE s1425535.user SET ".$_POST["mode"]."=1 WHERE `id`='".$_SESSION["username"]."';");
+			$stmt->close();
+			$con->close();	
+		}
+
+
 		if($_POST["thefunction"]=="newfeed"){
 			$con=getconnection();
 			if(!sqlselectcheck($con,"SELECT * FROM s1425535.bigmonsters,s1425535.smallmonsters WHERE bigmonsters.id=smallmonsters.bigmonsterID and smallmonsters.id=".$_POST["smid"]." and bigmonsters.ownerNum=".$_SESSION['username'])) exit; 

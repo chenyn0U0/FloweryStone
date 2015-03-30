@@ -65,7 +65,7 @@
 					<img src="img/logo.png">
 				</div>
 				<div id="logotext">
-					<h1 style="margin-bottom:5px"><b>M</b>ami <b>M</b>onster</h1>
+					<h1 style="margin-bottom:5px"><b>M</b>ooonster</h1>
 					<p style="color:white;margin-top:5px">WORK <b>SMART</b> LIVE <b>BETTER</b></p>
 				</div>
 			</div>
@@ -116,7 +116,7 @@
 			 		We make focusing easier. We make you a step closer to your dream.
 			 		</h2>
 
-			 		<a id="startlogin" style="font-size:30px;color:#666666;cursor:pointer">ADOPT A MONSTER NOW!</a>
+			 		<a id="startlogin" style="font-size:30px;color:#666666;cursor:pointer">LOGIN NOW!</a>
 			 		 
 			    </div>
 			</div>
@@ -129,7 +129,7 @@
 			<img src="img/monsfa.png" class="moxingfamily"/>
 
 			<div class="containerin">
-				<div align="center" style="margin-top:35px">
+				<div align="center" style="margin-top:40px">
 					<img src="img/loginmooonster.png" width="250" height="90" alt=""/> 
 				</div>
 				<div class="loginboxtext">
@@ -139,10 +139,11 @@
 						</br>
 						<p class="logintitle">Password</p>
 						<input class="logintxt" type="password" name="password"/>
-						<?php
-						if(isset($_POST['username'])) echo"<p style='color:red;font-size:12px'>Your username or password is not correct.</p>";
-						?>
+						
 						<input class="loginbutton" type="submit" value="Login" name="submit"/>
+						<?php
+						if(isset($_POST['username'])) echo"<p style='position:relative;top:-105px;text-align:center;color:black;font-size:12px;margin-right:30px'>* Your username or password is not correct.</p>";
+						?>
 					</form>
 				</div>
 		

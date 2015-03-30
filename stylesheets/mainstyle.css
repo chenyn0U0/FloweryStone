@@ -22,27 +22,28 @@ h2 {
 h3 {
   font-weight: normal;
   font-family: Verdana;
-  font-size: 26px;
+  font-size: 24px;
+  margin: 15px;
 }
 
-/* line 26, ../sass/mainstyle.scss */
+/* line 27, ../sass/mainstyle.scss */
 h4 {
   font-family: "robot-thin";
 }
 
-/* line 30, ../sass/mainstyle.scss */
+/* line 31, ../sass/mainstyle.scss */
 a {
   text-decoration: none;
   color: #000000;
   font-family: Verdana;
   font-size: 18px;
 }
-/* line 35, ../sass/mainstyle.scss */
+/* line 36, ../sass/mainstyle.scss */
 a:hover {
   color: #c3060c;
 }
 
-/* line 40, ../sass/mainstyle.scss */
+/* line 41, ../sass/mainstyle.scss */
 p {
   font-family: Verdana;
   font-size: 18px;
@@ -50,27 +51,27 @@ p {
 
 /*###################basic font and style########################*/
 /*####################general layout#######################*/
-/* line 54, ../sass/mainstyle.scss */
+/* line 55, ../sass/mainstyle.scss */
 .headercontainer {
   position: fixed;
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 100px;
-  background-color: #c45559;
+  height: 120px;
+  background-color: #ee1b22;
   /*header color */
 }
 
-/* line 63, ../sass/mainstyle.scss */
+/* line 64, ../sass/mainstyle.scss */
 .header {
   margin: 0 auto;
   width: 70%;
   height: 100%;
-  background-color: #c45559;
+  background-color: #ee1b22;
   z-index: 1000;
 }
 
-/* line 72, ../sass/mainstyle.scss */
+/* line 73, ../sass/mainstyle.scss */
 .pagecontext {
   margin: 0 auto;
   width: 70%;
@@ -81,21 +82,21 @@ p {
   padding: 40px;
 }
 
-/* line 82, ../sass/mainstyle.scss */
+/* line 83, ../sass/mainstyle.scss */
 .pagecontextcontainer {
   position: fixed;
-  top: 100px;
+  top: 120px;
   width: 100%;
   height: 100%;
 }
 
-/* line 89, ../sass/mainstyle.scss */
+/* line 90, ../sass/mainstyle.scss */
 .footer {
   margin: 0 auto;
-  background-color: #c45559;
+  background-color: #ee1b22;
 }
 
-/* line 94, ../sass/mainstyle.scss */
+/* line 95, ../sass/mainstyle.scss */
 .loginpic {
   margin: 20px;
   margin-left: 50px;
@@ -103,43 +104,43 @@ p {
   width: 100px;
 }
 
-/* line 101, ../sass/mainstyle.scss */
+/* line 102, ../sass/mainstyle.scss */
 #logocontainer {
   margin-top: 10px;
 }
 
-/* line 105, ../sass/mainstyle.scss */
+/* line 106, ../sass/mainstyle.scss */
 #logo {
   margin: 20px;
   float: left;
 }
 
-/* line 110, ../sass/mainstyle.scss */
+/* line 111, ../sass/mainstyle.scss */
 #logotext {
   float: left;
   text-align: center;
 }
 
-/* line 115, ../sass/mainstyle.scss */
+/* line 116, ../sass/mainstyle.scss */
 #userstatus {
   float: right;
   margin-top: 30px;
   vertical-align: middle;
 }
 
-/* line 122, ../sass/mainstyle.scss */
+/* line 123, ../sass/mainstyle.scss */
 .footercontainer {
   position: fixed;
   bottom: 0px;
   left: 0px;
   width: 100%;
   height: 100px;
-  background-color: #c45559;
+  background-color: #ee1b22;
   /*header color */
   z-index: 1000;
 }
 
-/* line 132, ../sass/mainstyle.scss */
+/* line 133, ../sass/mainstyle.scss */
 .footer {
   margin: 0 auto;
   width: 70%;
@@ -147,14 +148,14 @@ p {
   text-align: right;
 }
 
-/* line 139, ../sass/mainstyle.scss */
+/* line 140, ../sass/mainstyle.scss */
 #teamlogo {
   margin: 20px;
 }
 
 /*####################general layout#######################*/
 /*###################main page house list########################*/
-/* line 150, ../sass/mainstyle.scss */
+/* line 151, ../sass/mainstyle.scss */
 #housesdiv {
   overflow: hidden;
   width: 100%;
@@ -162,27 +163,27 @@ p {
   vertical-align: middle;
 }
 
-/* line 158, ../sass/mainstyle.scss */
+/* line 159, ../sass/mainstyle.scss */
 #choosemonsdiv {
   height: 250px;
   overflow: hidden;
 }
 
-/* line 163, ../sass/mainstyle.scss */
+/* line 164, ../sass/mainstyle.scss */
 .left {
   position: relative;
   top: 0;
   height: 750px;
 }
 
-/* line 169, ../sass/mainstyle.scss */
+/* line 170, ../sass/mainstyle.scss */
 .none {
   height: 750px;
   position: relative;
   top: -250px;
 }
 
-/* line 175, ../sass/mainstyle.scss */
+/* line 176, ../sass/mainstyle.scss */
 .right {
   height: 750px;
   position: relative;
@@ -191,9 +192,9 @@ p {
 
 /*###################main page house list########################*/
 /*####################a monster's home#######################*/
-/* line 191, ../sass/mainstyle.scss */
+/* line 192, ../sass/mainstyle.scss */
 #adoptme {
-  background-color: #c45559;
+  background-color: #ee1b22;
   border: 1px solid;
   border-color: #000000;
   border-radius: 10px;
@@ -205,7 +206,7 @@ p {
   left: 180px;
 }
 
-/* line 204, ../sass/mainstyle.scss */
+/* line 205, ../sass/mainstyle.scss */
 #monsterhome {
   bottom: 100px;
   position: absolute;
@@ -214,7 +215,7 @@ p {
   margin-bottom: 60px;
 }
 
-/* line 212, ../sass/mainstyle.scss */
+/* line 213, ../sass/mainstyle.scss */
 #lefthomediv {
   width: 350px;
   padding-bottom: 100px;
@@ -224,7 +225,7 @@ p {
   position: absolute;
 }
 
-/* line 222, ../sass/mainstyle.scss */
+/* line 223, ../sass/mainstyle.scss */
 #bigmonster {
   position: fixed;
   left: 50%;
@@ -234,7 +235,7 @@ p {
   margin: 0 0 20px 75px;
 }
 
-/* line 231, ../sass/mainstyle.scss */
+/* line 232, ../sass/mainstyle.scss */
 .smallmonsterposition {
   position: fixed;
   left: 50%;
@@ -244,14 +245,14 @@ p {
   margin: 0 0 20px 100px;
 }
 
-/* line 240, ../sass/mainstyle.scss */
+/* line 241, ../sass/mainstyle.scss */
 #newbigmonsterform {
   position: relative;
   top: -600px;
   left: -250px;
 }
 
-/* line 246, ../sass/mainstyle.scss */
+/* line 247, ../sass/mainstyle.scss */
 .bminputbox {
   width: 300px;
   padding: 10px;
@@ -260,7 +261,7 @@ p {
   outline: none;
 }
 
-/* line 254, ../sass/mainstyle.scss */
+/* line 255, ../sass/mainstyle.scss */
 .black {
   position: fixed;
   top: 0px;
@@ -272,7 +273,7 @@ p {
   z-index: 2000;
 }
 
-/* line 265, ../sass/mainstyle.scss */
+/* line 266, ../sass/mainstyle.scss */
 #cardcontainer {
   position: fixed;
   /*background-color: $red;*/
@@ -284,7 +285,7 @@ p {
   /*border-color: $black;*/
 }
 
-/* line 278, ../sass/mainstyle.scss */
+/* line 279, ../sass/mainstyle.scss */
 .smbuttondiv {
   position: relative;
   height: 150px;
@@ -294,19 +295,19 @@ p {
   transition: opacity 0.5s,top 0.5s;
   cursor: default;
 }
-/* line 288, ../sass/mainstyle.scss */
+/* line 289, ../sass/mainstyle.scss */
 .smbuttondiv:hover {
   position: relative;
   top: 115px;
   opacity: 1;
 }
 
-/* line 295, ../sass/mainstyle.scss */
+/* line 296, ../sass/mainstyle.scss */
 .addnew {
   margin-top: 150px;
 }
 
-/* line 299, ../sass/mainstyle.scss */
+/* line 300, ../sass/mainstyle.scss */
 .bmbuttondiv {
   position: relative;
   height: 250px;
@@ -318,7 +319,7 @@ p {
   top: -250px;
   left: 20px;
 }
-/* line 310, ../sass/mainstyle.scss */
+/* line 311, ../sass/mainstyle.scss */
 .bmbuttondiv:hover {
   position: relative;
   width: 210px;
@@ -326,14 +327,14 @@ p {
   opacity: 1;
 }
 
-/* line 318, ../sass/mainstyle.scss */
+/* line 319, ../sass/mainstyle.scss */
 .bgbuttons {
   position: relative;
   top: 170px;
 }
 
 /*####################a monster's home#######################*/
-/* line 323, ../sass/mainstyle.scss */
+/* line 324, ../sass/mainstyle.scss */
 #visualisationcontainer {
   height: 630px;
   width: 80%;
@@ -344,17 +345,17 @@ p {
   background-color: #ffffff;
   border: 25px double;
   border-radius: 200px;
-  border-color: #c45559;
+  border-color: #ee1b22;
   margin-top: auto;
   margin-bottom: auto;
   transition: left 1s;
 }
-/* line 339, ../sass/mainstyle.scss */
+/* line 340, ../sass/mainstyle.scss */
 #visualisationcontainer:hover {
   left: 60%;
 }
 
-/* line 345, ../sass/mainstyle.scss */
+/* line 346, ../sass/mainstyle.scss */
 .fourblackdiv {
   background-color: black;
   opacity: 0.4;
@@ -364,19 +365,23 @@ p {
 }
 
 /*##############################new login###################################*/
-/* line 358, ../sass/mainstyle.scss */
+/* line 359, ../sass/mainstyle.scss */
 #loginpagecontent .monstertitle {
   position: relative;
   top: 100px;
 }
-/* line 364, ../sass/mainstyle.scss */
+/* line 365, ../sass/mainstyle.scss */
 #loginpagecontent .iconcontainer {
   height: 300px;
   width: 960px;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 374, ../sass/mainstyle.scss */
+/* line 372, ../sass/mainstyle.scss */
+#loginpagecontent .destxt {
+  clear: left;
+}
+/* line 376, ../sass/mainstyle.scss */
 #loginpagecontent .icon {
   float: left;
   -webkit-transition: all 0.7s ease;
@@ -385,21 +390,21 @@ p {
   position: relative;
   top: 150px;
 }
-/* line 383, ../sass/mainstyle.scss */
+/* line 385, ../sass/mainstyle.scss */
 #loginpagecontent .picstyle {
   height: 130px;
   width: 130px;
 }
-/* line 389, ../sass/mainstyle.scss */
+/* line 391, ../sass/mainstyle.scss */
 #loginpagecontent .text {
   position: relative;
   margin-top: auto;
   margin-bottom: auto;
-  font-family: Dosis;
   text-align: center;
   padding: 15px;
+  font-family: Dosis;
 }
-/* line 398, ../sass/mainstyle.scss */
+/* line 401, ../sass/mainstyle.scss */
 #loginpagecontent .textbox {
   width: 230px;
   position: relative;
@@ -407,27 +412,27 @@ p {
   left: 0px;
   opacity: 0;
   border-radius: 10px;
-  background-color: rgba(183, 183, 183, 0.3);
+  background-color: rgba(183, 183, 183, 0.6);
   -webkit-box-shadow: 0px 0px 15px 2px rgba(255, 255, 255, 0.7);
   box-shadow: 0px 0px 15px 2px rgba(255, 255, 255, 0.7);
   -webkit-transition: all 0.7s ease;
   transition: all 1s ease;
 }
-/* line 413, ../sass/mainstyle.scss */
+/* line 416, ../sass/mainstyle.scss */
 #loginpagecontent .textbox:hover {
   opacity: 1;
   -webkit-transform: translate(0px, -140px);
   transform: translate(0px, -140px);
 }
 
-/* line 425, ../sass/mainstyle.scss */
+/* line 428, ../sass/mainstyle.scss */
 #logininputbox {
   position: fixed;
   width: 100%;
   height: 100%;
   z-index: 2000;
 }
-/* line 432, ../sass/mainstyle.scss */
+/* line 435, ../sass/mainstyle.scss */
 #logininputbox #clickcloseblack {
   position: fixed;
   height: 100%;
@@ -436,23 +441,23 @@ p {
   top: 0px;
   left: 0px;
 }
-/* line 441, ../sass/mainstyle.scss */
+/* line 444, ../sass/mainstyle.scss */
 #logininputbox .containerout {
   margin: auto;
   margin-top: 50px;
   height: 600px;
   width: 500px;
 }
-/* line 448, ../sass/mainstyle.scss */
+/* line 451, ../sass/mainstyle.scss */
 #logininputbox .moxingfamily {
   position: relative;
   left: 260px;
   top: -60px;
 }
-/* line 454, ../sass/mainstyle.scss */
+/* line 457, ../sass/mainstyle.scss */
 #logininputbox .containerin {
-  background-color: #e7e7df;
-  border: 12px double #12335f;
+  background-color: #ee1b22;
+  border: 10px solid #000000;
   border-radius: 25px;
   position: relative;
   top: -500px;
@@ -460,37 +465,37 @@ p {
   height: 500px;
   radius: 15px;
 }
-/* line 465, ../sass/mainstyle.scss */
+/* line 468, ../sass/mainstyle.scss */
 #logininputbox .loginboxtext {
   margin-left: 20px;
 }
-/* line 469, ../sass/mainstyle.scss */
+/* line 472, ../sass/mainstyle.scss */
 #logininputbox .logintxt {
   width: 85%;
   margin-right: auto;
   margin-left: auto;
   padding: 0;
-  background-color: #12335f;
+  background-color: #ffffff;
   border-bottom-style: none;
-  color: white;
   border-radius: 20px;
-  padding: 15px;
+  padding: 10px;
 }
-/* line 481, ../sass/mainstyle.scss */
+/* line 483, ../sass/mainstyle.scss */
 #logininputbox input.loginbutton {
-  background-color: #e7e7df;
-  border: 3px solid #12335f;
+  background-color: black;
+  border: 1px solid white;
   border-radius: 6px;
-  margin-top: 50px;
+  margin-top: 80px;
   margin-left: 120px;
   width: 100px;
   height: 30px;
   cursor: pointer;
-  color: #12335f;
+  color: white;
   font-size: 20px;
 }
-/* line 494, ../sass/mainstyle.scss */
+/* line 496, ../sass/mainstyle.scss */
 #logininputbox .logintitle {
-  color: #12335f;
+  color: #ffffff;
   margin-left: 10px;
+  font-size: 20px;
 }

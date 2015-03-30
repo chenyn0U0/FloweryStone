@@ -20,7 +20,8 @@ h2 {
 h3 {
 	font-weight: normal;
 	font-family: Verdana;
-	font-size: 26px;
+	font-size: 24px;
+	margin: 15px;
 }
 
 h4 {
@@ -369,6 +370,7 @@ p {
 	}
 	
 .destxt{
+	clear: left;
 	}
 	
 .icon{
@@ -390,9 +392,10 @@ p {
 	position: relative;
 	margin-top: auto;
 	margin-bottom: auto;
-	font-family: Dosis;
 	text-align: center;
 	padding: 15px;
+
+	font-family: Dosis;
 }
 
 .textbox {
@@ -402,7 +405,7 @@ p {
 	left: 0px;
 	opacity: 0;
 	border-radius: 10px;
-	background-color: rgba(183,183,183,0.3);
+	background-color: rgba(183,183,183,0.6);
 	-webkit-box-shadow: 0px 0px 15px 2px rgba(255,255,255,.7);
 	box-shadow: 0px 0px 15px 2px rgba(255,255,255,.7);
 	-webkit-transition: all 0.7s ease;
@@ -452,8 +455,8 @@ p {
 }
 
 .containerin{
-	background-color: #e7e7df;
-	border: 12px double #12335f;
+	background-color: $red;
+	border: 10px solid $black;
 	border-radius:25px;
 	position: relative;
 	top:-500px;
@@ -471,28 +474,28 @@ p {
      margin-right: auto;
      margin-left:auto;
      padding:0;
-     background-color: #12335f;
+     background-color: $white;
      border-bottom-style: none;
-     color: white;
      border-radius:20px;
-     padding: 15px;
+     padding: 10px;
 	 }
 
 input.loginbutton{
-	background-color:#e7e7df;
-	border:3px solid #12335f;
+	background-color:black;
+	border:1px solid white;
 	border-radius:6px;
-	margin-top: 50px;
+	margin-top: 80px;
 	margin-left: 120px;
 	width:100px;
 	height:30px;
 	cursor:pointer;
-	color:#12335f;
+	color:white;
 	font-size:20px;
 }
 
 .logintitle{
-	color:#12335f; 
+	color:$white; 
 	margin-left: 10px;
+	font-size: 20px;
 }
 }

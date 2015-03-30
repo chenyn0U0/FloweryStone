@@ -23,7 +23,6 @@
 				//设置倒计时↓
 
 				clock=setInterval("everyseconds(t1,t2,t3,t4,t5,t6)", 1000);
-				alert("Mission Start!❤ ");
 			}
 		}
 
@@ -202,7 +201,10 @@
 		      //   .attr("href",function(d){
 		      //   	return "javascript:clickonsm('"+d+"')";
 		   		 // })
-		        .attr("title",function(d){return d[3];});
+		        .attr("title",function(d){return d[3];})
+		    	.attr("id",function(d){
+		    		if(d[0]==0)	return "addnewsmondiv";
+		    	});
 
 
 
@@ -333,6 +335,9 @@
 			if(timer==-1) {
 				timer=t1;
 			}
+			if(timer==t1-1){
+	    		if(showdroptask) showguide("droptask");
+	    	}
 
 			if(timer<=t1&&timer>0){
 				if(timer==t1||timer==t2||timer==t3||timer==t4||timer==t5||timer==t6||timer==0){
@@ -375,6 +380,7 @@
 
 
 	    function getpizzapicsrc(time,t1,t2,t3,t4,t5,t6){
+
 	    	if(time==t1){
 	    		$("#haveaten").text("0 piece");
 	    		$("#timepie").attr("src","img/Newadd/timepie.png");

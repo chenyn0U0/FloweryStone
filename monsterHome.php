@@ -9,8 +9,12 @@
 		header('Location: login.php');
 	}
 
-
-
+	$con =getconnection();
+	$stmt=runsql($con,"SELECT deletefinishproject,createnewtask,droptask FROM s1425535.user WHERE username='".$_SESSION["username"]."'");
+	$stmt->bind_result($deletefinishproject,$createnewtask,$droptask);
+	$stmt->fetch();
+	$stmt->close();
+	$con->close();
 
 ?>
 
@@ -28,8 +32,18 @@
 	<script src="js/card.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("#guidemessagecontainer").load("guidemessage.html",function(){});
+			$("#guidemessagecontainer").load("guidemessage.html",function(){
+				<?php
+					if($deletefinishproject==0) echo "showguide('deletefinishproject');";
+					if($deletefinishproject!=0&&$createnewtask==0) echo "showguide('createnewtask');";
+				?>
+			});
 		});
+		<?php 
+			if($droptask==0) echo "var showdroptask=true;";
+			else echo "var showdroptask=false;";
+			if($deletefinishproject==0) echo "var next='createnewtask';";
+		?>
 	</script>
 
 </head>
@@ -179,7 +193,7 @@
 					<img src="img/logo.png">
 				</div>
 				<div id="logotext">
-					<h1 style="margin-bottom:5px"><b>M</b>ami <b>M</b>onster</h1>
+					<h1 style="margin-bottom:5px"><b>Mooonster</h1>
 					<p style="color:white;margin-top:5px">WORK <b>SMART</b> LIVE <b>BETTER</b></p>
 				</div>
 			</div>
@@ -232,10 +246,10 @@
 
 						$stmt2->close();
 					?>
-					<img src=<?php echo "'".$bigsrc."'" ?> style="height:250px"/>
+					<img src=<?php echo "'".$bigsrc."'" ?> id="bigmonsterpic" style="height:250px"/>
 					<div class="bmbuttondiv">
-						<a href="javascript:clickonbmfinish()"><img src="img/tick.png" class="bgbuttons" style="float:left"/></a>
-						<a href="javascript:clickonbmdelete()"><img src="img/cross.png" class="bgbuttons" style="float:right"/></a>
+						<a href="javascript:clickonbmfinish()" title="I am complished! :)"><img src="img/tick.png" class="bgbuttons" style="float:left"/></a>
+						<a href="javascript:clickonbmdelete()" title="Drop me ;("><img src="img/cross.png" class="bgbuttons" style="float:right"/></a>
 					</div>
 				</div>
 				<div id="smallmonsterscontainer">

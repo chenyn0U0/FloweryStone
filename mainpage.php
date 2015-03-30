@@ -1,6 +1,13 @@
 <?php 
 	require "phpfunction.php";
 	checklogstatus();
+
+	$con = getconnection();
+
+	$stmt=runsql($con,"SELECT createnewproject FROM s1425535.user WHERE username='".$_SESSION["username"]."'");
+	$stmt->bind_result($createnewproject);
+	$stmt->fetch();
+	$stmt->close();
 ?>
 
 <!DOCTYPE html>  
@@ -16,7 +23,11 @@
 
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("#guidemessagecontainer").load("guidemessage.html",function(){});
+			$("#guidemessagecontainer").load("guidemessage.html",function(){
+				<?php
+					if($createnewproject==0) echo "showguide('createnewproject');";
+				?>
+			});
 		});
 	</script>
 
@@ -31,7 +42,7 @@
 					<img src="img/logo.png">
 				</div>
 				<div id="logotext">
-					<h1 style="margin-bottom:5px"><b>M</b>ami <b>M</b>onster</h1>
+					<h1 style="margin-bottom:5px"><b>M</b>ooonster</h1>
 					<p style="color:white;margin-top:5px">WORK <b>SMART</b> LIVE <b>BETTER</b></p>
 				</div>
 			</div>
@@ -48,7 +59,6 @@
 
 <?php
 
-	$con = getconnection();
 
 
 	$stmt=runsql($con,"SELECT bigmonsters.id,bigmonsters.description,bigmonsters.name,houseinfo.housepic FROM s1425535.bigmonsters , s1425535.houseinfo where bigmonsters.finished=0 and bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum=".$_SESSION['username'].";");

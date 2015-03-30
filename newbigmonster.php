@@ -3,6 +3,12 @@
 	require "phpfunction.php";
 	checklogstatus();
 
+	$con = getconnection();
+
+	$stmt=runsql($con,"SELECT backtomainpage FROM s1425535.user WHERE username='".$_SESSION["username"]."'");
+	$stmt->bind_result($backtomainpage);
+	$stmt->fetch();
+	$stmt->close();
 
 ?>
 
@@ -20,7 +26,12 @@
 	<script src="js/card.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("#guidemessagecontainer").load("guidemessage.html",function(){});
+			$("#guidemessagecontainer").load("guidemessage.html",function(){
+			<?php
+				if($backtomainpage==0) echo "showguide('backtomainpage');";
+			?>
+			});
+			
 		});
 	</script>
 
@@ -72,7 +83,7 @@
 			<div id="lefthomediv">
 				<div id='monsterhome'>
 					<?php
-							printf("<h1>%s </h1><h3>'s HOME</h3><p>%s</p><a href='mainpage.php' title='Go back to see other monsters.''><img src='%s'></img><a>","New project","Adopt me please!","img/house/house1.png"); 
+							printf("<h1>%s </h1><h3>'s HOME</h3><p>%s</p><a href='mainpage.php' title='Go back to see other monsters.''><img id='housepic' src='%s'></img><a>","New project","Adopt me please!","img/house/house1.png"); 
 				?>	
 				</div>
 			</div>
