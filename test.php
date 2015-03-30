@@ -42,7 +42,7 @@ function addpic(){
 </body>
 </html> -->
 
-
+<!-- 
 <html>  
 <head>  
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">  
@@ -103,4 +103,36 @@ function addpic(){
     margin: 0;
     width:100%;
 }
-</style>
+</style> -->
+
+
+
+
+        <div class="badge">
+            <img src="datavisualisation/clock.png" width="50" height="50" alt=""/>
+        </div>
+        <div>
+            <p class="badge_explain"> <b>time badge</b> You have worked more than 60 hours during the last month</p>
+        </div>
+
+        <div class="badge">
+            <img src="datavisualisation/earlybird.png" width="50" height="50" alt=""/>
+         </div>
+        <div>
+            <p class="badge_explain"> <b>early bird badge</b> You spend more time on working in the daytime</p>
+        </div>
+
+        <div class="badge">
+            <img src="datavisualisation/nightowl.png"  width="50" height="50" alt=""/>
+         </div>
+        <div>
+            <p class="badge_explain"> <b>night owl badge</b> You spend more time on working at night</p>
+        </div>
+
+
+        <div class="badge">
+            <img src="datavisualisation/champion.png"  width="50" height="50" alt=""/>
+        </div>
+        <div>
+            <p class="badge_explain"> <b>award badge</b> You have finished three big projects in one month</p></div>
+        </div>

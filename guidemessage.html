@@ -47,7 +47,9 @@
             showmessageguide($("#addnewsmondiv").offset().left,$("#addnewsmondiv").offset().top+140,150,180,1000,700, "Move your mouse on a little monster to view information of the task, to start working in continuous 30 minutes, or to delete the task.");
         }
 
-        $.post("saveworkdata.php", {thefunction:"updateusermessageboxinfo",mode:mode});
+        $.post("saveworkdata.php", {thefunction:"updateusermessageboxinfo",mode:mode},function(data){
+            console.log(data);
+        });
     }
 </script>   
 

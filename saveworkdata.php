@@ -4,10 +4,12 @@
 	checklogstatus();
 	if(isset($_POST["thefunction"])){
 		if($_POST["thefunction"]=="updateusermessageboxinfo"){
+			print_r($_POST);
 			$con=getconnection();
+
 			if($_POST["mode"]!="createnewproject"&&$_POST["mode"]!="backtomainpage"&&$_POST["mode"]!="deletefinishproject"&&
 				$_POST["mode"]!="createnewtask"&&$_POST["mode"]!="droptask") exit; 
-			$stmt=runsql($con,"UPDATE s1425535.user SET ".$_POST["mode"]."=1 WHERE `id`='".$_SESSION["username"]."';");
+			$stmt=runsql($con,"UPDATE s1425535.user SET ".$_POST["mode"]."=1 WHERE username='".$_SESSION["username"]."';");
 			$stmt->close();
 			$con->close();	
 		}
