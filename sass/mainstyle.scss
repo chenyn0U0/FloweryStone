@@ -90,6 +90,115 @@ p {
 .footer{
 	margin: 0 auto;
 	background-color:$red;
+
+	#monsfinished{
+		float: left;
+	}
+
+	.footermonsters{
+		height: 14%;
+	}
+
+	#taskover10{
+		position: fixed;
+		top:70%;
+		left:70%;
+	}
+
+	#taskover20{
+		position: fixed;
+		top:$header-height;
+		left:30%;
+	}
+
+	#footerhardworking{
+		position: fixed;
+		bottom:$footer-height;
+		top:auto;
+		right:8%;
+		left: auto;
+	}
+
+	#footerabandon{
+		position: fixed;
+		top:37px;
+		left:55%;
+	}
+
+	#footermonshouse{
+		position: fixed;
+		bottom:$footer-height+(-10);
+		top:auto;
+		left:20%;
+	}
+	#footerp10{
+		position: fixed;
+		bottom:144+(-$footer-height);
+		top:auto;
+
+		left: 8%;
+		z-index: 1;
+	}
+	#multi10{
+		display: inline;
+		position: relative;
+		top:10px;
+		left: 0px;
+		font-size: 33px;
+		font-weight: lighter;
+		&:hover{
+			color:black;
+		}
+	}
+	#footerp3{
+		position: fixed;
+		bottom:160+(-$footer-height);
+		top:auto;
+
+		left: 63%;
+	}
+	#footerp2{
+		position: fixed;
+		bottom:0px;
+		top:auto;
+		left: 40%;
+	}
+	#footerp1{
+		position: fixed;
+		bottom:130+(-$footer-height);
+		top:auto;
+		left: 28%;
+	}
+	#footerp5{
+		position: fixed;
+		bottom:0px;
+		left: auto;
+		right: 10px;
+	}
+
+/*	#footerpmorethan10{
+		width: 100px;
+		position: fixed;
+		bottom:144+(-$footer-height);
+		top:auto;
+
+		left: 30%;
+		z-index: 1;
+	}*/
+
+	#clock{
+		height: 100px;
+		position: fixed;
+		right: 60%;
+		top:65%;
+	}
+
+	#champion{
+		height: 100px;
+		position: fixed;
+		left: 60%;
+		top:65%;
+	}
 }
 
 .loginpic{
@@ -113,11 +222,6 @@ p {
 	text-align: center;
 }
 
-#userstatus{
-	float: right;
-	margin-top: 30px;
-	vertical-align:middle;
-}
 
 
 .footercontainer{
@@ -498,4 +602,50 @@ input.loginbutton{
 	margin-left: 10px;
 	font-size: 20px;
 }
+}
+
+/*achivements*/
+#userstatus{
+
+	float: right;
+	width:300px;
+
+	#achievementsdiv{
+		float: right;
+	}
+
+	.achievementslogo{
+		width:100px;
+		height: 100px;
+	}
+	.badge_explain{
+	}
+
+	.badge{
+		float: right;
+		margin-left: 20px;
+		margin-right: 20px;
+		width: 100px;
+	}
+	#userbox{
+		float: right;
+	}
+
+	.charalogo{
+		width: 80px;
+		height: 80px;
+	}
+
+	#userinfo{
+		float: left;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	#usertile{
+		float: left;
+		margin-left: 20px;
+		margin-right: 20px;
+		margin-top:10px;
+	}
 }

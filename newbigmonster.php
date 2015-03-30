@@ -2,7 +2,7 @@
 
 	require "phpfunction.php";
 	checklogstatus();
-
+	$thispage="newbigmonster";
 	$con = getconnection();
 
 	$stmt=runsql($con,"SELECT backtomainpage FROM s1425535.user WHERE username='".$_SESSION["username"]."'");
@@ -91,12 +91,7 @@
 	</div>
 
 	<div class="footercontainer">
-		<div class="footer">
-			<div id="teamlogo">
-				<img src="img/team.png">
-			</div>
-			</div>
-		</div>
+		<?php require "footer.php"; ?>
 	</div>
 
 	<div id="guidemessagecontainer" style="position:fixed;z-index:6000"></div>

@@ -1,6 +1,7 @@
 <?php 
 	require "phpfunction.php";
 	checklogstatus();
+	$thispage="mainpage";
 
 	$con = getconnection();
 
@@ -47,10 +48,7 @@
 				</div>
 			</div>
 			<div id="userstatus">
-				<a href="javascript:logout()"><img src="img/user-m.png"/> <b><?php echo $_SESSION['username']; ?></b></a>
-				<form action="" method="POST">
-				<input style="display:none" type="submit" name="logout" id="logout">
-				</form>
+				<?php require "userinfo.php" ?>
 			</div>
 		</div>
 	</div>
@@ -107,12 +105,7 @@
 	</div>
 
 	<div class="footercontainer">
-		<div class="footer">
-			<div id="teamlogo">
-				<img src="img/team.png"/>
-			</div>
-			</div>
-		</div>
+		<?php require "footer.php"; ?>
 	</div>
 <div id="guidemessagecontainer" style="position:fixed;z-index:6000"></div>
 </body>
