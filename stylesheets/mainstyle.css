@@ -198,14 +198,14 @@ p {
 .footer #clock {
   height: 100px;
   position: fixed;
-  right: 60%;
+  left: 60%;
   top: 65%;
 }
 /* line 196, ../sass/mainstyle.scss */
 .footer #champion {
   height: 100px;
   position: fixed;
-  left: 60%;
+  right: 60%;
   top: 65%;
 }
 

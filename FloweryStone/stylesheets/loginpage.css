@@ -1,0 +1,53 @@
+p{color:#12335f; font-family:Myriad Pro；}
+
+.container{
+	background-image: url(img/monsfa.png);
+	background-position: 727px -30px;
+	background-repeat: no-repeat;
+	background-margin: 70% 0%
+}
+.containerout{
+	background-color: #e7e7df;
+	border: 12px solid #12335f;
+	border-radius:25px;
+	position: relative;
+	margin-top: 148px;
+	margin-right: auto;
+	margin-left: 450px;
+	margin-bottom: auto;
+	width: 400px;
+	height: 560px;
+	radius:15px;}
+
+.containerin{position:relative;
+	margin:30px;
+	}
+
+
+input.logintxt{ 
+     width:90%;height:120%;
+     margin-right: auto;
+     margin-left:auto;
+     padding:0;
+     border-radius:4px;
+     background-color: #12335f;
+     border-bottom-style: none;
+     font-style: normal; font-variant: normal;
+	 }
+
+
+input.loginbutton{background-color:#e7e7df;
+	border:3px solid #12335f;
+	border-radius:6px;
+	position:relative;
+	margin:0;
+	margin-right:0 auto;
+	padding:0;
+	width:100px;
+	height:30px;
+	position:relative;
+	margin-right:30px;
+	cursor:hand;
+	color:#12335f;
+	font-family:Myriad Pro;
+	font-size:20px;}

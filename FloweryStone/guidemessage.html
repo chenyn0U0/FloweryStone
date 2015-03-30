@@ -1,0 +1,78 @@
+<script id="hotareaclick"> 
+    $("#hotarea").click(function(){
+        $("#guidemessage").fadeOut("fast",function(){
+            $("#guidemessage").attr("style","display:none");
+            if(typeof next != 'undefined') {showguide(next);next=null;}
+        });
+    });
+</script>
+<script>
+    function showmessageguide(left,top,width,height,textx,texty,textcontent){
+        //宽度尽量大于50以保证小圆圈正常显示
+        var right=left+width;
+        var bottom=top+height;
+        var centery=(height/2)+top;
+        var centerx=(width/2)+left;
+        $("#top").animate({height:top+"px"},0);
+        $("#left").animate({top:top+"px",width:left+"px",height:height+"px"},0);
+        $("#right").animate({top:top+"px",left:right+"px",height:height+"px"},0);
+        $("#bottom").animate({height:"100%",top:bottom+"px"},0);
+        $("#pointer").animate({left:centerx+"px",top:centery+"px"},0);
+        $("#hotarea").animate({left:left+"px",top:top+"px",width:width+"px",height:height+"px"},0);
+        $("#guideinfo").text(textcontent).animate({left:textx+"px",top:texty+"px"},0);
+        $("#guidemessage").attr("style","display:inherit");
+        $("#guidemessage").fadeIn("slow");
+    }
+
+    function setnexthotareaclick(mode){
+        $("#hotareaclick").html("$('#hotarea').click(function(){$('#guidemessage').fadeOut('fast',function(){$('#guidemessage').attr('style','display:none');alert('yahoooo');});});");
+        console.log("next:",mode);
+    }
+
+    function showguide(mode){
+        console.log(mode);
+        if(mode=="createnewproject"){
+            showmessageguide($("#houses").offset().left,$("#houses").offset().top,281,351,340,500,"Create a new project");
+        }
+        if(mode=="backtomainpage"){
+            showmessageguide($("#housepic").offset().left,$("#housepic").offset().top,178,192,500,700,"click the house to go back to mainpage");
+        }
+        if(mode=="deletefinishproject"){
+            showmessageguide($("#bigmonsterpic").offset().left,$("#bigmonsterpic").offset().top,170,250,1000,700, "Put your mouse on the monster and choose to delete or finish the project");
+        }
+        if(mode=="droptask"){
+            showmessageguide($("#drop").offset().left-10,$("#drop").offset().top-10,75,54,1000,700,"You can click DROP button to stop feeding monsters");
+        }
+        if(mode=="createnewtask"){
+            showmessageguide($("#addnewsmondiv").offset().left,$("#addnewsmondiv").offset().top+140,150,180,1000,700, "Move your mouse on a little monster to view information of the task, to start working in continuous 30 minutes, or to delete the task.");
+        }
+
+        $.post("saveworkdata.php", {thefunction:"updateusermessageboxinfo",mode:mode},function(data){
+            console.log(data);
+        });
+    }
+</script>   
+
+<div id="guidemessage" style="display:none;">
+    <div id="top" class="fourblackdiv" ></div>
+    <div id="left" class="fourblackdiv" ></div>
+    <div id="right" class="fourblackdiv" ></div>
+    <div id="bottom" class="fourblackdiv" ></div>
+    <div id="pointer" style="position:fixed">
+        <img src="img/point.png" style="position:relative;left:-28px;top:-75px"/>
+        <img src="img/hand.png" style="height:100px;position:relative;left:-68px;"/>
+    </div>
+    <div id="guideinfo" style="position:fixed;font-size:22px;font-family:Georgia;font-weight:bold;color:white"></div>
+    <div id="hotarea" style="position:fixed;opacity:0;cursor:pointer;"></div>
+</div>
+
+
+<style>
+.fourblackdiv{
+    background-color: black;
+    opacity: 0.4;
+    position: fixed;
+    margin: 0;
+    width:100%;
+}
+</style>

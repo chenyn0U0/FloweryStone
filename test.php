@@ -108,31 +108,9 @@ function addpic(){
 
 
 
-        <div class="badge">
-            <img src="datavisualisation/clock.png" width="50" height="50" alt=""/>
-        </div>
-        <div>
-            <p class="badge_explain"> <b>time badge</b> You have worked more than 60 hours during the last month</p>
-        </div>
+<?php
+$date1=strtotime("2015-02-27 20:20:44");
+$today=time();
 
-        <div class="badge">
-            <img src="datavisualisation/earlybird.png" width="50" height="50" alt=""/>
-         </div>
-        <div>
-            <p class="badge_explain"> <b>early bird badge</b> You spend more time on working in the daytime</p>
-        </div>
-
-        <div class="badge">
-            <img src="datavisualisation/nightowl.png"  width="50" height="50" alt=""/>
-         </div>
-        <div>
-            <p class="badge_explain"> <b>night owl badge</b> You spend more time on working at night</p>
-        </div>
-
-
-        <div class="badge">
-            <img src="datavisualisation/champion.png"  width="50" height="50" alt=""/>
-        </div>
-        <div>
-            <p class="badge_explain"> <b>award badge</b> You have finished three big projects in one month</p></div>
-        </div>
+echo ($today-$date1)/(24*60*60);
+?>
