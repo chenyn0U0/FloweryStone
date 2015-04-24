@@ -8,12 +8,20 @@
 	$headerstmt=runsql($headercon,$sql);
 	$headerstmt->bind_result($finishtime);
 	while($headerstmt->fetch()){
-		$hour=date("h",strtotime($finishtime));
-		if($hour>=20||$hour<=8) $owl++;
+
+		$hour=date("H",strtotime($finishtime));
+		if($hour>=19||$hour<7) $owl++;
 		else $bird++;
+
 	}
 	$headerstmt->close();
 	$headercon->close();
+	if($bird==$owl){
+		$nowhour=date("H",time());
+
+		if($nowhour>=19||$nowhour<7) $owl++;
+		else $bird++;
+	}
 ?>
 
 

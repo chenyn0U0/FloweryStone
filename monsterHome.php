@@ -61,6 +61,8 @@
 
 	        <div class="info" id="info">
 	        	<form id="smupdate" method="post">
+	        	<input id="idplace" type="hidden" value="0"/>
+	        	<input id="smfinished" type="hidden" value="0"/>
 	        	<div class="monname" id="monname">
 	        		<!-- <form id="nametext" class="nametext">  -->
 		            <table style="color:white" border="0">
@@ -69,11 +71,12 @@
 			                	NAME&nbsp&nbsp:&nbsp
 			                </td>
 		                	<td colspan="" style="">  
-		                   		<p id="smnametext"></p>
+		                   		<p id="smnametext" style="padding-right:20px;word-break:break-word;"></p>
 		          	       		<div id="nameinput" class="nameinput">
-		                   		<input type="text" id="smname" name="smname" tabindex="1">
+		                   		<input type="text" id="smname" name="smname" tabindex="1" onblur="checkandpost('smname')">
 		                   		</div>
 		               		</td>
+		               		
 		              	</tr>
 		            </table>
 		            <!-- </form> -->
@@ -86,9 +89,9 @@
 		                	<td colspan="" style="">
 		                  		DETAIL:&nbsp
 		                	</td>
-		                	<td olspan="" >
-		                  		<p id="smdescriptiontext" ></p>
-		                  		<textarea rows="5" style="resize:none" name="smdescription"  id="smdescription"></textarea>
+		                	<td width="300px" olspan="" >
+		                  		<p  id="smdescriptiontext" style="padding-right:20px;word-break:break-word;" ></p>
+		                  		<textarea onblur="checkandpost('smdescription')" rows="5" style="resize:none" name="smdescription"  id="smdescription"></textarea>
 			                </td>
 			            </tr>
 			        </table>
@@ -211,7 +214,7 @@
 					if($_POST['monsterid']!=0){
 						$con =getconnection();
 
-						$stmt=runsql($con,"SELECT bigmonsters.id,bigmonsters.name,bigmonsters.description,houseinfo.housepic FROM s1425535.bigmonsters,s1425535.houseinfo where bigmonsters.id=".$_POST['monsterid']." and bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum=".$_SESSION['username'].";");
+						$stmt=runsql($con,"SELECT bigmonsters.id,bigmonsters.name,bigmonsters.description,houseinfo.housepic FROM s1425535.bigmonsters,s1425535.houseinfo where bigmonsters.id=".$_POST['monsterid']." and bigmonsters.houseid=houseinfo.houseid and bigmonsters.ownerNum='".$_SESSION['username']."';");
 						$stmt->bind_result($monsterid,$monstername,$description,$housepic);
 						$stmt->fetch();
 						$stmt->close();
@@ -263,8 +266,23 @@
 				<div id="lefthomediv">
 					<div id='monsterhome'>
 						<!-- 左边小怪兽房间及其信息 -->
+						<div>
+							<h1 id="bmnametext" style="word-break:break-word;"><?php echo $monstername; ?></h1>
+							<?php echo '<input onblur="bigcheckandpost(\'bmname\')" type="text" id="bmname" class="bminput" value="'.$monstername.'"/>';?>
+						</div>
+							<h3>'s HOME</h3>
+						<div>
+							<p id="bmdescriptiontext" style="word-break:break-word;"><?php echo $description; ?></p>
+							<?php
+							echo '<textarea onblur="bigcheckandpost(\'bmdescription\')" rows="5" id="bmdescription" style="resize:none" value="'.$description.'" class="bminput"></textarea>';
+			                ?>
+						</div>
+							<?php echo '<input id="bmid" type="hidden" value="'.$_POST['monsterid'].'"/>'; ?>
+							<a href='mainpage.php' title='Go back to see other monsters.'>
+								<?php echo '<img src="'.$housepic.'"; ></img>'; ?>
+							<a>
+
 					<?php
-							printf("<h1>%s </h1><h3>'s HOME</h3><p>%s</p><a href='mainpage.php' title='Go back to see other monsters.''><img src='%s'></img><a>",$monstername,$description,$housepic); 
 							$con->close();
 						}
 						else{

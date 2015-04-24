@@ -73,12 +73,118 @@
 			}
 		}
 
+
+		function checkandpost(mode){
+			if(idplace.value==0){}
+			else{
+				$("#smname").hide();
+				$("#smnametext").show();
+				$("#smdescription").hide();
+   				$("#smdescriptiontext").show();
+   				
+   				if(mode=="smname"&&smname.value!=""){
+   					$("#smnametext").text(filter(smname.value));
+   					changefrontdatabytaskid(idplace.value,mode);
+   				}
+   				if(mode=="smdescription"&&filter(smdescription.value)!=""){
+   					$("#smdescriptiontext").text(filter(smdescription.value));
+   					changefrontdatabytaskid(idplace.value,mode);
+   				}
+			}
+		}
+
+		function bigcheckandpost(mode){
+			if(bmname.value!=""&&bmdescription.value!=""){
+				if(mode=="bmname"){
+					$("#bmnametext").text(bmname.value);
+					$("#bmname").hide();
+					$("#bmnametext").show();
+					var bigid=$("#bmid").attr("value");
+					$.post("saveworkdata.php", {thefunction:"updatebmname",bmid:bigid,content:bmname.value}, function(data){
+							});
+				}
+				if(mode=="bmdescription"){
+					$("#bmdescriptiontext").text(bmdescription.value);
+					$("#bmdescription").hide();
+	   				$("#bmdescriptiontext").show();
+	   				var bigid=$("#bmid").attr("value");
+	   				$.post("saveworkdata.php", {thefunction:"updatebmdescription",bmid:bigid,content:bmdescription.value}, function(data){
+							});
+				}
+			}
+		}
+
+		function filter(string) { 
+			var filter = new RegExp("[.\*&\\\/\|:\.{},\n()';=\"]");
+			var thestring = "";
+			for (var i = 0; i < string.length; i++) { 
+			thestring = thestring+string.substr(i, 1).replace(filter,' '); 
+			} 
+			return thestring; 
+		} 
+
+
+		function changefrontdatabytaskid(taskid,mode){
+			for(var i=0;i<smonsinfo.length;i++){
+				if(smonsinfo[i][8]==parseInt(taskid)){
+					if(mode=="smname"){
+						smonsinfo[i][2]=filter(smname.value);
+						$.post("saveworkdata.php", {thefunction:"updatesmname",smid:taskid,content:filter(smname.value)}, function(data){
+						});
+					}
+					if(mode=="smdescription"){
+						smonsinfo[i][3]=filter(smdescription.value);
+						$.post("saveworkdata.php", {thefunction:"updatesmdescription",smid:taskid,content:filter(smdescription.value)}, function(data){});
+					}
+
+				}
+			}
+		}
+
 		$(document).ready(function(){
 			$("#cardcontainer").hide();
 			$("#hardblack").hide();
 			$("#softblack").hide().click(function(){
-				$("#cardcontainer").hide();$("#softblack").hide();
+				$("#cardcontainer").hide();
+				$("#softblack").hide();
+				updatesmons();
 			});
+			$("#smnametext").click(function(){
+				if(smfinished.value==0){
+	   				$("#smnametext").hide(0,function(){
+	   					smname.value=$("#smnametext").text();
+	   					$("#smname").show();
+	   					smname.focus();
+	   				});
+   				}
+   			});
+   			$("#smdescriptiontext").click(function(){
+   				if(smfinished.value==0){
+	   				$("#smdescriptiontext").hide(0,function(){
+	   					smdescription.value=$("#smdescriptiontext").text();
+	   					$("#smdescription").show();
+	   					smdescription.focus();
+	   				});
+	   			}
+   			});
+
+
+   			$("#bmname").hide();
+   			$("#bmdescription").hide();
+   			$("#bmnametext").click(function(){
+   				$("#bmnametext").hide(0,function(){
+   					bmname.value=$("#bmnametext").text();
+   					$("#bmname").show();
+   					bmname.focus();
+   				});
+   			});
+   			$("#bmdescriptiontext").click(function(){
+   				$("#bmdescriptiontext").hide(0,function(){
+   					bmdescription.value=$("#bmdescriptiontext").text();
+   					$("#bmdescription").show();
+   					bmdescription.focus();
+   				});
+	   		});
  		 });
 
 		function shownormalsm(){
@@ -99,8 +205,18 @@
 		}
 
 		function binddatatocard(d){
+			if(d[0]==0){
+				smfinished.value=0;
+				idplace.value=0;
+				smname.value="new monster";
+				smdescription.value="";
+			}
+
 			//d→0是否存在（新建用），1任务是否已完成，2任务名，3任务描述，4任务总时间，5任务披萨数，6出现小怪兽id，7出现小怪兽图片路径，8此任务id，9此大任务id
 			if(d[0]==1){//如果已有
+				smfinished.value=d[1];
+				idplace.value=d[8];
+
 				if(d[1]==0) $("#feedmediv").show();
 				if(d[1]==1) $("#feedmediv").hide();
 
@@ -237,7 +353,12 @@
 		   		 })
 		    	.attr("title","See my details!")
 		    	.append("img")
-		    	.attr("src",function(d){if(d[0]=="1") return "img/icon_view.png";})
+		    	.attr("src",function(d){
+		    		if(d[0]=="1"){
+		    			if(d[1]=="1") return "img/icon_view.png";
+		    			if(d[1]=="0") return "img/icon_edit.png";
+		    		}
+		    	})
 		    	.attr("style","	position: relative;top:10px;margin-right:20px;");;
 
 		    smbuttondiv.append("a")

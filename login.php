@@ -9,16 +9,17 @@
 		//数据库操作（查询是否已有，已有登录，未有创建登录）
 		$con = getconnection();
 		 
-		if(!sqlselectcheck($con,"SELECT * FROM `user` WHERE `username` = '".$_POST['username']."' and `password` = '".$_POST['password']."'")){//不存在创建新用户
+		if(!sqlselectcheck($con,"SELECT * FROM `user` WHERE `username` = '".$_POST['username']."'")){//不存在账号创建新用户
 			// echo "not exist";
 
-			// $stmt=$con->prepare("INSERT INTO user (username,password,registerTime,registerIP)
-			// 						VALUES	('".$_POST["username"]."','".$_POST["password"]."','".date('Y-m-d H:i:s',time())."','".$_SERVER["REMOTE_ADDR"]."')");
-			// $stmt->close();
-		}
-		else{
+			$stmt=runsql($con,"INSERT INTO user (username,password,registerTime,registerIP)
+									VALUES	('".$_POST["username"]."','".$_POST["password"]."','".date('Y-m-d H:i:s',time())."','".$_SERVER["REMOTE_ADDR"]."')");
+			$stmt->close();
 			$_SESSION['username'] = $_POST['username'];
-		}//用户已存在登录进此用户
+		}
+		elseif(sqlselectcheck($con,"SELECT * FROM `user` WHERE `username` = '".$_POST['username']."' and `password` = '".$_POST['password']."'")){
+			$_SESSION['username'] = $_POST['username'];
+		}//用户已存在且密码正确登录进此用户
 		$con->close();
 
 		if($_SESSION['username'] == $_POST['username']) header('Location: mainpage.php');
@@ -115,8 +116,9 @@
 			 		</br>
 			 		We make focusing easier. We make you a step closer to your dream.
 			 		</h2>
-
-			 		<a id="startlogin" style="font-size:30px;color:#666666;cursor:pointer">LOGIN NOW!</a>
+					<a target="_blank" style="font-size:9px;" href="FloweryStone_beta.pdf">- Flowery Stones Website Description HERE -</a>
+				
+			 		<br/><a id="startlogin" style="font-size:30px;color:#666666;cursor:pointer">LOGIN NOW!</a>
 			 		 
 			    </div>
 			</div>
@@ -142,7 +144,7 @@
 						
 						<input class="loginbutton" type="submit" value="Login" name="submit"/>
 						<?php
-						if(isset($_POST['username'])) echo"<p style='position:relative;top:-105px;text-align:center;color:black;font-size:12px;margin-right:30px'>* Your username or password is not correct.</p>";
+						if(isset($_POST['username'])) echo"<p style='position:relative;top:-105px;text-align:center;color:black;font-size:12px;margin-right:30px'>* Your password is not correct.</p>";
 						?>
 					</form>
 				</div>

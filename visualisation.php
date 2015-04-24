@@ -82,7 +82,7 @@
         <h3 style="font-family:Arial;font-weight:normal" id="ouputcontenttext">Pies you fed during recent</h3>
         <a href="javascript:clickonchangeday(-1)"><img id="arrowleft" src="img/arrow-l.png" class="arrow"/></a>
         <span id="showhowmanydays" style="font-size:25px;font-family:Arial">30 DAYS</span>
-        <input id="withindays" type="hidden" value="30"/>
+        <input id="withindays" type="hidden" value="3"/>
         <a href="javascript:clickonchangeday(1)"><img src="img/arrow-r.png" class="arrow"/></a>
         <input id="ouputcontent" type="hidden" value="pieconsumption"/>
         <input id="timemode" type="hidden" value="hours"/>

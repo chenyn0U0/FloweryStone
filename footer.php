@@ -44,7 +44,7 @@ $bmavertotalfinishedtime=0;
 	}
 
 if($bmfinishtotal!=0) $bmaveraveragefinishedtime=$bmavertotalfinishedtime/$bmfinishtotal;
-else $bmaveraveragefinishedtime=0;
+else $bmaveraveragefinishedtime=1000;
 	$footerstmt->close();
 
 	$footerstmt=runsql($footercon,$sqlsm_all);
@@ -115,7 +115,7 @@ else $monshappy=0;
 		if($thispage=="mainpage"){
 			if($piefinishwithin7days>40){
 ?>
-		<img src="img/Improve/awardmons.png" id="footerhardworking" title="These days are my hard-working day!" width="123px" />
+		<img src="img/Improve/awardmons.png" id="footerhardworking" title="I have worked round the clock for a week!" width="123px" />
 <?php
 			}
 			if($monshappy>0.5){
@@ -125,19 +125,19 @@ else $monshappy=0;
 			}
 			if($piefinishwithin30days>=30){
 ?>
-		<img src="img/Improve/finishpizza1.png" id="taskover10" title="Task Crowd! (LEVEL 1): You have worked more than 15 hours during the last month" />
+		<img src="img/Improve/finishpizza1.png" id="taskover10" title="There you go! (LEVEL 1): You have worked more than 15 hours during the last month" />
 <?php
 			}
 			if($piefinishwithin30days>=90){
 ?>
-		<img src="img/Improve/finishpizza2.png" id="taskover20" title="Task Crowd! (LEVEL 2): You have worked more than 45 hours during the last month" />
+		<img src="img/Improve/finishpizza2.png" id="taskover20" title="There you go! (LEVEL 2): You have worked more than 45 hours during the last month" />
 
 
 <?php
 			}
 			if($bmaveraveragefinishedtime<=20){
 ?>
-		<img src="datavisualisation/clock.png" id="clock" title="Spped Badge: It takes you less than 20 days for a project!" />
+		<img src="datavisualisation/clock.png" id="clock" title="Speed Badge: It takes you less than 20 days to finish a project!" />
 <?php
 			}
 			if($bmamount_finishwithin30day>=3){

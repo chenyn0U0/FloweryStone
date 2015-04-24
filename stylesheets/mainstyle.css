@@ -196,17 +196,17 @@ p {
 }
 /* line 189, ../sass/mainstyle.scss */
 .footer #clock {
-  height: 100px;
+  height: 70px;
   position: fixed;
-  left: 60%;
-  top: 65%;
+  right: 9%;
+  top: 3%;
 }
 /* line 196, ../sass/mainstyle.scss */
 .footer #champion {
-  height: 100px;
+  height: 70px;
   position: fixed;
-  right: 60%;
-  top: 65%;
+  right: 4%;
+  top: 3%;
 }
 
 /* line 204, ../sass/mainstyle.scss */
@@ -610,7 +610,7 @@ p {
 /* line 608, ../sass/mainstyle.scss */
 #userstatus {
   float: right;
-  width: 300px;
+  width: 30%;
 }
 /* line 613, ../sass/mainstyle.scss */
 #userstatus #achievementsdiv {
@@ -649,4 +649,10 @@ p {
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 10px;
+}
+
+/* line 653, ../sass/mainstyle.scss */
+.bminput {
+  border-radius: 10px;
+  padding: 5px;
 }

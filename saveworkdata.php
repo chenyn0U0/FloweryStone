@@ -15,9 +15,10 @@
 		}
 
 
+
 		if($_POST["thefunction"]=="newfeed"){
 			$con=getconnection();
-			if(!sqlselectcheck($con,"SELECT * FROM s1425535.bigmonsters,s1425535.smallmonsters WHERE bigmonsters.id=smallmonsters.bigmonsterID and smallmonsters.id=".$_POST["smid"]." and bigmonsters.ownerNum=".$_SESSION['username'])) exit; 
+			if(!sqlselectcheck($con,"SELECT * FROM s1425535.bigmonsters,s1425535.smallmonsters WHERE bigmonsters.id=smallmonsters.bigmonsterID and smallmonsters.id=".$_POST["smid"]." and bigmonsters.ownerNum='".$_SESSION['username']."'")) exit; 
 			$stmt=runsql($con,"INSERT INTO s1425535.feedhistory(smallmonsterid,starttime,ip) VALUES ('".$_POST["smid"]."','".date('Y-m-d H:i:s',time())."','".$_SERVER["REMOTE_ADDR"]."')");
 			echo mysqli_insert_id($con);
 			$stmt->close();
@@ -26,7 +27,7 @@
 
 		// if($_POST["thefunction"]=="finishfeeding"){
 		// 	$con=getconnection();
-		// 	if(!sqlselectcheck($con,"SELECT * FROM s1425535.bigmonsters,s1425535.smallmonsters,s1425535.feedhistory WHERE feedhistory.id='".$_POST["taskid"]."' and bigmonsters.id=smallmonsters.bigmonsterID and smallmonsters.id=".$_POST["smid"]." and bigmonsters.ownerNum=".$_SESSION['username'])) exit; 
+		// 	if(!sqlselectcheck($con,"SELECT * FROM s1425535.bigmonsters,s1425535.smallmonsters,s1425535.feedhistory WHERE feedhistory.id='".$_POST["taskid"]."' and bigmonsters.id=smallmonsters.bigmonsterID and smallmonsters.id=".$_POST["smid"]." and bigmonsters.ownerNum='".$_SESSION['username']."'")) exit; 
 		// 	$stmt=runsql($con,"UPDATE `s1425535`.`feedhistory` SET `finished`='1' WHERE `id`='".$_POST["taskid"]."';");
 		// 	echo "update:".$_POST["taskid"]." to finished";
 		// 	$stmt->close();
@@ -35,16 +36,46 @@
 
 		if($_POST["thefunction"]=="finishbigmonster"){
 			$con=getconnection();
-			if(!sqlselectcheck($con,"SELECT * FROM s1425535.bigmonsters WHERE id='".$_POST['bmid']."' and bigmonsters.ownerNum=".$_SESSION['username'])) exit; 
+			if(!sqlselectcheck($con,"SELECT * FROM s1425535.bigmonsters WHERE id='".$_POST['bmid']."' and bigmonsters.ownerNum='".$_SESSION['username']."'")) exit; 
 			$stmt=runsql($con,"UPDATE s1425535.bigmonsters SET finished='1',finishedtime='".date('Y-m-d H:i:s',time())."',finishedip='".$_SERVER["REMOTE_ADDR"]."' WHERE id='".$_POST["bmid"]."'");
 			$stmt->close();
 			$con->close();	
 		}
 
+		if($_POST["thefunction"]=="updatesmdescription"){
+			$con=getconnection();
+			if(!sqlselectcheck($con,"SELECT * FROM s1425535.smallmonsters,s1425535.bigmonsters WHERE smallmonsters.id='".$_POST['smid']."' and smallmonsters.bigmonsterID=bigmonsters.id and bigmonsters.ownerNum='".$_SESSION['username']."'")) exit; 
+			$stmt=runsql($con,"UPDATE s1425535.smallmonsters SET smallmonsters.description='".$_POST["content"]."' WHERE smallmonsters.id='".$_POST["smid"]."'");
+			$stmt->close();
+			$con->close();	
+		}
+		if($_POST["thefunction"]=="updatesmname"){
+			$con=getconnection();
+			if(!sqlselectcheck($con,"SELECT * FROM s1425535.smallmonsters,s1425535.bigmonsters WHERE smallmonsters.id='".$_POST['smid']."' and smallmonsters.bigmonsterID=bigmonsters.id and bigmonsters.ownerNum='".$_SESSION['username']."'")) exit; 
+			$stmt=runsql($con,"UPDATE s1425535.smallmonsters SET smallmonsters.name='".$_POST["content"]."' WHERE smallmonsters.id='".$_POST["smid"]."'");
+			$stmt->close();
+			$con->close();
+		}
+
+		if($_POST["thefunction"]=="updatebmdescription"){
+			$con=getconnection();
+			if(!sqlselectcheck($con,"SELECT * FROM s1425535.bigmonsters WHERE bigmonsters.id='".$_POST['bmid']."' and bigmonsters.ownerNum='".$_SESSION['username']."'")) exit; 
+			$stmt=runsql($con,"UPDATE s1425535.bigmonsters SET bigmonsters.description='".$_POST["content"]."' WHERE bigmonsters.id='".$_POST["bmid"]."'");
+			$stmt->close();
+			$con->close();	
+		}
+		if($_POST["thefunction"]=="updatebmname"){
+			$con=getconnection();
+			if(!sqlselectcheck($con,"SELECT * FROM s1425535.bigmonsters WHERE bigmonsters.id='".$_POST['bmid']."' and bigmonsters.ownerNum='".$_SESSION['username']."'")) exit; 
+			$stmt=runsql($con,"UPDATE s1425535.bigmonsters SET bigmonsters.name='".$_POST["content"]."' WHERE bigmonsters.id='".$_POST["bmid"]."'");
+			$stmt->close();
+			$con->close();
+		}
+
 
 		if($_POST["thefunction"]=="deletebigmonster"){
 			$con=getconnection();
-			if(!sqlselectcheck($con,"SELECT * FROM s1425535.bigmonsters WHERE id='".$_POST['bmid']."' and bigmonsters.ownerNum=".$_SESSION['username'])) exit; 
+			if(!sqlselectcheck($con,"SELECT * FROM s1425535.bigmonsters WHERE id='".$_POST['bmid']."' and bigmonsters.ownerNum='".$_SESSION['username']."'")) exit; 
 			$saftystmt=runsql($con,"SET SQL_SAFE_UPDATES = 0;");
 			$stmt=runsql($con,"SELECT id FROM s1425535.smallmonsters WHERE bigmonsterid='".$_POST['bmid']."'");
 			$stmt->bind_result($smallid);
@@ -66,7 +97,7 @@
 
 		if($_POST["thefunction"]=="deletesmallmonster"){
 			$con=getconnection();
-			if(!sqlselectcheck($con,"SELECT * FROM s1425535.bigmonsters,s1425535.smallmonsters WHERE bigmonsters.id=smallmonsters.bigmonsterID and smallmonsters.id=".$_POST['smid']." and bigmonsters.ownerNum=".$_SESSION['username'])) exit; 
+			if(!sqlselectcheck($con,"SELECT * FROM s1425535.bigmonsters,s1425535.smallmonsters WHERE bigmonsters.id=smallmonsters.bigmonsterID and smallmonsters.id=".$_POST['smid']." and bigmonsters.ownerNum='".$_SESSION['username']."'")) exit; 
 			$stmt1=runsql($con,"DELETE FROM s1425535.smallmonsters WHERE id='".$_POST["smid"]."'");
 			$stmt2=runsql($con,"DELETE FROM s1425535.feedhistory WHERE smallmonsterid='".$_POST["smid"]."'");
 			$stmt1->close();
@@ -76,7 +107,7 @@
 
 		if($_POST["thefunction"]=="finishfeedingnormal"){
 			$con=getconnection();
-			if(!sqlselectcheck($con,"SELECT * FROM s1425535.bigmonsters,s1425535.smallmonsters WHERE bigmonsters.id=smallmonsters.bigmonsterID and smallmonsters.id=".$_POST['smid']." and bigmonsters.ownerNum=".$_SESSION['username'])) exit; 
+			if(!sqlselectcheck($con,"SELECT * FROM s1425535.bigmonsters,s1425535.smallmonsters WHERE bigmonsters.id=smallmonsters.bigmonsterID and smallmonsters.id=".$_POST['smid']." and bigmonsters.ownerNum='".$_SESSION['username']."'")) exit; 
 			$stmt=runsql($con,"UPDATE s1425535.smallmonsters SET name=concat('[Finished!] ',name),finished='1',finishedtime='".date('Y-m-d H:i:s',time())."',finishedip='".$_SERVER["REMOTE_ADDR"]."' WHERE id='".$_POST["smid"]."'");
 			echo "update:".$_POST["smid"]." to finished";
 			$stmt->close();

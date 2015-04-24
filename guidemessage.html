@@ -19,7 +19,7 @@
         $("#bottom").animate({height:"100%",top:bottom+"px"},0);
         $("#pointer").animate({left:centerx+"px",top:centery+"px"},0);
         $("#hotarea").animate({left:left+"px",top:top+"px",width:width+"px",height:height+"px"},0);
-        $("#guideinfo").text(textcontent).animate({left:textx+"px",top:texty+"px"},0);
+        $("#guideinfo").html(textcontent).animate({left:textx+"px",top:texty+"px"},0);
         $("#guidemessage").attr("style","display:inherit");
         $("#guidemessage").fadeIn("slow");
     }
@@ -32,19 +32,19 @@
     function showguide(mode){
         console.log(mode);
         if(mode=="createnewproject"){
-            showmessageguide($("#houses").offset().left,$("#houses").offset().top,281,351,340,500,"Create a new project");
+            showmessageguide($("#newhouse").offset().left,$("#newhouse").offset().top,281,225,$("#newhouse").offset().left+25,$("#newhouse").offset().top+220,"<p>Create a new project.</p>");
         }
         if(mode=="backtomainpage"){
-            showmessageguide($("#housepic").offset().left,$("#housepic").offset().top,178,192,500,700,"click the house to go back to mainpage");
+            showmessageguide($("#housepic").offset().left,$("#housepic").offset().top,178,192,$("#housepic").offset().left+193,$("#housepic").offset().top+155,"<p>Click the house to go back to mainpage.</p>");
         }
         if(mode=="deletefinishproject"){
-            showmessageguide($("#bigmonsterpic").offset().left,$("#bigmonsterpic").offset().top,170,250,1000,700, "Put your mouse on the monster and choose to delete or finish the project");
+            showmessageguide($("#bigmonsterpic").offset().left,$("#bigmonsterpic").offset().top,170,250,$("#bigmonsterpic").offset().left+193,$("#bigmonsterpic").offset().top+110, "<p>Put your mouse on the monster and <br/>choose to delete or finish the project.</p>");
         }
         if(mode=="droptask"){
-            showmessageguide($("#drop").offset().left-10,$("#drop").offset().top-10,75,54,1000,700,"You can click DROP button to stop feeding monsters");
+            showmessageguide($("#drop").offset().left-10,$("#drop").offset().top-10,75,54,$("#drop").offset().left-60,$("#drop").offset().top+100,"<p>You can click Drop button to stop feeding monsters.</p>");
         }
         if(mode=="createnewtask"){
-            showmessageguide($("#addnewsmondiv").offset().left,$("#addnewsmondiv").offset().top+140,150,180,1000,700, "Move your mouse on a little monster to view information of the task, to start working in continuous 30 minutes, or to delete the task.");
+            showmessageguide($("#addnewsmondiv").offset().left,$("#addnewsmondiv").offset().top+140,150,180,$("#addnewsmondiv").offset().left-300,$("#addnewsmondiv").offset().top+65, "<p>Move your mouse on a little monster to view information of the task, <br/>to start working in continuous 30 minutes, or to delete the task.</p>");
         }
 
         $.post("saveworkdata.php", {thefunction:"updateusermessageboxinfo",mode:mode},function(data){
